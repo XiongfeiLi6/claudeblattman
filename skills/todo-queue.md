@@ -1,17 +1,7 @@
 # Todo Queue
-*v1.0 — Adapted for public use*
+*v1.1 — Adapted for public use*
 
 Batch-process emails in a designated Gmail label, converting them to Apple Reminders with timing extracted from the email body.
-
-## CRITICAL: No Permission Prompts
-
-**DO NOT use Task agents or ToolSearch for this skill.** All required MCP tools should be pre-approved in settings.json. Call them directly:
-
-- `mcp__google_workspace__search_gmail_messages`
-- `mcp__google_workspace__get_gmail_message_content`
-- `mcp__google_workspace__modify_gmail_message_labels`
-
-Using Task or ToolSearch will trigger unnecessary permission prompts.
 
 ## Usage
 

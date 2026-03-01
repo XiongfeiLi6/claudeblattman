@@ -2,7 +2,7 @@
 ---
 # Goals Review
 
-*v1.0 — Adapted for public use. Review quarterly objectives, update progress scores, and manage deadlines.*
+*v1.1 — Adapted for public use. Review quarterly objectives, update progress scores, and manage deadlines.*
 
 Review quarterly objectives, update progress scores, surface deadlines, and recalibrate priorities. Run biweekly or on demand.
 

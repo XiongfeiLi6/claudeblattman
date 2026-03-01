@@ -1,5 +1,5 @@
 # To-Do Review
-*v1.0 — Adapted for public use*
+*v1.1 — Adapted for public use*
 
 Review and consolidate to-do items across all your todo files.
 

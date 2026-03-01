@@ -1,5 +1,5 @@
 # Add To-Do Item
-*v1.0 — Adapted for public use*
+*v1.1 — Adapted for public use*
 
 Add a new to-do item to the correct list with duplicate checking.
 
