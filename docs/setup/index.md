@@ -84,6 +84,7 @@ The two most popular options:
 |------|------------------|------|
 | **[How Skills Work](../toolkit/skills-guide.md)** | What skills (slash commands) are, how to use them, and how they change your workflow. | 15 min read |
 | **[Skill Library](skill-reference.md)** | All downloadable skills with installation, usage, and customization details. | Browse |
+| **[Downloads & Templates](../downloads/index.md)** | Starter files: CLAUDE.md template, email voice template, goals.yaml, and a real annotated example. | Browse |
 
 ---
 

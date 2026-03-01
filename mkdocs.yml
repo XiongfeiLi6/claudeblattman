@@ -55,17 +55,18 @@ nav:
   - Essentials:
     - essentials/index.md
     - Chatbots Done Right: essentials/chatbots.md
+    - The Cost Reality: essentials/cost.md
     - Prompt Engineering: essentials/prompting.md
-    - AI Project Folders: essentials/project-folders.md
-    - "Example: Vacation Planning": essentials/folders/vacation.md
-    - "Example: Shopping Decisions": essentials/folders/shopping.md
-    - "Example: Health & Fitness": essentials/folders/health.md
-    - "Example: Work Projects": essentials/folders/work.md
+    - AI Project Folders:
+      - essentials/project-folders.md
+      - "Example: Vacation Planning": essentials/folders/vacation.md
+      - "Example: Shopping Decisions": essentials/folders/shopping.md
+      - "Example: Health & Fitness": essentials/folders/health.md
+      - "Example: Work Projects": essentials/folders/work.md
     - Wispr Flow: essentials/wispr-flow.md
     - Granola: essentials/granola.md
     - NotebookLM: essentials/notebooklm.md
     - "ChatGPT vs Claude": essentials/chatgpt-vs-claude.md
-    - The Cost Reality: essentials/cost.md
   - Setup:
     - setup/index.md
     - Install (Mac): toolkit/install-mac.md
@@ -76,6 +77,7 @@ nav:
     - MCP Setup: toolkit/mcp-setup.md
     - How Skills Work: toolkit/skills-guide.md
     - Skill Library: setup/skill-reference.md
+    - Downloads & Templates: downloads/index.md
   - Workflows:
     - workflows/index.md
     - "Prompt, Plan, Review, Revise": workflows/first-session-skills.md
@@ -83,17 +85,17 @@ nav:
     - Project Management: workflows/project-management.md
     - "Example: Project Dashboard": workflows/examples/project-overview-example.md
     - "Example: Research Design": workflows/examples/research-design-example.md
-  - "Tax Workflow":
-    - tax-workflow/index.md
-    - Privacy & Setup: tax-workflow/before-you-start/privacy-and-setup.md
-    - Workflow Overview: tax-workflow/case-study/the-workflow-overview.md
-    - Document Collection: tax-workflow/case-study/document-collection.md
-    - Compilation & Review: tax-workflow/case-study/compilation-and-review.md
-    - What AI Got Wrong: tax-workflow/case-study/what-ai-got-wrong.md
-    - Architecture Patterns: tax-workflow/build-your-own/architecture-patterns.md
-    - Starter Templates: tax-workflow/build-your-own/starter-templates.md
-    - Academic Tax Basics: tax-workflow/reference/academic-tax-basics.md
-    - When to Get Help: tax-workflow/reference/when-to-get-help.md
+    - "Tax Season":
+      - tax-workflow/index.md
+      - Privacy & Setup: tax-workflow/before-you-start/privacy-and-setup.md
+      - Workflow Overview: tax-workflow/case-study/the-workflow-overview.md
+      - Document Collection: tax-workflow/case-study/document-collection.md
+      - Compilation & Review: tax-workflow/case-study/compilation-and-review.md
+      - What AI Got Wrong: tax-workflow/case-study/what-ai-got-wrong.md
+      - Architecture Patterns: tax-workflow/build-your-own/architecture-patterns.md
+      - Starter Templates: tax-workflow/build-your-own/starter-templates.md
+      - Academic Tax Basics: tax-workflow/reference/academic-tax-basics.md
+      - When to Get Help: tax-workflow/reference/when-to-get-help.md
   - Build Your Own:
     - system/index.md
     - Building Skills: system/building-skills.md
