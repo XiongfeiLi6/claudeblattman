@@ -7,7 +7,7 @@ Check calendar availability across your configured Google calendars and draft a 
 ## Prerequisites
 
 - **Google Calendar MCP** — `google_workspace_mcp` with calendar and Gmail tools enabled
-- **Calendar policy config** — `~/.claude-assistant/config/calendar-policy.md` (calendar IDs, scheduling preferences, deep work protection). Create from the template in `config-templates/`.
+- **Calendar policy config** — `~/.claude-assistant/config/calendar-policy.md` (calendar IDs, scheduling preferences, deep work protection). Download the template from the [GitHub repo](https://github.com/chrisblattman/claudeblattman/tree/main/templates) (see First-Time Setup).
 - **Email voice config** (optional) — `~/.claude-assistant/config/email-voice.md` for tone/voice templates
 - **Goals file** (optional) — `~/.claude-assistant/config/goals.yaml` for deep work block protection
 

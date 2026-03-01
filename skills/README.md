@@ -76,6 +76,21 @@ curl -o ~/.claude/commands/prompt-references/formatting-core.md \
   https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/prompt-references/formatting-core.md
 ```
 
+## The Tips Pipeline
+
+`/tips-integrate` uses a companion reference file. Install both together:
+
+```bash
+# Install the tips-integrate skill + companion
+mkdir -p ~/.claude/commands/tips-integrate-references
+
+curl -o ~/.claude/commands/tips-integrate.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-integrate.md
+
+curl -o ~/.claude/commands/tips-integrate-references/scanning-rules.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-integrate-references/scanning-rules.md
+```
+
 ## Templates
 
 | Template | Description |

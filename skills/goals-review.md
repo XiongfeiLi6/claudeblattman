@@ -1,5 +1,3 @@
----
----
 # Goals Review
 
 *v1.1 — Adapted for public use. Review quarterly objectives, update progress scores, and manage deadlines.*

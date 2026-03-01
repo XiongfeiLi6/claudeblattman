@@ -1,20 +1,9 @@
----
-model: sonnet
----
 # Tips Scout
 *v1.1 — 2026-02-28*
 
 Generate a customized Grok DeepSearch prompt based on current coverage gaps and active investigation topics. Run weekly (Sunday/Monday) before `/tips-curate`. Output is a prompt to paste into Grok's DeepSearch mode.
 
 Use when you want to generate a targeted search prompt — "scout for tips," "generate Grok prompt," "tips scout," or "what should I search for this week."
-
-## CRITICAL: No Permission Prompts
-
-**DO NOT use Task agents or ToolSearch for this skill.** All required tools are local file reads. Call them directly:
-
-- Read (for tips log, todo items, base prompt)
-
-This skill does NOT call any MCP tools or external services.
 
 ## Steps
 

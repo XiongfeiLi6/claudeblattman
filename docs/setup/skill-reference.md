@@ -122,7 +122,6 @@ curl -o ~/.claude-assistant/config/goals.yaml \
 
 | Setting | Where to Configure | Default |
 |---------|-------------------|---------|
-| **Model** | Frontmatter `model:` line | `sonnet` (remove to use default) |
 | **VIP list** | `email-policy.md` | No VIP highlighting |
 | **Calendar IDs** | `calendar-policy.md` | Primary only |
 | **Goal alignment** | `goals.yaml` | Section omitted |
@@ -161,7 +160,6 @@ curl -o ~/.claude-assistant/config/goals.yaml \
 
 | Setting | Where to Configure | Default |
 |---------|-------------------|---------|
-| **Model** | Frontmatter `model:` line | `sonnet` (remove to use default) |
 | **Objectives** | `goals.yaml` → objectives | Template examples |
 | **Push level** | `goals.yaml` → `meta.push_level` | `moderate` |
 | **Review frequency** | Skill Step 5 | Biweekly (14 days) |
@@ -331,8 +329,8 @@ curl -o ~/.claude/commands/todo-add.md \
 /todo-add list:work Set up CI pipeline
 ```
 
-!!! note "Session-scoped tasks"
-    `/todo-add`, `/todo-review`, and `/todo-queue` manage Claude Code's *session-level* task tracking. They do **not** replace Apple Reminders, Google Tasks, or Todoist for persistent action items. Use your real reminder system for durable tasks; use these for within-session work management.
+!!! note "How these skills differ"
+    `/todo-add` and `/todo-review` manage local markdown to-do files — useful for session-level task tracking. `/todo-queue` is different: it creates **persistent Apple Reminders** from email. For durable action items, use your real reminder system (Apple Reminders, Google Tasks, Todoist); use `/todo-add` for within-session work management.
 
 ---
 

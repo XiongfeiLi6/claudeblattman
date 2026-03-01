@@ -7,8 +7,8 @@ Scan your inbox for emails that should be in labeled folders (@ToRead, @Announce
 ## Prerequisites
 
 - **Gmail MCP** — `google_workspace_mcp` with Gmail tools enabled
-- **Email policy config** — `~/.claude-assistant/config/email-policy.md` (VIP list, auto-archive rules, filter lists). Create from the template in `config-templates/`.
-- **Triage config** — `~/.claude-assistant/config/triage-config.md` (label IDs, expense vendors, scoring thresholds, classification overrides). Create from the template in `config-templates/`.
+- **Email policy config** — `~/.claude-assistant/config/email-policy.md` (VIP list, auto-archive rules, filter lists). Download the template from the [GitHub repo](https://github.com/chrisblattman/claudeblattman/tree/main/templates) (see First-Time Setup).
+- **Triage config** — `~/.claude-assistant/config/triage-config.md` (label IDs, expense vendors, scoring thresholds, classification overrides). Download the template from the [GitHub repo](https://github.com/chrisblattman/claudeblattman/tree/main/templates) (see First-Time Setup).
 - **Gmail label IDs** — You need the internal Gmail label IDs for each target label. Run `mcp__google_workspace__list_gmail_labels` to find them, then put them in `triage-config.md`.
 
 ## First-Time Setup
@@ -468,7 +468,7 @@ Replace TOOL_CALLS with your approximate count of tool uses this run. Replace NO
 - **Gmail MCP unavailable**: "Gmail integration unavailable. Try again later."
 - **Batch modify fails**: Retry once standalone, then fall back to individual per-message calls (see Phase 12 retry logic). Report which emails failed, continue with others. Never fire multiple `batch_modify` calls in parallel.
 - **Policy file not found**: Warn user to create config files from templates. Cannot proceed without at minimum `triage-config.md` (for label IDs).
-- **Config file not found**: "Missing ~/.claude-assistant/config/triage-config.md. Create it from the template in config-templates/."
+- **Config file not found**: "Missing ~/.claude-assistant/config/triage-config.md. Download the template from the GitHub repo (see First-Time Setup)."
 
 ## Examples
 

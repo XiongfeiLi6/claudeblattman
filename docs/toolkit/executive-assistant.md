@@ -102,6 +102,9 @@ To build EA capabilities, you need:
 
 Time estimate: If you haven't done MCP setup yet, budget 1-2 hours for Gmail + Calendar.
 
+!!! tip "Windows users"
+    Most EA skills work cross-platform. The exception is Apple Reminders integration — skills like `/todo-queue` and `/morning-brief` use macOS `osascript` to create reminders. On Windows, those reminder steps will be skipped. All email, calendar, and triage functionality works normally. If you need cross-platform reminders, consider Google Tasks instead.
+
 ??? info "Choose your infrastructure — calendar and reminders"
 
     Before building the EA workflow, make two decisions: where to manage your calendar, and where to track persistent action items.

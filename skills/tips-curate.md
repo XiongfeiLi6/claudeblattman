@@ -1,22 +1,7 @@
----
-model: sonnet
----
 # Tips Curate
 *v1.3 — 2026-02-28 — Added performance logging; fixed integration note*
 
 Process @ToSelf emails containing Claude Code tips, AI workflow patterns, and related resources. Assess quality, extract actionable insights, and recommend what's worth keeping. Use when you say "process my tips," "curate tips," or "check @ToSelf for tips."
-
-## CRITICAL: No Permission Prompts
-
-**DO NOT use Task agents or ToolSearch for this skill.** All required MCP tools are pre-approved in settings.json. Call them directly:
-
-- `mcp__google_workspace__search_gmail_messages`
-- `mcp__google_workspace__get_gmail_messages_content_batch`
-- `mcp__google_workspace__modify_gmail_message_labels`
-- WebFetch (non-X URLs only, as enrichment fallback)
-- Read, Edit, Write (for collected-tips-log.md)
-
-Using Task or ToolSearch will trigger unnecessary permission prompts.
 
 ## Batch Fetch Note (Phase 2)
 

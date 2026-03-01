@@ -1,14 +1,7 @@
----
-model: sonnet
----
 # Tips Integrate
 *v1.2 — 2026-02-28 — Simplified — reduced redundancy and verbosity*
 
 Convert collected tips, reference pack recommendations, and session follow-ups into concrete system improvements. Use after running `/tips-curate` or when you want to apply accumulated AI workflow learnings.
-
-## CRITICAL: No Permission Prompts
-
-**DO NOT use Task agents or ToolSearch.** Use only: Read, Edit, Write, Glob, Grep.
 
 ## Arguments
 
