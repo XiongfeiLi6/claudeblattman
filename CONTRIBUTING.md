@@ -56,18 +56,7 @@ git push
 
 ### Page Template
 
-Every content page should start with:
-
-```markdown
-# Page Title
-
-!!! warning "Early Preview"
-    This site is growing weekly. Current as of [MONTH YEAR].
-
-[Page content here]
-```
-
-Update the "current as of" date when you make substantive changes.
+Every content page should start with a clear `# Title` heading. The site-wide announcement bar (configured in `overrides/main.html`) handles any preview/beta messaging — do not add per-page preview warnings.
 
 ---
 

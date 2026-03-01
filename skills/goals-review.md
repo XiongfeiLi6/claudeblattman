@@ -1,5 +1,4 @@
 ---
-model: sonnet
 ---
 # Goals Review
 
@@ -49,13 +48,6 @@ Review quarterly objectives, update progress scores, surface deadlines, and reca
 | **Review frequency** | Step 5 below | Biweekly (14 days) |
 | **Evidence sources** | Step 2 below | All available MCPs |
 | **Performance log** | Step 6 below | `~/.claude-assistant/logs/skill-performance.csv` |
-
-## CRITICAL: No Permission Prompts
-
-**DO NOT use Task agents or ToolSearch for this skill.** All required MCP tools should be pre-approved. Call them directly:
-- `mcp__google_workspace__search_gmail_messages`
-- `mcp__google_workspace__get_events`
-- `mcp__granola__search_meetings` (if available)
 
 ## Arguments
 

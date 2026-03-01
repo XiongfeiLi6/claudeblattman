@@ -379,6 +379,28 @@ curl -o ~/.claude/commands/todo-review.md \
 
 ---
 
+### /tax-guide — Personalized Tax Prep Guide
+`[Tax Workflow]`
+
+**What it does:** A guided Q&A that assesses your tax situation (income types, complexity flags, deductions, filing method) and generates a personalized preparation plan. Outputs a filing recommendation (self-file, self-file with care, or hire a professional), a document checklist, a suggested workflow with links to relevant skills, and privacy guidance.
+
+**MCP dependencies:** None.
+
+**Install:**
+```bash
+curl -o ~/.claude/commands/tax-guide.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tax-guide.md
+```
+
+**Usage:**
+```
+/tax-guide              # Start the guided Q&A
+```
+
+**Learn more:** [Tax Workflow](../tax-workflow/index.md)
+
+---
+
 ### /tips-scout — Search Prompt Generator
 `[Advanced]`
 
