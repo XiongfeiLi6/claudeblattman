@@ -29,7 +29,7 @@ Without MCP, Claude Code can only work with files on your computer. With MCP:
 You don't need all of these. Start with whichever service you use most (Gmail is usually the highest-value starting point) and add others as needed.
 
 !!! tip "Understand what you're granting"
-    Each MCP integration gives Claude Code access to your **entire** account for that service — not just specific folders or labels. Gmail MCP can read any email. Drive MCP can access any file. Calendar MCP sees all events, including private ones. There's no way to restrict scope to a subset. This is fine for most users, but worth knowing before you connect. If a service contains data you're not comfortable with an AI processing, skip that integration. For sensitive seasonal tasks (like tax preparation), consider enabling an integration only when you need it and removing it afterward — see the [Tax Workflow privacy guide](../tax-workflow/before-you-start/privacy-and-setup.md#if-you-use-gmail-mcp-for-document-collection) for an example. For more on how data flows through these tools, see [Privacy](../privacy.md#tools-and-workflows).
+    Each MCP integration gives Claude Code access to your **entire** account for that service — not just specific folders or labels. Gmail MCP can read any email. Drive MCP can access any file. Calendar MCP sees all events, including private ones. There's no way to restrict scope to a subset. This is fine for most users, but worth knowing before you connect. When Claude processes data from any integration, the content is sent to Anthropic's API as part of the conversation. Anthropic's [data policy](https://www.anthropic.com/policies/privacy) states API inputs are not used for model training — verify the current terms yourself. If a service contains data you're not comfortable with an AI processing, skip that integration. For sensitive seasonal tasks (like tax preparation), consider enabling an integration only when you need it and removing it afterward — see the [Tax Workflow privacy guide](../tax-workflow/before-you-start/privacy-and-setup.md#if-you-use-gmail-mcp-for-document-collection) for an example. For more on how data flows through these tools, see [Privacy](../privacy.md#tools-and-workflows).
 
 ---
 
@@ -38,6 +38,9 @@ You don't need all of these. Start with whichever service you use most (Gmail is
     Claude Code terminal — for example:
     `I'm getting an error trying to connect. Here's what I see: [paste the error]`
     Press Enter. Claude can often diagnose MCP configuration issues on the spot.
+
+!!! warning "Shared computers"
+    Anyone who can open Terminal on your machine can run `claude` and access all connected services — email, calendar, documents — with no additional login required. If you share your computer, consider revoking MCP tokens when you're done (remove entries from `settings.json`) or using separate user accounts. Claude Code also stores conversation history locally in `~/.claude/`, which may include content from connected services.
 
 ---
 

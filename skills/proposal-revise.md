@@ -142,7 +142,21 @@ Tighten the intro. Cut 200 words from methodology.
 
 ## Error Handling
 
-- If draft not found: Check `05_Submissions/Grants/` for alternatives, suggest closest match
+- If draft not found: Check the default draft directory for alternatives, suggest closest match
 - If voice pack not found: Continue with general voice rules
 - If feedback is empty: Ask user to clarify
 - If draft has no revision notes: Create from scratch
+
+---
+
+## Customization Points
+
+**To set up this skill for your workflow:**
+
+1. **Voice pack location** (lines 17-18): The `@~/proposal-resources/voice/` references point to writing style files. Create your own voice pack with sentence length preferences, hedging rules, and formatting conventions, or remove these lines to use general academic voice.
+
+2. **Default draft directory** (Step 1, line 29): The default search path `05_Submissions/Grants/` is one folder naming convention. Change this to match your own proposal directory — e.g., `~/Research/Proposals/` or `~/Grants/Active/`.
+
+3. **Donor profiles** (Step 1.5): The `~/proposal-resources/donors/` directory is optional. If you maintain funder profiles, update the path to match your structure. If not, the skill continues without funder-specific guidance.
+
+4. **Example paths** in the Examples section also reference the default draft directory — update them to match your own structure.

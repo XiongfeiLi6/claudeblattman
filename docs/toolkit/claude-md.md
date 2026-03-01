@@ -237,7 +237,16 @@ Opus 4.6 is more capable but uses more tokens per response (higher cost, faster 
 
 ## Advanced: Project-Specific CLAUDE.md
 
-In addition to your global `~/.claude/CLAUDE.md`, you can create a CLAUDE.md in any project folder. Claude reads both — the global one for who you are, the project one for project-specific context.
+In addition to your global `~/.claude/CLAUDE.md`, you can create a CLAUDE.md in any project folder. Claude reads both when you start a session in that directory.
+
+**How they work together:**
+
+| File | Location | Purpose |
+|------|----------|---------|
+| **Global** | `~/.claude/CLAUDE.md` | Who you are — role, preferences, contact info, working style |
+| **Project** | `my-project/.claude/CLAUDE.md` | This specific project — team, tools, conventions, file paths |
+
+Claude loads the global file first, then the project file. Project instructions can override or extend global ones.
 
 ```
 my-project/
@@ -249,6 +258,9 @@ my-project/
 ```
 
 This is useful when you work on multiple projects with different conventions, team members, or tools.
+
+!!! tip "What goes in your CLAUDE.md is sent to the API"
+    Everything in your CLAUDE.md files is included in every conversation with Claude Code. This is how Claude knows about you and your projects. The data is covered by Anthropic's [API data policy](https://www.anthropic.com/policies/privacy). Avoid including passwords, API keys, or information you wouldn't want transmitted to a cloud service.
 
 ---
 

@@ -213,3 +213,17 @@ Next steps:
 - If project config missing: "No .claude/CLAUDE.md found. Run from a configured project directory."
 - If voice pack not found: Continue with general voice rules
 - If weekly review stale (>14 days): Warn and offer to run `/weekly-review` first
+
+---
+
+## Customization Points
+
+**To set up this skill for your workflow:**
+
+1. **Voice pack location** (lines 14-16): The `@~/proposal-resources/voice/` references point to writing style files. Create your own with sentence length preferences, hedging rules, and formatting conventions, or remove these lines to use general academic voice.
+
+2. **Folder paths** (Steps 2 and 8): The paths `05_Submissions/Grants/`, `10_AI_Collaboration/Weekly_Reviews/`, and `~/proposal-resources/donors/` reflect one folder naming convention. Update all paths to match your own project structure.
+
+3. **Save location** (Step 8): The default save path `05_Submissions/Grants/[Funder]_[Year]_Draft.md` — change to your own drafts directory.
+
+4. **Word budgets** (Step 2): The context-gathering word budgets (8,000 total) are calibrated for long proposals. For LOIs or short applications, reduce budgets proportionally.

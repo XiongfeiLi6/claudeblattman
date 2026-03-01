@@ -196,6 +196,9 @@ This way Claude can see and work with the files in that project.
 
 ---
 
+!!! tip "What Claude Code can access"
+    Claude Code can read any file in the folder where you run it — and, if asked, files elsewhere on your machine, including cloud-synced folders (Dropbox, iCloud, Google Drive). It can also run terminal commands. This is what makes it powerful: Claude works *with* your files, not in a separate sandbox. When Claude reads a file or processes data, that content is sent to Anthropic's API. Anthropic's [data policy](https://www.anthropic.com/policies/privacy) states API inputs are not used for model training. For more on data handling, see [Privacy](../privacy.md#tools-and-workflows).
+
 ## What's Next
 
 You've installed Claude Code and had your first conversation. The recommended next steps:

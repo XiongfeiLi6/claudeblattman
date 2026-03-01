@@ -61,6 +61,9 @@ You lose the power tools, but you still get the core: a strong AI chatbot with s
 
 **The honest caveat:** There's an upfront time investment to learn the tools and build the system. I spent many hours over several weeks getting my setup where it is now. The ROI is real but not instant.
 
+!!! tip "Data policies differ by product"
+    **Claude Code** uses the Anthropic API — your conversations are not used for model training under the current [API data policy](https://www.anthropic.com/policies/privacy). **Claude.ai** (the browser version) is a consumer product with a [different policy](https://www.anthropic.com/legal/consumer-terms) — check your account settings for data usage preferences. If you work with sensitive research data, this distinction matters. See [Privacy](../privacy.md#tools-and-workflows) for more.
+
 ---
 
 ## What to Try First

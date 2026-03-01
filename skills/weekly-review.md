@@ -191,3 +191,15 @@ Before generating content, verify all quantitative claims. Priority order:
 - If no transcripts folder: Create it, note "No transcripts folder found - created"
 - If Google Doc update fails: Save content locally, provide manual instructions
 - Flag any ambiguities: "Unclear who said X - please clarify"
+
+---
+
+## Customization Points
+
+**To set up this skill for your workflow:**
+
+1. **Folder paths**: The default `10_AI_Collaboration/Weekly_Reviews/` path reflects one project structure. Update to match your own — e.g., `~/Research/Project/reviews/` or `docs/weekly-reviews/`.
+
+2. **Data sources**: The skill pulls from WhatsApp, Granola transcripts, and Gmail by default. Remove or add sources in Steps 1-4 to match your available integrations.
+
+3. **Google Doc format**: The 3-marker system (`<!--CB-TAB1-START-->`, etc.) requires markers in your Google Doc. See Step 7 for setup instructions.

@@ -195,6 +195,9 @@ claude
 
 ---
 
+!!! tip "What Claude Code can access"
+    Claude Code can read any file in the folder where you run it — and, if asked, files elsewhere on your machine, including cloud-synced folders (OneDrive, Dropbox, Google Drive). It can also run PowerShell commands. This is what makes it powerful: Claude works *with* your files, not in a separate sandbox. When Claude reads a file or processes data, that content is sent to Anthropic's API. Anthropic's [data policy](https://www.anthropic.com/policies/privacy) states API inputs are not used for model training. For more on data handling, see [Privacy](../privacy.md#tools-and-workflows).
+
 ## What's Next
 
 1. **[Set up your CLAUDE.md file](claude-md.md)** — Tells Claude about you and your preferences. (~30 minutes)

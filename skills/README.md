@@ -96,6 +96,7 @@ curl -o ~/.claude/commands/tips-integrate-references/scanning-rules.md \
 | Template | Description |
 |----------|-------------|
 | `claude-md-template.md` | Starter CLAUDE.md file with all common sections |
+| `email-voice-template.md` | Email voice and tone preferences for drafting skills |
 | `goals-yaml-template.yaml` | Goals and priorities tracking file (OKR format with weighted objectives) |
 
 ## Customization
