@@ -78,7 +78,8 @@ Or create `~/.claude/commands/tax-guide.md` manually and paste the [skill file c
     4. PRIVACY NOTES
     ────────────────
       Gmail MCP: Active — will search email subjects and attachments
-      Local files: Credit card CSVs and PDFs stay on your machine
+      Local files: Stored on your machine, but contents are sent to
+      Anthropic's API when Claude reads them
       Claude conversation: Never paste SSNs or bank account numbers
 
     ══════════════════════════════════════════════════════════

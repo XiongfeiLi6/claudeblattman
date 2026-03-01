@@ -21,6 +21,16 @@ We do not share, sell, or use your email for any other purpose.
 - **Unsubscribe** from any email using the link at the bottom of every message.
 - **Request deletion** of your email by writing to [claudeblattman+privacy@gmail.com](mailto:claudeblattman+privacy@gmail.com).
 
+## Tools and Workflows
+
+This site teaches workflows using Claude Code, MCP integrations, and other AI tools. **This privacy page covers the website only** — not the tools themselves.
+
+For data handling when using Claude Code and MCP integrations, see:
+
+- [Privacy & Setup (Tax Workflow)](tax-workflow/before-you-start/privacy-and-setup.md) — the most detailed treatment, covering data flow, API transmission, and what stays local
+- [Anthropic's privacy policy](https://www.anthropic.com/policies/privacy) — how Anthropic handles API data
+- [MCP Setup](toolkit/mcp-setup.md) — scope of each integration
+
 ## Questions
 
 If you have questions about how your data is handled, contact [claudeblattman+privacy@gmail.com](mailto:claudeblattman+privacy@gmail.com).

@@ -93,7 +93,7 @@ nav:
     - Starter Templates: tax-workflow/build-your-own/starter-templates.md
     - Academic Tax Basics: tax-workflow/reference/academic-tax-basics.md
     - When to Get Help: tax-workflow/reference/when-to-get-help.md
-  - Advanced:
+  - Build Your Own:
     - system/index.md
     - Building Skills: system/building-skills.md
     - Agents vs Skills: system/agents-vs-skills.md

@@ -38,6 +38,9 @@ Subdirectories create namespaced commands: `prompt-references/formatting-core.md
 
 ## How to Install a Skill
 
+!!! warning "Read before you install"
+    Skills are executable instruction files — when you run them, Claude follows every instruction in the file, including MCP tool calls (searching email, writing to Google Docs, creating calendar events). Before installing a skill from any source, open the `.md` file and read through it. Skills from this site are published on [GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills) where you can review the full source.
+
 1. **Create the commands folder** (if it doesn't exist):
    ```bash
    mkdir -p ~/.claude/commands

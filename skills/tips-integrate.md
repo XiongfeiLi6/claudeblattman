@@ -56,7 +56,7 @@ If no `source:` argument, scan all sources.
 
 ### Phase 1: Scan Sources
 
-**Read `tips-integrate-references/scanning-rules.md` first** — it contains tag-to-target mappings, the direct-vs-investigation heuristic, and source-specific parsing logic.
+**Read `@~/.claude/commands/tips-integrate-references/scanning-rules.md` first** — it contains tag-to-target mappings, the direct-vs-investigation heuristic, and source-specific parsing logic.
 
 **Context budget rules (IMPORTANT):**
 - Read only entries **since `last_run` date** from tips log. On first run, read last 30 days.

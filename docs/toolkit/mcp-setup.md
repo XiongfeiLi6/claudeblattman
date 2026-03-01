@@ -28,6 +28,9 @@ Without MCP, Claude Code can only work with files on your computer. With MCP:
 
 You don't need all of these. Start with whichever service you use most (Gmail is usually the highest-value starting point) and add others as needed.
 
+!!! tip "Understand what you're granting"
+    Each MCP integration gives Claude Code access to your **entire** account for that service — not just specific folders or labels. Gmail MCP can read any email. Drive MCP can access any file. Calendar MCP sees all events, including private ones. There's no way to restrict scope to a subset. This is fine for most users, but worth knowing before you connect. If a service contains data you're not comfortable with an AI processing, skip that integration. For more on how data flows through these tools, see [Privacy](../privacy.md#tools-and-workflows).
+
 ---
 
 !!! ask-claude "Getting an error? Ask Claude."

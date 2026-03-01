@@ -32,6 +32,14 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
 
 <div class="grid cards" markdown>
 
+-   **:material-play-circle-outline: Quickstart: 5-Minute Demo**
+
+    ---
+
+    One prompt, no setup, no installs. See what Claude Code can do in 5 minutes, then decide if you want to go deeper.
+
+    [:octicons-arrow-right-24: Try it now](quickstart.md)
+
 -   **:material-lightbulb-outline: New to AI Tools?** <span class="badge-teal">No Claude Code required</span>
 
     ---

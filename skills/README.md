@@ -81,4 +81,4 @@ curl -o ~/.claude/commands/prompt-references/formatting-core.md \
 
 ## Customization
 
-Each skill is designed to work out of the box but can be customized. See the [Skill Library](https://claudeblattman.com/toolkit/skill-library/) on the website for customization guidance.
+Each skill is designed to work out of the box but can be customized. See the [Skill Library](https://claudeblattman.com/setup/skill-reference/) on the website for customization guidance.
