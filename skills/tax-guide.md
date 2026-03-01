@@ -141,15 +141,15 @@ Include rows that match the user's answers: income type, complexity flags, itemi
 
 | Situation | Relevant skills & pages |
 |---|---|
-| Any filing | [Privacy & Setup](before-you-start/privacy-and-setup.md) |
+| Any filing | [Privacy & Setup](https://claudeblattman.com/tax-workflow/before-you-start/privacy-and-setup/) |
 | Gmail MCP available | `/tax-collect` skill for automated document collection |
 | No Gmail MCP | Manual document collection using the checklist |
 | Schedule C needed (side income) | `/tax-compile schedule-c` for guided expense compilation |
 | Itemized deductions (self-filer) | `/tax-compile charitable`, `/tax-compile medical` |
-| Self-filing (not CPA) | [What AI Got Wrong](case-study/what-ai-got-wrong.md) — read before filing |
-| CPA prep OR complexity flags | [When to Get Help](reference/when-to-get-help.md) — includes "How to Use AI Tools When You Have a Professional" |
-| New to Claude Code | [Quickstart](../quickstart.md), [How Skills Work](../toolkit/skills-guide.md) |
-| Power user (ai_comfort = c) | [Architecture Patterns](build-your-own/architecture-patterns.md), [Starter Templates](build-your-own/starter-templates.md) |
+| Self-filing (not CPA) | [What AI Got Wrong](https://claudeblattman.com/tax-workflow/case-study/what-ai-got-wrong/) — read before filing |
+| CPA prep OR complexity flags | [When to Get Help](https://claudeblattman.com/tax-workflow/reference/when-to-get-help/) — includes "How to Use AI Tools When You Have a Professional" |
+| New to Claude Code | [Quickstart](https://claudeblattman.com/quickstart/), [How Skills Work](https://claudeblattman.com/toolkit/skills-guide/) |
+| Power user (ai_comfort = c) | [Architecture Patterns](https://claudeblattman.com/tax-workflow/build-your-own/architecture-patterns/), [Starter Templates](https://claudeblattman.com/tax-workflow/build-your-own/starter-templates/) |
 
 Only include rows that match the user's answers. If goal is (c) CPA prep, do NOT include "What AI Got Wrong" or self-filing workflow steps.
 

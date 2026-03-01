@@ -254,6 +254,19 @@ h1, h2 {
 }
 
 /* ============================
+   Tablet responsive
+   ============================ */
+@media (max-width: 960px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-cell--featured {
+    grid-column: span 2;
+  }
+}
+
+/* ============================
    Mobile responsive
    ============================ */
 @media (max-width: 600px) {
