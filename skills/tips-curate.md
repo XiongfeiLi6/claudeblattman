@@ -2,7 +2,7 @@
 model: sonnet
 ---
 # Tips Curate
-*v1.2 — 2026-02-22*
+*v1.3 — 2026-02-28 — Added performance logging; fixed integration note*
 
 Process @ToSelf emails containing Claude Code tips, AI workflow patterns, and related resources. Assess quality, extract actionable insights, and recommend what's worth keeping. Use when you say "process my tips," "curate tips," or "check @ToSelf for tips."
 
@@ -155,9 +155,18 @@ Group entries under the same date heading if processing multiple on the same day
 Saved [N] tips to collected-tips-log.md.
 Marked [M] emails as read.
 [K] unread remaining in @ToSelf.
+
+Run /tips-scout to generate a customized Grok search prompt for next week.
 ```
 
 5. **If `all` argument was given and more unread remain:** Loop back to Step 1 with the next batch. Present each batch for approval before continuing.
+
+### Step 5: Log Performance
+
+```bash
+echo "$(date +%Y-%m-%d),tips-curate,TOOL_CALLS,NOTES" >> ~/.claude-assistant/logs/skill-performance.csv
+```
+Replace TOOL_CALLS with your approximate count of tool uses this run. Replace NOTES with brief volume info (e.g., "5-processed-3-saved"). Do not skip this step.
 
 ## Error Handling
 

@@ -5,6 +5,9 @@
 
 *v1.0 — 2026-02-15*
 
+!!! tip "Official companion"
+    Anthropic now publishes their own technical overview: [How Claude Code Works](https://code.claude.com/docs/en/how-claude-code-works). This tutorial covers the same ground from a practitioner's perspective — read both for the full picture.
+
 ---
 
 ## Module 1: The Message Stack — How Claude Sees Your Setup

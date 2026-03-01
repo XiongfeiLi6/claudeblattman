@@ -26,7 +26,7 @@ By [Chris Blattman](https://chrisblattman.com), political economist at UChicago 
 
 ## What Is This?
 
-This site covers AI tools for knowledge work — from [chatbot prompting](essentials/index.md) to advanced automation with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), a terminal-based AI tool that can read your files, search your email, manage your calendar, and run custom workflows. The site documents how I built a working system and shares everything so you can do the same.
+This site covers AI tools for knowledge work — from [chatbot prompting](essentials/index.md) to advanced automation with [Claude Code](https://code.claude.com/docs/en/overview), a terminal-based AI tool that can read your files, search your email, manage your calendar, and run custom workflows. The site documents how I built a working system and shares everything so you can do the same.
 
 ## Where to Start
 

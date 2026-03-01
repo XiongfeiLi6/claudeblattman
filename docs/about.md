@@ -32,7 +32,7 @@ Like most academics, the work that matters — [the research](https://chrisblatt
 
 For the past year I intensively used [AI chatbots](essentials/index.md). They were invaluable — deep research, better drafts, faster brainstorming, decent writing feedback. But they were limited. The time savings were real but modest.
 
-Then in January 2026 I discovered [Claude Code](https://docs.anthropic.com/en/docs/claude-code), and the center of gravity shifted from chatbots to agentic tools — AI that can read your files, search your email, manage your calendar, and build workflows that improve themselves over time.
+Then in January 2026 I discovered [Claude Code](https://code.claude.com/docs/en/overview), and the center of gravity shifted from chatbots to agentic tools — AI that can read your files, search your email, manage your calendar, and build workflows that improve themselves over time.
 
 I spent hours daily for a month building skills and processes. The time investment hasn't paid off yet in pure hours saved, but I can see where this is going — and things that seemed impossible are working today.
 

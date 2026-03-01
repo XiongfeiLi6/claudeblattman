@@ -10,13 +10,14 @@ There are a hundred ways to build a continuous improvement loop. This is the one
 
 You're reading an article on your phone. A colleague shares a Claude Code trick over coffee. You stumble on a workflow pattern at midnight. These discoveries are valuable, but they evaporate unless you capture them *and* act on them.
 
-The tips pipeline solves this with three steps:
+The tips pipeline solves this with four steps:
 
-1. **Capture** — Email tips to yourself, tagged `@ToSelf`. Any device, any time.
-2. **Curate** — `/tips-curate` fetches those emails, researches them, quality-filters, and builds a searchable log.
-3. **Integrate** — `/tips-integrate` scans the log and proposes concrete changes to your CLAUDE.md, skills, and rules files.
+1. **Scout** — `/tips-scout` analyzes what topics you've covered recently and generates a customized search prompt for Grok DeepSearch (or any AI search tool). It boosts under-covered categories and injects your current investigation topics.
+2. **Capture** — Email tips to yourself, tagged `@ToSelf`. Any device, any time. Scout results, forwarded articles, quick notes — anything goes.
+3. **Curate** — `/tips-curate` fetches those emails, researches them, quality-filters, and builds a searchable log.
+4. **Integrate** — `/tips-integrate` scans the log and proposes concrete changes to your CLAUDE.md, skills, and rules files.
 
-The result: your system gets better every two weeks, driven by your own discoveries.
+The result: your system gets better every two weeks, driven by targeted research and your own discoveries.
 
 ---
 
@@ -27,6 +28,7 @@ The result: your system gets better every two weeks, driven by your own discover
 | Claude Code installed | Required for all skills |
 | Gmail MCP configured | Required for `/tips-curate`. See [MCP Setup](../toolkit/mcp-setup.md). |
 | Gmail account | Used for the @ToSelf label below |
+| Grok (free tier) or similar AI search | Used by `/tips-scout` to generate targeted search prompts. Any AI search tool works. |
 | `/tips-curate` run at least once | Required before `/tips-integrate` does anything useful |
 
 If you haven't set up Gmail MCP yet, `/tips-curate` will report "Gmail integration unavailable" on first run. Follow the [MCP Setup guide](../toolkit/mcp-setup.md) first.
@@ -68,13 +70,25 @@ Claude processes everything later when you run `/tips-curate`.
 
 ## The pipeline
 
-### Step 1: Capture
+### Step 1: Scout (`/tips-scout`)
+
+This skill reads your recent tips log and active to-do items, then generates a customized search prompt for Grok DeepSearch (or any AI search tool). It:
+
+- **Analyzes coverage gaps** — counts recent tips by category (skill architecture, Claude Code features, research workflows, new repos, etc.) and boosts under-represented areas
+- **Injects active topics** — pulls your current investigation items so the search targets what you're actually working on
+- **Outputs a ready-to-paste prompt** — copy it into Grok DeepSearch (free tier), run the search, and forward the best results to yourself
+
+You don't need Grok specifically — any AI search tool that accepts long prompts works. The value is in the targeted search, not the tool.
+
+**MCP required:** None. This skill is filesystem-only.
+
+### Step 2: Capture
 
 No skill needed. Just email yourself. The @ToSelf label collects everything.
 
-Tips can be anything: articles, X/Twitter threads, blog posts, tool announcements, workflow ideas, or even brief notes like "try using XML tags for multi-step prompts."
+Tips can be anything: Scout search results, articles, X/Twitter threads, blog posts, tool announcements, workflow ideas, or even brief notes like "try using XML tags for multi-step prompts."
 
-### Step 2: Curate (`/tips-curate`)
+### Step 3: Curate (`/tips-curate`)
 
 This skill connects to Gmail, fetches unread @ToSelf emails, and processes each one:
 
@@ -89,7 +103,7 @@ If the skill can't extract content from a URL (paywalled, video-only, or X.com),
 
 **MCP required:** Gmail MCP (to read and mark emails).
 
-### Step 3: Integrate (`/tips-integrate`)
+### Step 4: Integrate (`/tips-integrate`)
 
 This skill scans your tips log (and optionally session follow-ups and reference packs) and generates two types of proposals:
 
@@ -151,6 +165,7 @@ Rationale: Current plan mode is chat-based; structured annotation on a
 
 | Skill | Frequency | Trigger |
 |-------|-----------|---------|
+| `/tips-scout` | Weekly (Sunday/Monday) | Run before `/tips-curate` to generate a targeted search prompt. |
 | `/tips-curate` | Weekly | When you have unread @ToSelf emails. Your morning briefing can flag the count automatically. |
 | `/tips-integrate` | Biweekly | After one or two curate sessions have added new entries to the log. |
 
@@ -160,8 +175,9 @@ You don't need to run them on a rigid schedule. The integrate skill checks when 
 
 ## Install
 
-Both skills are available in the [Skill Library](../setup/skill-reference.md#tips-curate-tip-curation):
+All three skills are available in the [Skill Library](../setup/skill-reference.md#tips-scout-search-prompt-generator):
 
+- **`/tips-scout`** — filesystem only, no MCP needed
 - **`/tips-curate`** — requires Gmail MCP
 - **`/tips-integrate`** — filesystem only, includes a reference subdirectory
 
@@ -181,10 +197,11 @@ A snapshot of my own tips log is available as a download: [Collected Tips & Rese
 
 | Skill | Gmail MCP | Other MCP |
 |-------|-----------|-----------|
+| `/tips-scout` | Not needed | None — filesystem only |
 | `/tips-curate` | **Required** — reads and marks @ToSelf emails | None |
 | `/tips-integrate` | Not needed | None — filesystem only |
 
-You can run `/tips-integrate` without `/tips-curate` if you maintain the tips log file manually. The log format is documented in the scanning rules file included with `/tips-integrate` (see `~/.claude/commands/tips-integrate-references/scanning-rules.md` after installation).
+You can run `/tips-scout` standalone to generate search prompts even without `/tips-curate`. You can run `/tips-integrate` without `/tips-curate` if you maintain the tips log file manually. The log format is documented in the scanning rules file included with `/tips-integrate` (see `~/.claude/commands/tips-integrate-references/scanning-rules.md` after installation).
 
 ---
 

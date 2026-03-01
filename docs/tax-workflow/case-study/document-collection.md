@@ -85,6 +85,9 @@ The skill runs repeatedly over several weeks. Each run needs to avoid re-downloa
 !!! warning "PDF extraction transmits document contents to the API"
     When Claude reads a downloaded PDF, the full text — including any SSNs, EINs, and account numbers on the form — is sent to Anthropic's API. Consider redacting sensitive identifiers before giving documents to Claude, or enter key figures manually. See [Privacy & Setup](../before-you-start/privacy-and-setup.md) for details.
 
+!!! tip "Where should your tax folder live?"
+    Keep sensitive financial documents in a cloud-only location Claude Code can't reach year-round (unsynced Dropbox, encrypted disk image, USB drive). Create a temporary local working folder only when you're ready to process documents, and delete it after filing. See [Setting Up Secure Document Access](../before-you-start/privacy-and-setup.md#setting-up-secure-document-access) for the full pattern.
+
 **Three dedup checks:**
 
 1. **Filename match:** Does a file with a similar name already exist in the tax folder?

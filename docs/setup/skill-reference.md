@@ -379,6 +379,31 @@ curl -o ~/.claude/commands/todo-review.md \
 
 ---
 
+### /tips-scout — Search Prompt Generator
+`[Advanced]`
+
+**What it does:** Analyzes your recent tips log for coverage gaps, pulls active investigation topics from your to-do list, and generates a customized search prompt for Grok DeepSearch (or any AI search tool). Boosts under-covered categories and de-emphasizes topics you've already researched.
+
+**MCP dependencies:** None (filesystem only).
+
+**Install:**
+```bash
+curl -o ~/.claude/commands/tips-scout.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/tips-scout.md
+```
+
+**Usage:**
+```
+/tips-scout              # Generate customized Grok prompt
+/tips-scout base         # Output base prompt without customization
+```
+
+**Customization:** Categories and target shares, coverage analysis window (default 14 days), base prompt template location.
+
+**Learn more:** [Continuous Improvement](../system/continuous-improvement.md)
+
+---
+
 ### /tips-curate — Tip Curation
 `[Advanced]`
 

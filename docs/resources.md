@@ -58,13 +58,25 @@ Ethan's blog is the gold standard for writing about AI for non-technical profess
 
 ### Claude Code
 
-[:octicons-link-external-16: docs.anthropic.com](https://docs.anthropic.com/en/docs/claude-code)
+[:octicons-link-external-16: docs.anthropic.com](https://code.claude.com/docs/en/overview)
 
 The official setup, configuration, and usage guide. Start here if you're installing Claude Code for the first time. Covers CLAUDE.md, MCP integrations, slash commands, and the permission model. The docs have improved significantly — they're now genuinely useful as a reference.
 
+### Claude Code Best Practices
+
+[:octicons-link-external-16: code.claude.com](https://code.claude.com/docs/en/best-practices)
+
+Anthropic's comprehensive best practices guide: context management, CLAUDE.md conventions, subagent patterns, parallel sessions, and common failure modes. If you read one official guide, make it this one.
+
+### Anthropic Skills Repository
+
+[:octicons-link-external-16: github.com/anthropics/skills](https://github.com/anthropics/skills)
+
+Anthropic's official collection of example Agent Skills — the first-party reference for skill structure, YAML frontmatter conventions, and the `SKILL.md` format. Useful as a template when building your own.
+
 ### Anthropic Prompt Engineering Guide
 
-[:octicons-link-external-16: docs.anthropic.com](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+[:octicons-link-external-16: docs.anthropic.com](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering)
 
 Anthropic's own guide to writing effective prompts. More technical than what I cover in my [Essentials section](essentials/prompting.md), but worth reading if you want to understand the mechanics. I adapted several patterns from here into my prompt formatting skills.
 
@@ -122,6 +134,8 @@ Resources I've found useful for thinking about AI in research and professional w
 | [Claude Code projects on GitHub](https://github.com/topics/claude-code) | Community projects, extensions, and configurations tagged with "claude-code" on GitHub. |
 | [r/ClaudeAI](https://www.reddit.com/r/ClaudeAI/) | Active subreddit for Claude users. Good for troubleshooting and discovering new patterns. |
 | [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | Curated index of Claude Code skills, hooks, slash commands, and CLAUDE.md patterns. The closest thing to a package manager catalog for the ecosystem. |
+| [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | 380+ curated skills from official dev teams (Anthropic, Vercel, Stripe, Cloudflare) and community. Cross-tool compatible. Quality-vetted. |
+| [Claude Code Ultimate Guide](https://github.com/FlorianBruniaux/claude-code-ultimate-guide) | 20,000+ lines, 16 specialized guides, 41 diagrams. The most comprehensive community reference for Claude Code architecture and workflows. CC BY-SA 4.0 licensed. |
 | [LangChain Executive AI Assistant](https://github.com/langchain-ai/executive-ai-assistant) | Production-ready Gmail-monitoring AI agent framework. Their "draft-only" pattern and human-in-the-loop review influenced how I built inbox triage. |
 
 ---

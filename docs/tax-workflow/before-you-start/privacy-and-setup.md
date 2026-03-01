@@ -80,7 +80,67 @@ The Gmail MCP advantage is significant for people with scattered documents acros
 
 Everything in this workflow runs through Claude Code on your local machine talking to Anthropic's API. There is no separate cloud service, no third-party tax platform, and no data stored beyond the API conversation window.
 
-After each session ends, the conversation context is discarded per Anthropic's current data retention policy — verify the latest terms at [anthropic.com/policies](https://www.anthropic.com/policies) before proceeding. Your local files persist.
+After each session ends, Anthropic may retain API inputs for up to 30 days for safety monitoring per their current data retention policy — verify the latest terms at [anthropic.com/policies](https://www.anthropic.com/policies) before proceeding. Your local files persist.
+
+---
+
+## Setting Up Secure Document Access
+
+Claude Code can read any file on your local filesystem. That's powerful during tax season — and a reason to be deliberate about what's on your filesystem the rest of the year.
+
+### The pattern: temporary access, permanent separation
+
+**Phase 1 — Before tax season:** Keep tax documents in a location Claude Code cannot reach. This could be:
+
+- A cloud service that isn't synced locally (e.g., an unsynced Dropbox folder, a Box folder, iCloud Drive with selective sync disabled for that folder)
+- An encrypted disk image you only mount when needed
+- A USB drive
+
+Your sensitive financial documents should not sit in a locally-synced folder year-round. Claude Code can access anything on your local filesystem — including cloud folders that sync automatically.
+
+**Phase 2 — During tax season:** Create a dedicated working folder and bring in only the documents you need:
+
+```bash
+# Create a tax working folder
+mkdir -p ~/tax-prep-2025/documents
+mkdir -p ~/tax-prep-2025/output
+
+# Copy documents from your secure location
+cp "/path/to/secure-storage/W2-2025.pdf" ~/tax-prep-2025/documents/
+cp "/path/to/secure-storage/1099-NEC-*.pdf" ~/tax-prep-2025/documents/
+```
+
+Point your tax skills at this folder. All downloads, extractions, and generated spreadsheets go here.
+
+**Phase 3 — After filing:** Remove the working folder and its contents:
+
+```bash
+# Archive final output to your secure location
+cp ~/tax-prep-2025/output/*.xlsx "/path/to/secure-storage/2025-filed/"
+
+# Delete the working folder
+rm -rf ~/tax-prep-2025
+
+# Start a fresh Claude Code session (old session context
+# included your tax data)
+```
+
+### If you use Gmail MCP for document collection
+
+Gmail MCP gives Claude Code access to your entire inbox — not just tax emails. Two options if you'd rather limit exposure:
+
+- **Enable Gmail MCP only during tax season.** Add the configuration to `~/.claude.json` when you're ready to collect documents, remove it when you're done. You don't need every integration running year-round.
+- **Use a label-based approach.** Manually move tax emails to a dedicated Gmail label, then instruct the skill to search only that label.
+
+### What to keep out of the working folder entirely
+
+Some documents should never enter Claude's reach:
+
+- **Prior year tax returns** (contain SSNs, full financial picture) — enter comparison figures manually
+- **Bank statements** (account numbers, transaction history beyond what's needed)
+- **Estate or trust documents** (beneficiary SSNs, asset details)
+
+If a skill needs a figure from one of these, open the document yourself and type the number in. The 30 seconds of manual entry is worth the privacy gain.
 
 ---
 
@@ -91,9 +151,22 @@ Run through this before your first tax session:
 - [ ] **Read Anthropic's current data policy** — confirm API inputs are not used for training
 - [ ] **Add SSN/bank exclusion rules** to your CLAUDE.md (see above)
 - [ ] **Decide on Gmail MCP** — will you use automated email search, or download documents manually?
-- [ ] **Check your tax folder location** — is it on an encrypted drive? Cloud-synced? Local only?
+- [ ] **Create a dedicated tax working folder** — a local folder (e.g., `~/tax-prep-2025/`) that you'll delete after filing. See [Setting Up Secure Document Access](#setting-up-secure-document-access) above.
+- [ ] **Verify your tax documents aren't in a synced folder** — if they're in Dropbox, iCloud, or Google Drive, are those folders synced locally? If so, Claude Code can already read them.
 - [ ] **Review who has access** to your machine — anyone who can open Claude Code can access your conversation history
-- [ ] **Plan your cleanup** — after filing, what will you delete vs. archive? (See [Post-Season Cleanup](../../downloads/index.md#tax-workflow-resources))
+- [ ] **Plan your cleanup** — after filing, delete the working folder, archive output to your secure location, and start a fresh Claude Code session
+
+---
+
+## Post-Season Cleanup Checklist
+
+After you've filed your return:
+
+- [ ] **Archive final output** — copy generated spreadsheets and summaries to your secure storage location
+- [ ] **Delete the working folder** — `rm -rf ~/tax-prep-2025` (or wherever you created it)
+- [ ] **Disable Gmail MCP** if you enabled it only for tax season — remove or comment out the entry in `~/.claude.json`
+- [ ] **Start a fresh session** — your tax data was in the conversation context. Starting fresh ensures it's not carried into unrelated work.
+- [ ] **Verify no stray copies** — check your Downloads folder, Desktop, and any cloud sync folders for documents you may have opened outside the working directory
 
 ---
 
