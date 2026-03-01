@@ -4,6 +4,9 @@ Most AI setups are static. You configure once and hope it holds. The tips pipeli
 
 There are a hundred ways to build a continuous improvement loop. This is the one I invented for my own workflow. It's opinionated, it's specific to Gmail and Claude Code, and it may not be your style. But the principle — *capture discoveries, filter them, and turn them into config changes* — is universal. Steal the idea and build your own version if this one doesn't fit.
 
+!!! warning "This pipeline is clunky — by necessity"
+    Much of the best AI workflow discussion happens on X/Twitter and other social platforms that don't have reliable MCP integrations. So the current pipeline routes through email: you forward interesting posts to yourself, and a Gmail-based skill processes them later. It works, but it's a workaround. I expect this to change significantly as better integrations emerge — if you have ideas for a cleaner approach, [I'd love to hear them](mailto:claudeblattman+feedback@gmail.com?subject=Tips%20pipeline%20idea).
+
 ---
 
 ## The idea

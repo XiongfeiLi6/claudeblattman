@@ -88,6 +88,18 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
 
     [:octicons-arrow-right-24: Tax Workflow](tax-workflow/index.md)
 
+-   **:material-chart-box-outline: Data Analysis Co-Pilot** <span class="badge-preview">Coming soon</span>
+
+    ---
+
+    Using AI to write, debug, and audit statistical code in Stata, R, and Python. Replication verification, robustness checks, and the "Referee 2" pattern. In the meantime, see [AI for Economists resources](resources.md#ai-for-economists-and-researchers).
+
+-   **:material-file-document-edit-outline: Research Writing** <span class="badge-preview">Coming soon</span>
+
+    ---
+
+    LaTeX and Overleaf workflows: drafting sections, responding to referee reports, maintaining voice consistency across co-authored papers, and version control with Claude Code.
+
 </div>
 
 !!! tip "Stay in the loop"

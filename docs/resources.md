@@ -123,14 +123,47 @@ The framework this site is built with. If you want to build something similar �
 
 ---
 
+## AI for Economists and Researchers
+
+This site focuses on project management, communication, and workflow automation. But the biggest wave of AI adoption in economics is around **data analysis, statistical coding, and empirical methods** — areas I haven't covered yet (coming soon). These are the essential resources for that side of the work.
+
+### Anton Korinek — Generative AI for Economic Research
+
+[:octicons-link-external-16: JEL Paper (AEA)](https://www.aeaweb.org/articles?id=10.1257/jel.20231736) · [:octicons-link-external-16: AI Agents Update (NBER, 2025)](https://www.nber.org/papers/w34202) · [:octicons-link-external-16: Substack](https://genaiforecon.substack.com)
+
+The authoritative academic treatment. Korinek's 2023 *Journal of Economic Literature* paper identifies six use case domains for LLMs in economics (ideation, writing, background research, data analysis, coding, mathematical derivations) and has been updated twice — most recently with an NBER working paper on AI agents for autonomous literature reviews, econometric coding, and data analysis. If you read one academic paper on this topic, make it this one.
+
+### Scott Cunningham — MixtapeTools
+
+[:octicons-link-external-16: GitHub](https://github.com/scunning1975/MixtapeTools) · [:octicons-link-external-16: Substack](https://causalinf.substack.com)
+
+A GitHub repo of tools for coding, teaching, and presentations with AI assistance — includes a "Referee 2" audit protocol for verifying empirical code across R/Stata/Python, a PDF reading skill for parsing academic papers, and a CLAUDE.md template for Claude Code sessions. Cunningham (author of *Causal Inference: The Mixtape*) also writes regularly about AI and causal inference on Substack.
+
+### Awesome Econ AI Stuff
+
+[:octicons-link-external-16: meleantonio.github.io](https://meleantonio.github.io/awesome-econ-ai-stuff/)
+
+14+ curated AI skills across 7 categories (Analysis, Data, Theory, Writing, Communication, Literature, Ideation) designed for Claude Code, Cursor, and GitHub Copilot. Includes skills that automate DiD/IV/RD coding in Stata and LaTeX paper writing. The closest thing to a skill library specifically for empirical economists.
+
+### More Resources
+
+| Resource | Focus |
+|----------|-------|
+| [Jesse Lastunen — AI for Economists](https://sites.google.com/view/lastunen/ai-for-economists) | Worked prompt examples across Korinek's six domains, with real LLM outputs and usefulness ratings |
+| [Guide2EconRA (GitHub)](https://github.com/Alalalalaki/Guide2EconRA) | Comprehensive resource collection for economics RAs — Python/R/Julia/Stata, causal inference, ML, reproducibility |
+| [AEI — AI Tools for Economists](https://www.aei.org/technology-and-innovation/ai-tools-for-economists-and-policy-analysts/) | Practical tool comparison (ChatGPT, Claude, Gemini, NotebookLM, Cursor) written for policy economists |
+
+Know a resource that should be here? [Send a quick note](mailto:claudeblattman+feedback@gmail.com?subject=AI%20for%20economists%20resource) — I'm always looking for what I've missed.
+
+---
+
 ## Further Reading
 
-Resources I've found useful for thinking about AI in research and professional work.
+Resources for thinking about AI in research and professional work more broadly.
 
 | Resource | Why it's worth reading |
 |----------|----------------------|
 | [Simon Willison's Blog](https://simonwillison.net/) | The most technically literate and honest AI blog. Simon builds tools and explains what works without hype. |
-| [AI for Economists (AEA)](https://www.aeaweb.org/resources/ai) | The American Economic Association's hub for AI resources in economics research. |
 | [Claude Code projects on GitHub](https://github.com/topics/claude-code) | Community projects, extensions, and configurations tagged with "claude-code" on GitHub. |
 | [r/ClaudeAI](https://www.reddit.com/r/ClaudeAI/) | Active subreddit for Claude users. Good for troubleshooting and discovering new patterns. |
 | [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | Curated index of Claude Code skills, hooks, slash commands, and CLAUDE.md patterns. The closest thing to a package manager catalog for the ecosystem. |
