@@ -1,5 +1,5 @@
 # Weekly Project Review
-*v1.2 — 3-marker system, batch updates, emoji placeholders*
+*v1.4 — Removed todo queue check; improved transcript handling; formatting checkpoint; performance logging*
 
 Generate a comprehensive weekly summary for the current research project, pulling from multiple sources.
 
@@ -11,46 +11,40 @@ This skill collects data from WhatsApp, meeting transcripts, and Gmail, then gen
 
 ## Instructions
 
-### Step 0a: Check Todo Queue (Before Project Work)
-
-Before starting the project review, check for pending todo emails:
-
-1. Search Gmail: `label:@ToSelf is:unread`
-2. If emails found: "You have N email(s) in your todo queue. Run /todo-queue to convert them to reminders? [Y/n/skip]"
-3. If user says Y: Run the `/todo-queue` workflow, then continue
-4. If no emails found: Continue silently
-
-> Requires `/todo-queue` skill. Skip this step if not installed.
-
 ### Step 0: Read Project Configuration
 - Read `.claude/CLAUDE.md` from the current project folder
-- Extract: project name, Google Doc ID, team roster, WhatsApp groups, folder paths
+- Extract ALL of: project name, Google Doc ID (`google_doc_id`), team roster, WhatsApp groups (with JIDs), folder paths, `granola_folder`, `project_keywords`, `exclude_keywords`
+- Fields may appear inside ` ```yaml ` code blocks — extract values from inside code fences too
+- Strip surrounding quotes from extracted values (e.g., `"Project name"` -> `Project name`)
 - Extract `project_type` (default: "quantitative"). Look for `project_type: qualitative` in the config.
+- If `project_type` is "qualitative", use the qualitative dashboard template (see Customization Points)
 - If config is missing required fields, inform user and stop
 
 ### Step 1: Determine Date Range
-- Check `10_AI_Collaboration/Weekly_Reviews/` for most recent `weekly-review-*.md` file
+- Check `10_AI_Collaboration/Weekly_Reviews/` for most recent `weekly-review-*.md` or `whatsapp-summary-*.md` file
 - Use that date as start_date (or 7 days ago if none exists)
 - end_date = today
 - Tell user: "Generating weekly review for [start_date] to [end_date]"
 
 ### Step 1.5: Populate Transcripts (Optional)
 
-If you use `granola-fetch` or another transcript tool:
+If you have a transcript export tool (e.g., `granola-fetch`, Otter.ai export):
 
 1. Check the project's configured transcripts folder for existing files
-2. Offer: "Fetch recent transcripts? [Y/n]"
-3. If yes, run your transcript fetch tool with the date range
-4. If no: Continue with existing local files
+2. Run your transcript tool with the date range to fetch any new transcripts
+   - If the project config has a `granola_folder` field, pass it as a filter
+   - Strip surrounding quotes from folder names before passing
+3. If fetch fails, continue with existing local transcripts
 
 ### Step 2: Collect Data (with graceful degradation)
 
 **2a. WhatsApp Messages**
 - For each group in `whatsapp_groups`:
   - Search for group using WhatsApp MCP (`list_chats`)
-  - Fetch actual messages using `list_messages` — do NOT rely on metadata for last message dates
+  - **CRITICAL**: Do NOT rely on `list_chats` metadata for last message dates — metadata is often stale
+  - ALWAYS fetch actual messages using `list_messages` regardless of what metadata shows
   - Filter to messages within date range
-- If WhatsApp MCP unavailable: Note "WhatsApp unavailable - skipped" and continue
+- If WhatsApp MCP fails on first attempt: retry once (transient connection failures are common). If still unavailable: Note "WhatsApp unavailable - skipped" and continue
 - Save raw messages to `10_AI_Collaboration/Weekly_Reviews/whatsapp-summary-[date].md`
 
 **2b. Meeting Transcripts**
@@ -63,34 +57,45 @@ If you use `granola-fetch` or another transcript tool:
 - **Date range**: Same as other sources
 - **Filter criteria** (emails must match at least one):
   - Sender OR recipient matches any team member email in roster
-  - Subject or body contains project keywords from config
-- **Exclusions**: Automated emails, calendar invites, newsletters, bulk mail
+  - Subject or body contains project keywords from `project_keywords` list in config
+- **Exclusions**: Automated emails, calendar invites (.ics), newsletters, bulk mail; threads matching `exclude_keywords`
 - **Grouping**: Group by thread to preserve conversation context
+- **Feedback loop**: At end of Gmail section, list included/excluded counts for noise control
 - If Gmail MCP unavailable: Note "Gmail unavailable - skipped" and continue
 
-**2d. Sensitive Content Filtering**
+**2d. Sensitive Content Filtering (CRITICAL)**
 
-The weekly summary may be shared with the full team. Screen for and exclude:
-- Critical performance comments, hiring/firing discussions, pay/compensation
-- Personnel-specific funding decisions
-- Anything inappropriate for full team viewing
+The weekly summary may be shared with the full team. Screen for and exclude sensitive content from ALL sources:
 
-When in doubt: Omit and note "[Some content omitted - PI review recommended]"
+**Exclude**: Critical performance comments, hiring/firing discussions, pay/compensation, personnel-specific funding decisions, anything inappropriate for full team.
+
+**Screening by source type**:
+- General team meetings: Low sensitivity — include freely
+- PI-only or PI + Research Manager threads: Screen MORE AGGRESSIVELY but include non-sensitive content
+- 1-on-1 transcripts: Review for sensitive topics before including
+
+When in doubt: Omit specific sensitive content and note "[Some content omitted — PI review recommended]"
+
+**Include freely**: Funding strategy, project decisions, action items, research design, logistics, strategic direction.
 
 ### Step 2e: Verify Key Metrics Against Authoritative Sources
 
-Before generating content, verify all quantitative claims. Priority order:
-1. Research Design and Progress document (if maintained)
-2. Earlier weekly summaries
-3. Current week's sources — flag if uncertain
+**Before generating content, verify all quantitative claims.**
+
+Priority order for factual claims:
+1. **Research Design and Progress document** (if maintained) — check for verified figures
+2. **Earlier weekly summaries** — if they post-date the research design doc
+3. **Current week's sources** — only if #1 and #2 unavailable; FLAG if uncertain
+
+Watch for red flags: round numbers, hedged statements, conflicting numbers, numbers without context.
 
 ### Step 2f: Read Previous Dashboard as Baseline
 
 **The Project Status Dashboard is a LIVING DOCUMENT.**
 
 1. Read the current dashboard content from the Google Doc (Tab 1)
-2. This is your BASELINE - not a blank slate
-3. PRESERVE previous content unless explicitly superseded or factually outdated
+2. This is your BASELINE — not a blank slate
+3. PRESERVE previous content unless explicitly superseded, factually outdated, or explicitly removed by user
 4. MODIFY existing sections with new information; ADD new items; REMOVE only when completed/superseded
 
 ### Step 3: Synthesize
@@ -102,12 +107,20 @@ Before generating content, verify all quantitative claims. Priority order:
 
 **Guiding principle**: Include more detail when in doubt. A reader who wasn't at the meeting should understand WHAT was decided, WHY, WHO said it, and the context.
 
+**Priority-Related Content Detection**: Watch for "strategic priority", "operational", "critical path", "green/yellow/red", "urgent", "success factor" language. Note status changes.
+
 **FORMATTING RULES**:
 - **NO MARKDOWN TABLES** — use bullet/sub-bullet format for ALL structured data
 - Bold labels followed by content on same line or as sub-bullets
 - **ALWAYS bold team member names** throughout both Tab 1 and Tab 2 (do NOT use `**` markdown markers in the text — track bold ranges separately and apply formatting via the Google Docs API)
 - **Do NOT include** direct quotes. Paraphrase instead.
 - **ASCII emoji placeholders**: Use `[RED]`, `[GREEN]`, `[YELLOW]` instead of real emoji in generated text. Real emoji are supplementary-plane Unicode that break Google Docs index calculations. They are swapped to real emoji via `find_and_replace_doc` after all content is written.
+
+**Visual Separators**:
+- Between weekly summaries: heavy double-line separator
+- Within weekly summaries: medium single-line separator
+
+**Language Guidelines**: Plain, accessible language. Avoid jargon. Use "challenges" not "blockers", "unclear" not "TBD". Prefer concrete descriptions over abstract terms.
 
 **Generate Tab 1 (Dashboard)**: Start from previous dashboard, update with this week's info. Structure:
 - Project overview and status
@@ -123,9 +136,19 @@ Before generating content, verify all quantitative claims. Priority order:
 - Detailed Meeting Records (full summaries of each meeting)
 
 ### Step 4: Save Local Copies
+
+**Skip if `nosave` argument.**
+
 - Save to `10_AI_Collaboration/Weekly_Reviews/weekly-review-[date].md`
 
-### Step 5: Update Google Doc
+### Step 5: Write to Google Doc
+
+Proceed directly to Step 6 — do NOT display content in terminal for review. User reviews formatted content in the Google Doc.
+
+### Step 6: Update Google Doc
+
+**If `tab1only`:** Only execute the Dashboard Replacement phase. Skip Weekly Log Prepend.
+**If `tab2only`:** Only execute the Weekly Log Prepend phase. Skip Dashboard Replacement.
 
 **First-Time Setup**: Before first use, add these three marker lines to your Google Doc (Tab 1), each on its own line:
 
@@ -150,23 +173,30 @@ Before generating content, verify all quantitative claims. Priority order:
 5. **Emoji Swap** — Use `find_and_replace_doc` to replace `[RED]` with real red circle, `[GREEN]` with green circle, `[YELLOW]` with yellow circle
 6. **Formatting** — Apply heading sizes and team name bolding using API-reported indices (from `inspect_doc_structure`), not calculated offsets
 
+**CRITICAL: Do NOT skip Phase 6 (Formatting).** The document is unreadable without proper header sizes and bold formatting. After completing Phases 1-5, you MUST proceed to Phase 6. At minimum apply: (a) Tier 2 baseline format reset (11pt non-bold on full range), then (b) Tier 1 section header formatting (16pt/14pt/12pt bold).
+
+**Formatting scope: FULL DOCUMENT.** Even when running `tab1only` or `tab2only`, Phase 6 formats the entire document. Formatting is idempotent.
+
 **Batch operations**: Use `batch_update_doc` to combine delete + insert + format operations into a single call — this reduces 19-29 sequential API calls to 1-3.
 
-### Step 6: Final Confirmation
+### Step 7: Final Confirmation
 1. Confirm: "Weekly review complete. Google Doc updated."
 2. Provide link: "Check Google Doc: [link]"
 3. Note any issues or manual fixes needed
 
-### Step 7: Archive Processed Transcripts (Optional)
+### Step 8: Archive Processed Transcripts
+
+After the weekly review is complete:
 
 1. Create archive folder if needed: `[project]/10_AI_Collaboration/Transcripts/archive/`
-2. Move processed transcript files to archive
-3. Confirm: "Archived X transcript(s)"
+2. Move all processed transcript files to archive
+3. Confirm: "Archived X transcript(s) to Transcripts/archive/"
+4. Note any files left behind (outside date range, unparseable)
 
 ## Arguments
 
 `$ARGUMENTS` can include:
-- `nosave` — Don't save intermediate files (WhatsApp summaries, local weekly review copy)
+- `nosave` — Don't save intermediate files
 - `tab1only` — Only generate Tab 1 dashboard
 - `tab2only` — Only generate Tab 2 detailed log
 - `days:N` — Override date range to last N days
@@ -181,7 +211,7 @@ Before generating content, verify all quantitative claims. Priority order:
 /weekly-review                    # Full review, default date range
 /weekly-review days:14            # Last 14 days
 /weekly-review tab1only           # Quick dashboard update
-/weekly-review skipwhatsapp       # Skip WhatsApp if it's being flaky
+/weekly-review skipwhatsapp       # Skip WhatsApp if unavailable
 ```
 
 ## Error Handling
@@ -192,14 +222,24 @@ Before generating content, verify all quantitative claims. Priority order:
 - If Google Doc update fails: Save content locally, provide manual instructions
 - Flag any ambiguities: "Unclear who said X - please clarify"
 
----
-
 ## Customization Points
 
 **To set up this skill for your workflow:**
 
 1. **Folder paths**: The default `10_AI_Collaboration/Weekly_Reviews/` path reflects one project structure. Update to match your own — e.g., `~/Research/Project/reviews/` or `docs/weekly-reviews/`.
 
-2. **Data sources**: The skill pulls from WhatsApp, Granola transcripts, and Gmail by default. Remove or add sources in Steps 1-4 to match your available integrations.
+2. **Data sources**: The skill pulls from WhatsApp, meeting transcripts, and Gmail by default. Remove or add sources in the data collection steps to match your available integrations.
 
-3. **Google Doc format**: The 3-marker system (`<!--CB-TAB1-START-->`, etc.) requires markers in your Google Doc. See Step 7 for setup instructions.
+3. **Google Doc format**: The 3-marker system (`=== PROJECT STATUS DASHBOARD ===`, `=== DASHBOARD END ===`, `=== WEEKLY SUMMARIES START ===`) requires markers in your Google Doc. See Step 6 for setup instructions.
+
+4. **Dashboard template**: The default is quantitative (metrics, sample sizes, timelines). Set `project_type: qualitative` in your project config for a qualitative dashboard (thematic analysis, interview progress, coding framework).
+
+5. **Transcript formats**: Support for Granola, Zoom .vtt, manual markdown, and informal notes. Add new format parsers as needed.
+
+## Performance Logging
+
+After completing all steps, log this run:
+```bash
+echo "$(date +%Y-%m-%d),weekly-review,TOOL_CALLS,NOTES" >> ~/.claude-assistant/logs/skill-performance.csv
+```
+Replace TOOL_CALLS with approximate count of tool uses this run. Replace NOTES with brief volume info (e.g., "3 transcripts 12 emails 2 whatsapp"). Do not skip this step.

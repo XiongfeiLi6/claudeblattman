@@ -1,6 +1,6 @@
 # Smart Inbox Triage
 
-*v1.3 — Phase 0.5 label-in-inbox sweep; auto-filter creation; clean inbox verification*
+*v1.4 — Added travel email routing phase*
 
 Scan your inbox for emails that should be in labeled folders (@ToRead, @Announcements, @School, Expenses-Pending, Auto-Archive, etc.) but are not filtered there yet. Uses header and content heuristics that Gmail's native filters cannot replicate.
 
@@ -213,6 +213,25 @@ FILTER BYPASS RECOVERY: [N]
   - [Sender] | [Subject] | [Expected filter] | Applied: [action]
 ```
 
+### Phase 8b: Travel Email Routing
+
+Before general classification, check emails from airline and hotel domains for travel-specific routing. Emails handled here are **excluded from Phase 10**.
+
+**Applies to:** Emails from airline domains (united.com, aa.com, delta.com, southwest.com, jetblue.com, spirit.com) and hotel domains (marriott.com, hilton.com, hyatt.com, ihg.com) that were NOT already flagged as expenses in Phase 7.
+
+**Stay in INBOX** if subject matches any of these patterns (case-insensitive):
+- Check-in: "check in", "time to check in", "check-in"
+- Alerts/disruptions: "delay", "cancelled", "canceled", "gate change", "schedule change"
+- Documents: "upload", "visa", "ESTA", "passport", "required documents"
+
+**Route to @Announcements** (skip inbox, leave unread) for everything else from these domains:
+- Itineraries, booking confirmations, boarding passes
+- Trip summaries, post-trip emails
+- "Thanks for your purchase" (non-expense)
+- Loyalty/mileage updates
+
+**Log:** `[Travel] {sender} | {subject} -> @Announcements` or `[Travel] {sender} | {subject} -> KEEP IN INBOX (check-in/alert)`
+
 ### Phase 9: Calendar Invitation Detection
 
 Before general classification, check each email for calendar invitation signals. Emails detected as calendar invitations are **excluded from Phase 10**.
@@ -234,7 +253,7 @@ Before general classification, check each email for calendar invitation signals.
 
 ### Phase 10: Classification Logic
 
-For emails that pass the safety check and are NOT flagged as expenses, filter bypass recovery, or calendar invitations, classify using this decision tree:
+For emails that pass the safety check and are NOT flagged as expenses, filter bypass recovery, travel routing, or calendar invitations, classify using this decision tree:
 
 ```
 0. Check overrides FIRST:

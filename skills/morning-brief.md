@@ -1,6 +1,6 @@
 # Morning Briefing
 
-*v1.4 -- Adapted for public use. Added health check phase, prefetch architecture, improved triage integration, MCP parameter notes.*
+*v1.5 -- Unified hard deadline keywords; structural cleanup.*
 
 Generate a comprehensive daily morning briefing combining calendar, reminders, inbox state, weather, meeting context, and optional email triage into a single view.
 
@@ -277,7 +277,7 @@ Classify each reminder from Phase 3 into groups:
 
 **HARD DEADLINES** -- Has hard-deadline keywords AND due within 3 days (including today). Also: any item with priority=1 (manually set high).
 
-Hard-deadline keywords: `grant`, `IRB`, `submit`, `file`, `pay`, `invoice`, `tuition`, `tax`, `letter`, `contract`, `reimburse`, `deposit`, `deadline`, `renew`
+Hard-deadline keywords: `due`, `deadline`, `submit`, `file`, `renew`, `pay`, `invoice`, `reimburse`, `grant`, `IRB`, `contract`, `review`, `letter`, `slides`, `deck`, `send`, `deliver`, `final`, `revision`
 
 Match case-insensitive against reminder title and body.
 

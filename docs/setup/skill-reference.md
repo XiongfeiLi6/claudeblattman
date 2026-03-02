@@ -49,9 +49,9 @@ curl -o ~/.claude/commands/done.md \
 ### /morning-brief — Daily Briefing
 `[EA]`
 
-**What it does:** Generates a daily briefing combining calendar, reminders, inbox highlights, VIP tracking, overdue items, goal alignment, and optional auto-triage.
+**What it does:** Generates a daily briefing combining calendar, reminders, inbox highlights, VIP tracking, waiting-for detection, overdue items, goal alignment, and optional auto-triage. Unified hard-deadline keyword detection across skills.
 
-**MCP dependencies:** Gmail MCP (required). Google Calendar MCP (required). Apple Reminders via osascript (macOS, optional). Granola MCP (optional).
+**MCP dependencies:** Gmail MCP (required). Google Calendar MCP (required). Apple Reminders via osascript (macOS, optional). Granola MCP (optional, for meeting context).
 
 **Install:**
 ```bash
@@ -490,7 +490,7 @@ curl -o ~/.claude/commands/tips-integrate-references/scanning-rules.md \
 ### /triage-inbox — Smart Inbox Triage
 `[EA]`
 
-**What it does:** Scans inbox for emails to auto-label and archive — newsletters, announcements, receipts, low-priority notifications. Uses heuristics that Gmail filters can't (List-Unsubscribe detection, body analysis, multi-signal scoring).
+**What it does:** Scans inbox for emails to auto-label and archive — newsletters, announcements, receipts, travel confirmations, low-priority notifications. Uses heuristics that Gmail filters can't (List-Unsubscribe detection, body analysis, multi-signal scoring, travel email routing).
 
 **MCP dependencies:** Gmail MCP (required).
 
@@ -520,7 +520,7 @@ curl -o ~/.claude-assistant/config/triage-config.md \
 ### /weekly-review — Weekly Project Review
 `[PM]`
 
-**What it does:** Generates a comprehensive weekly summary for a research project, pulling from WhatsApp, meeting transcripts, Gmail, and working documents. Produces a project dashboard and detailed weekly log, writing directly to Google Docs.
+**What it does:** Generates a comprehensive weekly summary for a research project, pulling from WhatsApp, meeting transcripts, Gmail, and working documents. Produces a project dashboard and detailed weekly log, writing directly to Google Docs. Includes automated transcript fetching, formatting checkpoint enforcement, and transcript archiving.
 
 **MCP dependencies:** Google Docs MCP (required). Gmail MCP (recommended). WhatsApp MCP (optional). Granola (optional, for transcripts).
 
@@ -538,7 +538,7 @@ curl -o ~/.claude/commands/weekly-review.md \
 /weekly-review skipwhatsapp       # Skip WhatsApp if unavailable
 ```
 
-**Customization:** Data sources, date range logic, dashboard template (quantitative vs. qualitative projects), synthesis detail level, email filtering keywords.
+**Customization:** Data sources, date range logic, dashboard template (quantitative vs. qualitative projects), synthesis detail level, email filtering keywords, transcript formats, archive behavior.
 
 ---
 
