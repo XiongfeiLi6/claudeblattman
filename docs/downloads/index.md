@@ -146,6 +146,7 @@ Starter configuration files for setting up your own system. All are in the [GitH
 | [Email Policy Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/email-policy-template.md) | Rules for email triage autonomy |
 | [Calendar Policy Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/calendar-policy-template.md) | Calendar management policies |
 | [Triage Config Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/triage-config-template.md) | Email classification rules |
+| [Email Voice Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/email-voice-template.md) | Email tone, signature blocks, and drafting preferences |
 | [Goals Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/goals-yaml-template.yaml) | Quarterly goal tracking format |
 
 ---

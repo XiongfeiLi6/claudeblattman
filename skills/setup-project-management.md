@@ -1,172 +1,92 @@
 # Setup Project Management
 
-*v1.0 — Initialize a project management system for a research project*
+*v1.1 — Simplified: reduced redundancy and verbosity*
 
-Initialize a comprehensive project management system for a research project, adapting to the project's existing structure and workflows.
-
-## Overview
-
-This skill sets up:
-- Folder structure for AI collaboration and document management
-- TODO.md (project tasks)
-- PROJECT_INDEX.md (master resource catalog)
-- .claude/CLAUDE.md (project-specific Claude instructions)
-- Google Doc hub structure (if applicable)
-- Meeting transcript workflow
+Sets up: folder structure, TODO.md, PROJECT_INDEX.md, .claude/CLAUDE.md, Google Doc hub, and meeting transcript workflow.
 
 ## Instructions
 
 ### Phase 1: Discovery (DO THIS FIRST)
 
-Before making ANY changes, thoroughly assess the current state:
+Before making ANY changes, assess the current state:
 
-1. **Explore existing folder structure**
-   - List all folders and files in the project root
-   - Note any existing organizational system
-   - Identify where documents, data, code, and communications currently live
-
-2. **Check for existing project documentation**
-   - Look for README files, INDEX files, or similar
-   - Check for existing .claude/ folder or CLAUDE.md
-   - Look for any project management docs
-
-3. **Identify existing tools and workflows**
-   - Ask about: Google Docs, Overleaf, GitHub, Slack, WhatsApp groups
-   - Check for existing meeting notes or transcript storage
-   - Identify any automation already in place
-
-4. **Assess data sensitivity**
-   - Ask about IRB status and data handling requirements
-   - Note if identifiable data exists and where it's stored
+1. **Explore existing folder structure** — list files/folders, note organizational system, identify where documents/data/code live
+2. **Check for existing docs** — README, INDEX, .claude/, Google Docs, Notion
+3. **Identify tools and workflows** — Google Docs, Overleaf, Box, GitHub, WhatsApp groups, meeting notes, scripts
+4. **Check external file sources** — shared drives, cloud storage (Box, OneDrive, etc.). If found, get: web URL, local path, sync status. Identify high-priority files for local copies.
+5. **Assess data sensitivity** — IRB status, identifiable data locations
 
 ### Phase 2: Gap Analysis
 
-Present findings:
-
-```
-## Current State Assessment
-
-### Existing Structure
-[What's already in place]
-
-### Existing Documentation
-[Project docs, READMEs, etc.]
-
-### Existing Tools
-[Integrations already being used]
-
-### Gaps Identified
-[What's missing]
-
-### Potential Conflicts
-[Where new structure differs from existing setup]
-```
+Present findings to user covering: existing structure, existing docs/tools, gaps vs. template, and potential conflicts.
 
 ### Phase 3: Design Discussion
 
-**STOP AND DISCUSS** before proceeding. Ask:
+**STOP AND DISCUSS WITH USER** before proceeding. Gather:
 
-1. **Project type:**
-   - **Quantitative RCT** — full folder structure with IRB, Survey Instruments, Field Materials
-   - **Qualitative / Ethnographic** — replace IRB folder with Fieldwork (Interview Memos, Transcripts, Consent Forms)
-   - **Theory / Writing** — minimal structure; may skip most folders
-   - **Policy Brief / Report** — streamlined for non-academic deliverables
-   - **Multi-method** — combines quantitative and qualitative structures
+0. **Project type** — determines folder structure, Google Doc setup, config fields:
+   - a) **Quantitative RCT** — full folders with IRB, Survey Instruments, Field Materials
+   - b) **Qualitative/Ethnographic** — Fieldwork folder replaces IRB; may skip survey/field folders
+   - c) **Theory/Writing** — minimal structure; may skip Google Doc hub and WhatsApp if solo
 
-2. **Folder structure:** Keep existing naming or adopt numbered system?
-
-3. **Central document hub:** Existing Google Doc or create new?
-
-4. **Meeting transcripts:** Current storage method?
-
-5. **Communication channels:** What team channels exist?
-
-6. **Team and workflow:** Key team members, meeting cadence?
+1. **Folder structure** — adopt numbered system, keep current naming, or hybrid?
+2. **Central document hub** — existing Google Doc or create new? Structure?
+3. **Meeting transcripts** — storage location, tool (Granola, Zoom, manual)?
+4. **Communication channels** — WhatsApp group names (exact), email keywords/senders
+5. **Team and workflow** — key members, meeting cadence
+6. **Sensitivity screening** — any PI-only or personnel groups to flag?
+7. **Related projects** — shared team members, overlapping keywords, cross-project email handling?
+8. **External file sources** — shared drive details; which files to copy locally (typically: research design, IRB, key lit; NOT: raw data, admin budgets); sync vs. unsync preference
 
 ### Phase 4: Propose Customized Plan
 
-Based on discussion, present a specific plan:
-
-```
-## Proposed Project Management Setup
-
-### Folder Changes
-- [Specific folders to create/rename/leave alone]
-
-### Files to Create
-1. AI_Collaboration/TODO.md
-2. PROJECT_INDEX.md
-3. .claude/CLAUDE.md
-
-### Google Doc Structure
-- [New doc or modify existing]
-
-### What Will NOT Change
-- [Explicitly list what stays the same]
-```
-
-**Ask for approval before proceeding.**
+Present a specific plan covering: folder changes, files to create, Google Doc structure, WhatsApp config, external file sources (if any), workflow adaptations, and what stays unchanged. **Get user approval before proceeding.**
 
 ### Phase 5: Implementation
 
-Only after approval:
+Only after user approval:
 
-1. **Create folder structure** (only new folders, don't reorganize without permission)
+1. **Create folder structure** (new folders only; never reorganize without permission)
+   - **Quantitative RCT**: Full numbered folders with IRB, Survey Instruments, Field Materials
+   - **Qualitative/Ethnographic**: Fieldwork folder (Interview Memos, Transcripts, Consent Forms); may skip survey/field folders; add Decision_Log.md
+   - **Theory/Writing**: Minimal (Paper, Presentations, Literature, AI_Collaboration); skip Google Doc hub/WhatsApp if solo
+   - Skip inapplicable folder numbers — this is expected.
 
-2. **Create TODO.md** with:
-   - Project-specific tasks
-   - Routing links to setup TODOs
+2. **Create TODO.md** in `AI_Collaboration/`. Replace project name and date placeholders.
 
-3. **Create PROJECT_INDEX.md** with:
-   - Project overview
-   - Links to primary documents
-   - Folder structure documentation
+3. **Create PROJECT_INDEX.md** — project overview, Google Doc links, transcript workflow, folder map
 
 4. **Create .claude/CLAUDE.md** with:
-   - Project overview
-   - Communication channels
-   - Key document links
-   - Team roster
-   - File paths and conventions
-   - Project-specific workflows
+   - Project overview, WhatsApp groups (exact names), Google Doc ID/URL
+   - Folder paths for transcripts, weekly reviews, dashboard archive
+   - Gmail keywords (include/exclude), sensitivity guidelines, cross-project notes
+   - Team roster, project status, project-specific workflows
+   - External file sources section if applicable (source info, files copied vs. not copied, "If Not Found" guidance)
 
-5. **Create AI collaboration folders:**
-   - `AI_Collaboration/Transcripts/`
-   - `AI_Collaboration/Weekly_Reviews/`
+5. **Copy external files** (if approved) and document in PROJECT_INDEX.md
 
-6. **Link external sources:** If external sources are identified (shared drives, cloud storage, institutional repositories), offer to copy or link key files into the project structure. Confirm before moving or duplicating any files.
+6. **Set up or document Google Doc hub** (don't restructure without explicit permission)
+
+7. **Create AI collaboration subfolders** if missing: `Transcripts/`, `Weekly_Reviews/`, `Dashboard_Archive/`
+
+8. **Create submissions subfolders** if applicable: `Grants/`, `Journal/`, `Pre_Registration/`, `Conference/`
 
 ### Phase 6: Verification
 
-1. Verify all created files are in correct locations
-2. Check that paths in documentation are accurate
-3. If a Google Doc hub was configured, verify it has the required markers for `/weekly-review`:
-   - `=== PROJECT STATUS DASHBOARD ===`
-   - `=== DASHBOARD END ===`
-   - `=== WEEKLY SUMMARIES START ===`
-   - If any are missing, advise user to add them to Tab 1 before running `/weekly-review`
-4. Present summary:
+After implementation:
 
-```
-## Setup Complete
-
-### Created
-- [List files/folders created]
-
-### Configured
-- [List integrations set up]
-
-### Next Steps
-- [Manual steps needed]
-```
+1. **Verify files** — all created files in correct locations, paths accurate, TODO.md routing links work
+2. **Verify external sources** (if configured) — path in CLAUDE.md, files copied, "If Not Found" section present
+3. **Verify Google Doc markers** (3-marker system):
+   - Research projects need: `=== PROJECT STATUS DASHBOARD ===`, `=== DASHBOARD END ===`, `=== WEEKLY SUMMARIES START ===`
+   - Institutional projects need: same first two + `=== MEETING LOG START ===`
+   - All 3 required in Tab 1 — advise user to add any missing markers
+4. **Summary for user** — list what was created, configured, external sources status, marker compatibility, next steps
 
 ## Key Principles
 
-1. **Never assume** — Always explore before proposing changes
-2. **Never overwrite** — Check for existing files before creating
-3. **Never reorganize without permission** — Existing structure may have reasons
-4. **Iterate** — Go back and forth until the plan is right
-5. **Preserve what works** — Don't fix what isn't broken
+- **Explore first, change later** — never overwrite or reorganize without permission
+- **Iterate** until user is satisfied; document tradeoffs when template conflicts with existing setup
 
 ## Arguments
 
@@ -180,14 +100,32 @@ Only after approval:
 
 ```
 /setup-project-management discover
+# Just assess current state, report findings
+
 /setup-project-management plan
+# Assess and propose plan, wait for approval
+
 /setup-project-management
+# Full interactive setup with all phases
+
 /setup-project-management minimal
+# Quick setup of just Claude config file
 ```
+
+## Limitations
+
+- Does NOT create Google Docs, restructure folders, delete/move files, configure MCP servers, or create WhatsApp groups
+- Only configures existing integrations
+
+## Troubleshooting
+
+- **WhatsApp groups not found** — names must be exact and case-sensitive; try partial search first
+- **Google Doc access** — verify Google Workspace MCP is configured; extract document ID from URL correctly
+- **Meeting transcripts** — if using Granola, MCP gives summaries only; export from Granola app for full transcripts
 
 ## Customization Points
 
-- **Folder structure:** Adapt the numbered folder system (01_Paper, 02_Presentations, etc.) to match your conventions
+- **Folder structure:** Adapt the numbered folder system to match your conventions
 - **Document hub:** Configure for Google Docs, Notion, or other platforms
 - **Team channels:** Add WhatsApp groups, Slack channels, or other communication tools
 - **Data sensitivity:** Add IRB-specific handling rules for sensitive projects

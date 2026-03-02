@@ -135,8 +135,7 @@ Currently only "High-tier" skills log consistently. Extend this to all skills so
 - No skills currently exceed 5K words (largest: triage-reminders at 3,703 words)
 
 **2. ~~No validation or testing checklist~~ — ADDRESSED (Feb 15, 2026)**
-- Created `skill-testing-protocol.md` with systematic testing for trigger accuracy, execution correctness, graceful degradation, and performance baselines
-- See the [Skill Testing Protocol](skill-testing-protocol.md) for the full protocol
+- Added a Quality Checklist (see bottom of this document) covering structure, behavior, integration, and testing phases
 
 **3. No decomposition discipline**
 - Some skills bundle distinct responsibilities (e.g., morning-brief does calendar + reminders + email + weather + triage)
