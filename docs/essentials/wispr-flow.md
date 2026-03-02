@@ -82,7 +82,7 @@ Wispr Flow's advantage is that it works everywhere on your Mac/iPhone without sw
 
 ## Getting Started
 
-1. **Sign up** at [wispr.flow](https://www.wispr.flow/) (Mac app + iOS keyboard)
+1. **Sign up** at [wisprflow.ai](https://wisprflow.ai/) (Mac app + iOS keyboard)
 2. **Set your hotkey** — I use a dedicated key, but any modifier combo works
 3. **Train it** — The first few days it'll get some words wrong. Correct them and it learns.
 4. **Use it for everything** — The more you use it, the better it gets at your vocabulary
