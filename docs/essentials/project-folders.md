@@ -1,5 +1,7 @@
 # AI Project Folders: Turn Any Recurring Task into a System
 
+<span class="badge-teal">No Claude Code required</span>
+
 <div class="grid cards" markdown>
 
 -   :octicons-book-24: [**Vacation Planning**](folders/vacation.md)

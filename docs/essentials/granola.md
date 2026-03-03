@@ -1,9 +1,13 @@
-# Granola
+# Meeting Transcription
 
-Granola is a meeting transcription tool that works on Zoom calls, phone calls, and in-person meetings (phone in your pocket). It transcribes everything, provides AI summaries, and — critically — gives you the raw transcript so you can do your own analysis.
+<span class="badge-teal">No Claude Code required</span>
 
-!!! note "Why this tool"
-    I haven't tested every transcription tool on the market. Granola is the one I settled on after comparing several options. The combination of in-person recording, raw transcript export, and easy integration with Claude Code is what won me over. The alternatives below are solid — check them against your own workflow.
+Every meeting generates decisions, action items, and context that live in people's heads and die there. A transcription tool turns all of that into a searchable, actionable record.
+
+**My current tool: [Granola](https://www.granola.ai).** It works on Zoom calls, phone calls, and in-person meetings (phone in your pocket). It transcribes everything, provides AI summaries, and — critically — gives you the raw transcript so you can do your own analysis.
+
+!!! note "Alternatives work too"
+    Otter.ai, Fireflies.ai, tl;dv, and Zoom's built-in transcription all do good work. What matters is the capability — transcribing every meeting — not the specific product. I chose Granola for its in-person recording, raw transcript export, and easy integration with Claude Code. See [alternatives](#alternatives) below and pick what fits your workflow.
 
 ---
 

@@ -38,6 +38,16 @@ Guides, templates, and reference documents from my actual setup. Download, adapt
 
     [:octicons-download-16: Download](prompt-preferences-template.md) · [:octicons-arrow-right-24: Related: Prompt Engineering](../essentials/prompting.md)
 
+-   **Prompt Engineering Assistant — Instructions**
+
+    ---
+
+    *Updated March 2026*
+
+    Ready-to-paste instructions for a ChatGPT or Claude.ai Project that restructures messy input into clean prompts. Three modes: quick format, format-and-critique, and prompt pack.
+
+    [:octicons-download-16: Download](prompt-assistant-instructions.md) · [:octicons-arrow-right-24: Related: Prompt Engineering](../essentials/prompting.md)
+
 -   **Prompting Best Practices Guide**
 
     ---

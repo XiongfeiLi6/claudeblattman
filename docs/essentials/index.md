@@ -2,7 +2,7 @@
 
 **I don't know if I have the best habits in the world, but these ones really changed my research and my life.**
 
-??? tip "Some very basic advice before you dive in"
+!!! tip "Some very basic advice before you dive in"
 
     Get a paid subscription to Claude or ChatGPT (or both). Always use the strongest model available — the quality gap is large. Give the AI context about who you are and what you need before diving into a request. The [Chatbots Done Right](chatbots.md) page covers the fundamentals; the [Prompt Engineering](prompting.md) page formalizes the full framework.
 
@@ -36,19 +36,27 @@
 
     [:octicons-arrow-right-24: Read more](project-folders.md)
 
--   **:material-microphone-outline: Wispr Flow**
+-   **:material-shield-check-outline: Stress-Test Any Plan**
 
     ---
 
-    Dictation that actually works — on your phone, your laptop, in any text box. Why I basically never type anymore.
+    Paste a plan into a fresh AI chat with an adversarial prompt and get structured critique. One prompt, 10 minutes, any tool.
+
+    [:octicons-arrow-right-24: Read more](../workflows/plan-review-browser.md)
+
+-   **:material-microphone-outline: Voice Dictation**
+
+    ---
+
+    Dictation across iPhone, Mac, and every app. The landscape is changing fast — here's what I use and how to evaluate your options.
 
     [:octicons-arrow-right-24: Read more](wispr-flow.md)
 
--   **:material-clipboard-text-clock-outline: Granola**
+-   **:material-clipboard-text-clock-outline: Transcribe Every Meeting**
 
     ---
 
-    Meeting transcription that works on Zoom, phone calls, and in-person meetings. How I turn conversations into structured project records.
+    Turn Zoom calls, phone calls, and in-person meetings into searchable transcripts and structured records. My current tool and alternatives.
 
     [:octicons-arrow-right-24: Read more](granola.md)
 

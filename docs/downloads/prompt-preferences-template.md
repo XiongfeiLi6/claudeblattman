@@ -19,6 +19,8 @@ When formatting prompts, use these sections in this order (include only those th
 
 ### System vs User Prompt Separation
 
+(In browser-based ChatGPT/Claude.ai, your Project Instructions serve as the persistent context. This distinction matters most in Claude Code or the API.)
+
 For reusable prompts or agent-style workflows, separate content into two layers:
 
 - **System prompt** = stable behavior, role, and constraints (tone, citation rules, refusal policy, house style)
@@ -37,9 +39,9 @@ These constraints apply to most of my work unless I specify otherwise:
 - Prefer concise responses unless I explicitly ask for detail
 - When uncertain, state assumptions rather than guessing silently
 - If a task is ambiguous, ask one clarifying question rather than proceeding with wrong assumptions
-- Prefer **zero-shot first**; tighten instructions or add output schema before adding examples
-- Use **bookend pattern**: repeat critical constraints near the end of the prompt (right before examples/output schema)
-- Do **not** request chain-of-thought; instead request brief rationale + assumptions + checks
+- **Try without examples first**; tighten instructions or add output schema before adding examples
+- Use **bookend pattern** (repeat critical constraints at the end of long prompts): restate key constraints near the end of the prompt, right before examples/output schema
+- Don't ask for step-by-step reasoning; instead request brief rationale + assumptions + checks
 
 ### Depth Calibration (for substantive prompts)
 - When formatting prompts for analysis, research, writing, or design: include depth-calibration directives using specific action verbs (research, compare, verify, flag)

@@ -9,13 +9,16 @@ This page covers prompt engineering as a repeatable method you can apply to any 
 !!! tip "The single most important thing on this page"
 
     Don't memorize prompt engineering rules — **make the AI do it for you.**
-    Create a prompt engineering project in ChatGPT or Claude, and it will
-    restructure your messy input into clean prompts automatically.
-    [Jump to the how-to below.](#make-the-ai-do-this-for-you)
+    Create a Project in [ChatGPT](https://chatgpt.com) or
+    [Claude.ai](https://claude.ai), paste in the instructions below, and it
+    will restructure your messy input into clean prompts automatically.
+    [Jump to the how-to.](#make-the-ai-do-this-for-you)
 
-    Once you start using Claude Code, you can automate this further with
-    the [`/prompt` skill](../workflows/first-session-skills.md#step-1-structure-your-thinking-prompt) that formats and
-    executes prompts in a single command.
+    The same idea works for plan review: paste a plan into a
+    [fresh chat with an adversarial prompt](../workflows/plan-review-browser.md)
+    and get structured critique — no coding needed. In Claude Code, the
+    [`/prompt` skill](../workflows/first-session-skills.md#step-1-structure-your-thinking-prompt)
+    formats and executes prompts in a single command.
 
 ---
 
@@ -105,7 +108,7 @@ Here's a real prompt with each section labeled. Not every prompt needs all six p
 
 ---
 
-## Depth Calibration
+## Match Effort to Stakes
 
 Not every task needs the same level of effort. A quick email reply doesn't need the AI to "research best practices" and "state assumptions." A methodology review does.
 
@@ -140,9 +143,11 @@ When you do use examples, keep them compact. `input → output` pairs work bette
 
 ---
 
-## Use XML Tags for Structure
+## Use Tags to Separate Instructions from Content
 
-When a prompt has multiple types of content — instructions, background data, documents to analyze — XML-style tags help Claude parse what's what. This is especially useful when you're pasting in text for Claude to work with.
+When you paste a long document into a chat, the AI can confuse your instructions with the document text. Simple tags fix this:
+
+When a prompt has multiple types of content — instructions, background data, documents to analyze — XML-style tags help Claude parse what's what.
 
 ```text
 <instructions>
@@ -210,90 +215,19 @@ You don't have to internalize all of the above. Create a project in ChatGPT or C
 
     In Claude.ai, go to **Projects → Create Project**. Add your instructions and upload files in the right panel:
 
-    ![Claude.ai Projects interface with Memory, Instructions, and Files](../images/claude-projects-v1.png){ alt="Claude.ai Projects interface showing where to add instructions and upload files" style="max-width: 480px" }
+    ![Claude.ai Projects interface with Memory, Instructions, and Files](../images/claude-projects-v1.png){ alt="Claude.ai Projects interface showing where to add instructions and upload files" }
 
 === "ChatGPT"
 
     In ChatGPT, go to **Sidebar → Projects → New Project**. Add files under the **Sources** tab:
 
-    ![ChatGPT Projects interface with Sources and uploaded files](../images/chatgpt-projects-v1.png){ alt="ChatGPT Projects interface showing Sources tab with uploaded instruction files" style="max-width: 480px" }
+    ![ChatGPT Projects interface with Sources and uploaded files](../images/chatgpt-projects-v1.png){ alt="ChatGPT Projects interface showing Sources tab with uploaded instruction files" }
 
 ### The instructions file
 
-Copy this into your project instructions. It tells the AI to take any unstructured input and restructure it into a clean, well-organized prompt.
+The instructions tell the AI to take any unstructured input and restructure it into a clean, well-organized prompt. It supports three modes: "quick format" (just the prompt), "format and critique" (prompt + alternatives), and "prompt pack" (2-4 variants at different depth levels).
 
-```text
-# Prompt Engineering Assistant — Project Instructions
-
-## Purpose
-You are a prompt engineering assistant. Your job is to take narrative,
-unstructured input and restructure it into clean, well-organized prompts.
-
-Primary deliverable: a ready-to-paste prompt (or small set of prompt
-variants) that reliably produces the user's desired output.
-
-## Default behavior
-- Rewrite messy specs into a structured prompt using standard sections
-  (Role, Task, Context, Constraints, Output Format, Examples).
-- Put instructions before context/data. Use clear delimiters between
-  instructions and any quoted input.
-- Make implicit requirements explicit. Remove filler while preserving meaning.
-- Prefer action verbs and testable requirements over adjectives.
-- If something important is missing: proceed with reasonable defaults
-  and list them as "Assumptions," or ask a single clarifying question
-  only if the missing info would likely change the output substantially.
-
-## Output you produce each time
-1. Final Prompt (ready to paste)
-2. Suggestions (optional) — improvements, risks, missing info
-   - Skipped when the user says "quick format"
-
-## Supported modes
-- "quick format" — output only the restructured prompt, no suggestions
-- "format and critique" — restructured prompt plus detailed critique
-  and 2-3 alternative prompt designs
-- "prompt pack" — 2-4 prompt variants (minimal, standard, rigorous)
-
-## Standard prompt structure
-Use these headings in order (omit irrelevant sections):
-
-### Role
-Include only when starting a new thread or when specialized expertise
-changes outputs.
-
-### Task
-The single clearest description of what the model must do.
-
-### Context
-Background needed to perform the task well.
-
-### Inputs
-What the user is providing and how to treat it.
-
-### Constraints
-Rules, boundaries, and "do not" instructions. Include scope boundaries
-and what to do when uncertain.
-
-### Output format
-Exact structure, length targets, style/tone constraints, required elements.
-
-### Examples
-Only when examples exist or format is tricky.
-
-### Acceptance criteria
-A short checklist that makes success testable.
-
-### Assumptions
-Only include if you proceeded without asking a clarifying question.
-
-## Quality checklist before finalizing
-- Single main task is unambiguous
-- Output format is explicit and easy to grade
-- Constraints are not contradictory
-- Data is clearly separated from instructions
-- Any defaults are documented as assumptions
-- Prompt is copy-pasteable and does not depend on hidden context
-```
+[:octicons-download-16: Download the instructions](../downloads/prompt-assistant-instructions.md){ .md-button } &nbsp; Copy and paste into your project's instructions field.
 
 Now when you dump a rough idea into this project — dictated, messy, whatever — the AI restructures it into a clean prompt you can paste anywhere.
 
@@ -301,7 +235,15 @@ Now when you dump a rough idea into this project — dictated, messy, whatever �
 
 ## Going Further
 
-Once you find prompts that work well for recurring tasks, save them. A text file, a note on your phone — the format doesn't matter. Over time, replace specifics with `[FILL IN]` placeholders and you have reusable templates. In Claude Code, you can turn those templates into *skills* (slash commands) that run with a single command — the [Get Started](../setup/index.md) path shows how.
+Once you find prompts that work well for recurring tasks, save them. Replace specifics with `[FILL IN]` placeholders and you have reusable templates.
+
+For a head start, download the **[Prompt Preferences Template](../downloads/prompt-preferences-template.md)** — it captures your standard sections, common constraints, preferred output formats, and roles in one file you can paste into any ChatGPT or Claude.ai project.
+
+When you're ready for more: [Project Folders](project-folders.md) show how to build domain-specific instruction sets, and in Claude Code you can turn templates into *skills* (slash commands) that run with a single command — the [Setup Guide](../setup/index.md) shows how.
+
+### Three levels of saved context
+
+Save context at three levels: [Prompt Preferences](../downloads/prompt-preferences-template.md) for any chatbot, [Project Folders](project-folders.md) for recurring tasks, or [CLAUDE.md](../toolkit/claude-md.md) for Claude Code. Start with #1 and add layers as you need them.
 
 ---
 
@@ -322,6 +264,22 @@ These are the actual files I use. Download, adapt, and paste them into your own 
 
 <div class="grid cards" markdown>
 
+-   **Document your preferences**
+
+    ---
+
+    Capture your prompting style in a reusable file. Paste it into any AI project.
+
+    [:octicons-arrow-right-24: Prompt Preferences Template](../downloads/prompt-preferences-template.md)
+
+-   **Stress-test your plans**
+
+    ---
+
+    Paste a plan into a fresh chat with an adversarial prompt and get structured critique — no coding needed.
+
+    [:octicons-arrow-right-24: Plan Review (Browser)](../workflows/plan-review-browser.md)
+
 -   **See prompts in action**
 
     ---
@@ -329,13 +287,5 @@ These are the actual files I use. Download, adapt, and paste them into your own 
     The `/prompt` skill automates prompt formatting inside Claude Code.
 
     [:octicons-arrow-right-24: Skill Library](../setup/skill-reference.md)
-
--   **Add dictation to the pipeline**
-
-    ---
-
-    Dictate a rough idea, let a prompt skill format it, get polished output.
-
-    [:octicons-arrow-right-24: Wispr Flow](wispr-flow.md)
 
 </div>

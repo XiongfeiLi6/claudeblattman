@@ -246,6 +246,17 @@ h1, h2 {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
+/* Content images — fill text width by default */
+.md-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Narrow UI element images — keep constrained */
+.img-narrow {
+  max-width: 400px !important;
+}
+
 /* Softer admonitions */
 .md-typeset .admonition,
 .md-typeset details {

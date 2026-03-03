@@ -202,7 +202,7 @@ Here's what a well-structured prompt looks like — each section labeled. Not ev
     that handles it.
     ```
 
-For the full breakdown, see [The Anatomy of a Good Prompt](../essentials/prompting.md#the-anatomy-of-a-good-prompt) and [Depth Calibration](../essentials/prompting.md#depth-calibration) on the Prompt Engineering page.
+For the full breakdown, see [The Anatomy of a Good Prompt](../essentials/prompting.md#the-anatomy-of-a-good-prompt) and [Match Effort to Stakes](../essentials/prompting.md#match-effort-to-stakes) on the Prompt Engineering page.
 
 **Install (full bundle — 4 files):**
 
@@ -257,7 +257,7 @@ Claude reviewing its own plan in the same conversation is like asking someone to
 
 Here's what a `/review-plan` scorecard looks like — this one is from a review of this very page:
 
-![/review-plan scorecard showing strengths, red/yellow/green findings, and a REVISE verdict](../images/review-plan-scorecard-v1.png){ alt="Terminal output from /review-plan showing best practices context, strengths, color-coded weaknesses and gaps, and a verdict" style="max-width: 720px" }
+![/review-plan scorecard showing strengths, red/yellow/green findings, and a REVISE verdict](../images/review-plan-scorecard-v1.png){ alt="Terminal output from /review-plan showing best practices context, strengths, color-coded weaknesses and gaps, and a verdict" }
 
 **Install:**
 ```bash

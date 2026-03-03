@@ -19,9 +19,11 @@ Every major AI provider offers multiple models at different capability levels. T
 | **Claude** | Sonnet 4.6 (the default on free/Pro) | Opus 4.6 (more capable, slower) | Click the model selector in Claude.ai, or use `/model opus` in Claude Code |
 | **ChatGPT** | GPT-4o (the default) | o1-pro or o3 (stronger reasoning) | Click the model dropdown in ChatGPT |
 
-![Claude.ai model selector showing Opus 4.6, Extended thinking toggle, and additional models](../images/claude-model-selector-v1.png){ alt="Claude.ai interface showing the model selector dropdown with Opus 4.6 selected, Extended thinking toggle, and More models menu expanded" style="max-width: 400px" }
+![Claude.ai model selector showing Opus 4.6, Extended thinking toggle, and additional models](../images/claude-model-selector-v1.png){ alt="Claude.ai interface showing the model selector dropdown with Opus 4.6 selected, Extended thinking toggle, and More models menu expanded" }
 
 **The practical difference:** For quick questions, the default model is fine. For anything that requires reasoning, synthesis, or careful writing — research summaries, proposal drafts, data analysis plans — the stronger model produces noticeably better results. It's the difference between a competent undergraduate and a sharp colleague.
+
+*Model names change frequently. The principle holds: always choose the strongest option in the model selector. Opus-tier models require a paid plan.*
 
 **Cost reality:** Stronger models are either restricted to paid tiers or use more of your usage allowance. But if you're already paying for a subscription, you're leaving money on the table by not using the best model available to you.
 
@@ -50,11 +52,11 @@ Both Claude and ChatGPT let you save persistent context that applies to every co
 
 === "Claude.ai Projects"
 
-    ![Claude.ai Projects interface showing Memory, Instructions, and Files panels](../images/claude-projects-v1.png){ alt="Claude.ai Projects interface with Memory panel, Instructions section, and uploaded Files" style="max-width: 550px" }
+    ![Claude.ai Projects interface showing Memory, Instructions, and Files panels](../images/claude-projects-v1.png){ alt="Claude.ai Projects interface with Memory panel, Instructions section, and uploaded Files" }
 
 === "ChatGPT Projects"
 
-    ![ChatGPT Projects interface showing a project with instructions and uploaded files](../images/chatgpt-projects-v1.png){ alt="ChatGPT Projects interface showing a Prompt Engineer project with Sources tab and uploaded instruction files" style="max-width: 550px" }
+    ![ChatGPT Projects interface showing a project with instructions and uploaded files](../images/chatgpt-projects-v1.png){ alt="ChatGPT Projects interface showing a Prompt Engineer project with Sources tab and uploaded instruction files" }
 
 **What to put in saved context:**
 
@@ -175,6 +177,8 @@ Start simple — a text file, a note in your phone. Just stop reinventing the wh
 
 Over time, this library becomes the seed of something more powerful. On this site, the [Get Started](../setup/index.md) path shows how to turn saved prompts into automated skills that run in seconds. But even without that, a simple collection of your best prompts is one of the highest-value things you can build.
 
+For a head start, download the **[Prompt Preferences Template](../downloads/prompt-preferences-template.md)** — it gives you a ready-made structure for capturing your preferred sections, constraints, output formats, and roles.
+
 ---
 
 ## Next Steps
@@ -204,6 +208,14 @@ Over time, this library becomes the seed of something more powerful. On this sit
     Honest comparison of when to use which tool.
 
     [:octicons-arrow-right-24: ChatGPT vs Claude](chatgpt-vs-claude.md)
+
+-   **Stress-test your plans**
+
+    ---
+
+    Paste a plan into a fresh AI chat with an adversarial prompt and get structured critique — no coding needed.
+
+    [:octicons-arrow-right-24: Plan Review (Browser)](../workflows/plan-review-browser.md)
 
 -   **Go deeper**
 

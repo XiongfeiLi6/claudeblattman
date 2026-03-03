@@ -44,7 +44,7 @@ These aren't individual tools — they're **systems** built from skills, integra
 
 ## How These Connect
 
-The three workflows serve different needs and timelines:
+These workflows serve different needs and timelines:
 
 | Workflow | What it solves | Setup time | When to start |
 |----------|---------------|------------|---------------|
@@ -53,4 +53,4 @@ The three workflows serve different needs and timelines:
 | **Project Management** | Multi-project oversight and reporting | 3+ weeks of iteration | After EA basics are working |
 | **Tax Season** | Document collection, compilation, verification | 2-3 hours one-time | When you're comfortable with MCP + skills |
 
-You don't need all three. Start wherever your biggest pain point is. But they're designed to layer — the project management workflow works best when you already have inbox triage and meeting capture running.
+You don't need all of these. Start wherever your biggest pain point is. But they're designed to layer — the project management workflow works best when you already have inbox triage and meeting capture running.

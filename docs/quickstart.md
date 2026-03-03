@@ -86,7 +86,7 @@ available, tell me directly and suggest what to cut.
 
 ## What to Do With the Result
 
-The plan you get isn't the point. The *process* is the point. You just learned that:
+Keep this plan — you may find it useful. But notice what made it useful:
 
 1. **Five minutes of prompt structure** transforms a vague request into a useful output
 2. **Context about you** (role, constraints, goals) is what makes AI responses personal rather than generic
@@ -100,19 +100,19 @@ These three principles — structure, context, and format — apply to every AI 
 
 <div class="grid cards" markdown>
 
--   **Already use chatbots?**
+-   **Recommended next: Chatbots Done Right**
 
     ---
 
-    Learn the techniques that separate casual users from power users.
+    The habits that separate casual AI users from power users — picking models, saving context, structuring conversations.
 
-    [:octicons-arrow-right-24: Chatbots Done Right](essentials/chatbots.md)
+    [:octicons-arrow-right-24: Read it now](essentials/chatbots.md)
 
--   **Want prompt engineering skills?**
+-   **Want the formal prompt framework?**
 
     ---
 
-    The bridge skill between casual chatbot use and building real workflows.
+    Six sections, depth calibration, and how to make AI format your prompts for you.
 
     [:octicons-arrow-right-24: Prompt Engineering](essentials/prompting.md)
 

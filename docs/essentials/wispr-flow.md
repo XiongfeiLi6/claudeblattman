@@ -1,11 +1,13 @@
-# Wispr Flow
+# Voice Dictation
 
-Wispr Flow is a dictation tool that works everywhere — any text box on your Mac, any app on your iPhone, any field in a web browser. You talk, it types. It learns your vocabulary over time.
+<span class="badge-teal">No Claude Code required</span>
 
-I basically never type anymore.
+I basically never type anymore. Voice dictation — talking instead of typing, in any app — is the single biggest productivity change I've made alongside AI chatbots.
 
-!!! note "Why this tool"
-    I haven't tested every dictation app. I tried Apple's built-in dictation first and found it unreliable — too many errors, no vocabulary learning, and it only works in certain contexts. The dictation inside Claude and ChatGPT's own interfaces is surprisingly good, but it only works *inside those apps*. I wanted system-wide dictation: emails, VS Code, Claude Code, web forms, everything. Wispr Flow does that seamlessly. The alternatives below may work equally well — check them against your workflow.
+**My current tool: [Wispr Flow](https://wisprflow.ai).** It works across my iPhone and Mac in every app — email, VS Code, Claude Code, web forms, everything. It learns my vocabulary over time.
+
+!!! note "The landscape is changing fast"
+    New dictation tools are appearing constantly. Claude is adding voice input. ChatGPT already has it in-app. Apple's built-in dictation keeps improving. What matters is the capability — system-wide voice-to-text that works reliably — not the specific product. Evaluate what's current when you're ready to start. The alternatives section at the bottom lists several options.
 
 ---
 
