@@ -479,7 +479,7 @@ curl -o ~/.claude/commands/tips-integrate-references/scanning-rules.md \
 /tips-integrate since:2026-02-01  # Only items after this date
 ```
 
-**Output files:** Investigation proposals are written to `~/.claude-assistant/tasks/todo-items.md` (created automatically if it doesn't exist).
+**Output files:** Investigation proposals are written to the `INBOX` section of `skills-learning-catalog.md` (created automatically if it doesn't exist).
 
 **Customization:** Source selection, state file location (default `~/.claude-assistant/state/integrate-state.json`), target config files.
 
