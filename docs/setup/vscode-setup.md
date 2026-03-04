@@ -121,7 +121,7 @@ Claude Code will start up and show a welcome message. You're now ready to go. So
     In the Claude Code terminal, try typing:
     `What mode am I in right now?`
     Press Enter. Claude will explain what mode you're in and how to switch between them.
-    See [How Claude Code Thinks](modes.md) for a full explanation of the three modes.
+    See [How Claude Code Thinks](index.md#how-claude-code-thinks) for a full explanation of the three modes.
 
 ---
 
@@ -198,6 +198,6 @@ For more on these workflows, see [Skills in Action](../workflows/index.md) and t
 With VS Code set up, continue with the rest of the setup:
 
 1. **[Your CLAUDE.md](../toolkit/claude-md.md)** — Create the instruction file that makes Claude work for you
-2. **[How Claude Code Thinks](modes.md)** — Understand the three modes that control Claude's behavior
+2. **[How Claude Code Thinks](index.md#how-claude-code-thinks)** — Understand the three modes that control Claude's behavior
 3. **[MCP Setup](../toolkit/mcp-setup.md)** — Connect Claude to Gmail, Google Docs, Calendar, and more
-4. **[How Skills Work](../toolkit/skills-guide.md)** — Learn about slash commands that automate recurring tasks
+4. **[Skill Library](skill-reference.md)** — Browse and install slash commands that automate recurring tasks

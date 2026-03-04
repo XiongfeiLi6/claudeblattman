@@ -55,11 +55,7 @@ nav:
     - The Cost Reality: essentials/cost.md
     - Prompt Engineering: essentials/prompting.md
     - "Teaching AI Your Voice": essentials/voice.md
-    - AI Project Folders:
-      - essentials/project-folders.md
-      - "Example: Vacation Planning": essentials/folders/vacation.md
-      - "Example: Shopping Decisions": essentials/folders/shopping.md
-      - "Example: Health & Fitness": essentials/folders/health.md
+    - AI Project Folders: essentials/project-folders.md
     - "Stress-Test Any Plan": workflows/plan-review-browser.md
     - Voice Dictation: essentials/wispr-flow.md
     - Meeting Transcription: essentials/granola.md
@@ -71,11 +67,8 @@ nav:
     - Install (Windows): toolkit/install-windows.md
     - Set Up VS Code: setup/vscode-setup.md
     - Your CLAUDE.md: toolkit/claude-md.md
-    - How Claude Code Thinks: setup/modes.md
-    - How Skills Work: toolkit/skills-guide.md
     - MCP Setup: toolkit/mcp-setup.md
     - Skill Library: setup/skill-reference.md
-    - Downloads & Templates: downloads/index.md
   - Workflows:
     - workflows/index.md
     - "Prompt, Plan, Review, Revise": workflows/first-session-skills.md
@@ -136,6 +129,11 @@ plugins:
   - redirects:
       redirect_maps:
         quickstart.md: essentials/index.md
+        essentials/folders/vacation.md: essentials/project-folders.md
+        essentials/folders/shopping.md: essentials/project-folders.md
+        essentials/folders/health.md: essentials/project-folders.md
+        setup/modes.md: setup/index.md
+        toolkit/skills-guide.md: setup/skill-reference.md
   - social:
       cards_layout_options:
         background_color: "#263238"

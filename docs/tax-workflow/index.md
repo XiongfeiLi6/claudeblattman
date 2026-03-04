@@ -102,7 +102,7 @@ You do **not** need to:
 
 - Use Claude Code for your own taxes (many shouldn't — see [When to Get Help](reference/when-to-get-help.md))
 - Know anything about tax law
-- Have any prior Claude Code experience (though the [Build Your Own](build-your-own/architecture-patterns.md) section assumes familiarity with [skills](../toolkit/skills-guide.md))
+- Have any prior Claude Code experience (though the [Build Your Own](build-your-own/architecture-patterns.md) section assumes familiarity with [skills](../setup/skill-reference.md))
 
 ---
 

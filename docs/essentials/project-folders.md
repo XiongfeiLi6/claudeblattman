@@ -2,16 +2,7 @@
 
 <span class="badge-teal">No Claude Code required</span>
 
-<div class="grid cards" markdown>
-
--   :octicons-book-24: [**Vacation Planning**](folders/vacation.md)
--   :octicons-book-24: [**Shopping Decisions**](folders/shopping.md)
--   :octicons-book-24: [**Health & Fitness**](folders/health.md)
--   :octicons-tools-24: [**Work examples** — see Claude Code](../workflows/project-management.md)
-
-</div>
-
-*Ready to build? [Skip to the setup](#build-your-first-file).*
+*Ready to build? [Skip to the setup](#build-your-first-file). Want to see examples first? [Jump to the examples](#see-it-in-action).*
 
 A single file stores your stable preferences, hard constraints, and behavioral rules for a recurring domain. Every new conversation starts from that file instead of from scratch.
 
@@ -49,7 +40,7 @@ A project file is just a well-written prompt you write once and reuse forever.
 
 <div class="narrative-block" markdown>
 <p class="narrative-teaser" markdown>
-I built my first project file for family vacation planning. That one file — and the failures that shaped it — taught me the pattern I now use for everything. [Read the full example.](folders/vacation.md)
+I built my first project file for family vacation planning. That one file — and the failures that shaped it — taught me the pattern I now use for everything. [See the examples below](#see-it-in-action).
 </p>
 </div>
 
@@ -232,41 +223,200 @@ Don't expect your file to be good on day one. It follows a predictable arc:
 
 ## See It in Action
 
-The domain changes. The structure doesn't.
+The domain changes. The structure doesn't. Three examples — from simple to detailed.
 
-### Life
+=== "Health & Fitness"
 
-<div class="grid cards" markdown>
+    *A research and consultation folder — uploaded files for detailed health context.*
 
--   **Vacation Planning**
+    This isn't a planning folder like vacation or shopping. It's a research and consultation folder. I keep a detailed markdown file with my health baseline, labs, medications, and training patterns. When I have a question — blood pressure trends, a sports injury, nutrition claims, physical therapy options — the AI gives advice that accounts for my full context instead of starting from scratch.
 
-    ---
+    ??? note "How I actually use this"
 
-    The running example on this page. Family travel with constraints, thresholds, and an evidence bank.
+        I use this folder in a few different modes:
 
-    [:octicons-arrow-right-24: Read the example](folders/vacation.md)
+        - **Deep thinking sessions** — extended conversations where I work through a specific health question. Understanding a lab result trend, evaluating treatment options for an injury, figuring out how to modify training around a constraint.
+        - **Deep research reports** — when I want to understand claims about nutrition, blood pressure management, or physical therapy approaches. I ask for evidence with primary sources. I'm comfortable reading the actual studies, so I ask the AI to be skeptical of small-sample or non-experimental research.
+        - **Quick consultations** — minor ailments, aches and pains, equipment recommendations, whether a new monitoring device would be useful.
 
--   **Shopping Decisions**
+        Dr. Claude and Dr. ChatGPT are both genuinely good at this. I generally trust ChatGPT most for deep research in this domain — its web browsing lets it pull current studies and reviews. Claude tends to be better for structured analysis when I already have the information.
 
-    ---
+        The key insight: none of this works well without the profile file. Without it, you get generic advice for a generic person. With it, you get advice calibrated to your age, your medications, your injury history, and your actual training goals.
 
-    Durability over price, curated shortlists, and a system that learns from every purchase.
+    **What goes in the profile:** A single markdown document with your stable health context — core baseline (age range, weight range, blood pressure trend), medications & supplements (the most important section for safety — the AI cross-references interactions), medical history & injuries (written in functional terms like "no deep flexion beyond 90°"), lifestyle & activity pattern, family history, monitoring devices, and preferences & constraints.
 
-    [:octicons-arrow-right-24: Read the example](folders/shopping.md)
+    **The instructions file** (separate from the profile) tells the AI how to behave:
 
--   **Health & Fitness**
+    ```text
+    ## Standing preferences
+    - Base guidance on evidence and cite primary sources
+    - Be skeptical of small-sample or non-experimental research
+    - Flag anything requiring clinician approval
+    - Focus on performance and injury prevention, not generic weight-loss tips
 
-    ---
+    ## How to use the profile
+    - Load or reference the master health profile at the start of any thread
+    - If information seems out of date, ask before guessing
 
-    A master health profile that turns generic advice into advice that knows your body, your meds, and your goals.
+    ## Privacy
+    - No full identifiers in outputs
+    - Keep advice general enough to be safe if seen by others
+    ```
 
-    [:octicons-arrow-right-24: Read the example](folders/health.md)
+    **Files vs. instructions only:** This is a domain where uploaded files matter. Your health profile has tables of data — baseline vitals, medication lists, training patterns — that are too detailed for the instructions field alone. Upload the profile as a source file (ChatGPT) or project knowledge (Claude.ai), and keep the behavioral rules in instructions. Compare this to shopping, where the instructions file alone is enough.
 
-</div>
+    **Building your own:** Use the same three-step process from the [setup guide above](#build-your-first-file). Privacy note: use ranges instead of exact values. Keep detailed lab results in conversation, not in the permanent file. By the fifth or sixth session, the file stabilizes and updates become a line or two after each doctor's visit or training shift.
+
+=== "Vacation Planning"
+
+    *The original folder — family travel with constraints, thresholds, and an evidence bank.*
+
+    The first file I built wasn't for research. It was for planning family vacations. That sounds trivial, but it taught me the pattern I now use for everything. We once planned a trip to a great spot for climbing and rafting. Turned out it was one of the hotter times of year — we lost several outdoor days. That failure is what taught me to add explicit temperature thresholds instead of vague preferences like "we don't like heat."
+
+    ??? note "The full story: how a messy dump became a system"
+
+        It started as a brain dump. My wife and I were planning a summer trip and I pasted a wall of text into ChatGPT — where we'd been, what the kids liked, what we couldn't stand. The AI gave decent suggestions but kept recommending beach resorts, which isn't us.
+
+        So I refined the dump. Added explicit "avoids" for each family member. Added temperature thresholds instead of "we prefer mild weather." Added past trip patterns — not just where we went, but *which conditions made them work*: high altitude, desert-like, culturally rich small towns.
+
+        By the third or fourth trip planned this way, the file had stabilized. I wasn't rewriting it anymore — just adding a line or two after each trip. After about six conversations, the file was reliable enough to trust. New trip planning conversations started producing useful, specific suggestions on the first exchange.
+
+    **System instructions** — the behavioral rules that prevent generic output:
+
+    ```text
+    I want you to be an unusually investigative advisor for travel.
+    Instead of focusing on being highly agreeable, be analytical and
+    offer critical opinions where appropriate.
+
+    When starting a new discussion, analyze the prompt and come back with:
+    * What kind of vacation we want
+    * Who is going (if not clear)
+    * Major red flags based on my preferences
+    * Potential travel restrictions
+
+    Please do not hallucinate details but investigate and confirm
+    wherever possible.
+    ```
+
+    Why "unusually investigative"? Without this, the AI defaults to agreeable mode — it recommends whatever you seem excited about. "Major red flags" forces it to cross-reference your preferences *before* generating suggestions.
+
+    **Persona preferences** — each family member gets their own section:
+
+    ```text
+    ### Teen Daughter
+    - Passions: Animals (especially horses — horseback riding is her top priority),
+      water sports, reading, bookstores, shopping
+    - Avoids: Steady uphill hikes (unless scrambly or leading to water),
+      heavy insect areas, long drives without stops
+    ```
+
+    The design pattern: preferences tell the AI what to suggest. Avoids tell it what to *filter out*.
+
+    **Logistics constraints** — every constraint has a number:
+
+    ```text
+    ## Climate & Weather Requirements
+    - Temperature: Prefer daytime highs 65-80°F; flag anything over 85°F
+    - Humidity: Low humidity preferred, especially if over 80°F
+
+    ## Travel Logistics
+    - Base strategy: Prefer one home base for 5-7 days with activities
+      within 75-minute drives
+    - Driving limits: Maximum 8 hours/day, preferably 4
+    - Accommodation: Heavy users of home exchange
+    ```
+
+    Not "we don't like long drives" but "maximum 8 hours, preferably 4." Not "mild weather" but "65-80°F, flag over 85°F."
+
+    **Evidence bank** — tag each entry with its conditions:
+
+    ```text
+    ## Successful Past Patterns
+    - Mountain/high altitude — Pacific Northwest in summer
+      (worked: climate, outdoor sports, uncrowded)
+    - Cultural/authentic — Southern Mexico
+      (worked: food scene, local flavor, affordable, kids engaged)
+
+    ## Good but Imperfect
+    - Coastal Mexico resort town (too muggy; inland towns were better)
+    - Major European cities in summer (too crowded; rural areas excellent)
+    ```
+
+    This is the most powerful section — it gives the AI pattern-matching data instead of just preference lists.
+
+    **How a trip actually works:** Start a new conversation with a short trip brief (dates, who's going, special constraints). The canonical file provides everything else. Review the AI's initial response — did it reference your constraints? Ask for 1.5-2x the options you need with explicit trade-offs. Pick 1-2 top options and build the itinerary. After the trip, add 1-2 stable learnings.
+
+=== "Shopping Decisions"
+
+    *Instructions-only folder — durability over price, curated shortlists, and a system that learns from every purchase.*
+
+    I built my first shopping file after the third time I asked ChatGPT for a product recommendation and got a wall of options with no clear winner. The AI kept recommending unknown brands, inventing prices, and ignoring that I care more about durability than saving $20.
+
+    ??? note "The full story: how ad hoc prompting became a system"
+
+        The first failure mode I noticed: it didn't remember that I value durability over marginal savings. Every new conversation, I'd re-explain my decision style from scratch. The second: it would recommend 15 options when I needed 3. The third: it sounded certain about things it couldn't possibly know — stock levels, sale prices, review consensus.
+
+        The real shift came when I separated *how I decide* from *what I'm buying now*. My decision criteria don't change between purchases. So I pulled them into a canonical file. The per-purchase details go into a brief I paste fresh each time.
+
+    **Decision posture:**
+
+    ```text
+    - Prioritize best-in-class or best value-for-money products.
+      Mention budget options when durability is less critical.
+    - Avoid unknown or low-quality brands, especially random
+      marketplace imports. Favor well-known, trusted brands.
+    - Value durability and long-term satisfaction over first
+      impressions. Highlight reviews reflecting long-term use.
+    ```
+
+    Without the first line, the AI optimizes for price — the wrong objective. Without the second, it recommends cheap imports with inflated reviews. Without the third, it weights "just arrived" praise over long-term ownership reports.
+
+    **How to recommend:**
+
+    ```text
+    - Provide curated shortlists (3-5 picks), side-by-side
+      comparisons, and pros/cons summaries.
+    - Include links to expert reviews (e.g., Wirecutter, Outdoor
+      Gear Lab). I like to read the deep dives myself.
+    - Do not recommend subscription or auto-renewal options
+      unless explicitly requested.
+    ```
+
+    **Run brief template:**
+
+    ```text
+    Item: Standing desk for home office
+    Use case: Daily use, 8+ hours. Alternate sitting/standing.
+
+    Must-haves:
+    - Stable at standing height (no wobble during typing)
+    - Fits 2 monitors + laptop
+    - Quiet motor
+
+    Constraints:
+    - Budget: under $700
+    - Width: max 60 inches (alcove)
+    - Timeline: no rush, can wait for a sale
+
+    Avoid: particle board tops, brands without long-term reviews
+    ```
+
+    Notice what's *not* in the brief: how I evaluate products, my review-reading heuristics, my preference for durability over price. All of that lives in the instructions file.
+
+    **Structured output** — the AI produces a consistent format every time: shortlist (3-5 picks, labeled), comparison table, who each pick is for, failure modes, buy path, and questions (only if truly needed).
+
+    **Common failure modes and fixes:**
+
+    | Failure | Fix in the file |
+    |---------|----------------|
+    | Too many options | Shortlist cap (3-5) + forced tradeoffs |
+    | Junk brands | Default to reputable; require opt-in for risk |
+    | Invented facts | "Unknown unless provided"; label uncertainty |
+    | File bloat | Stable-only rule + size limit + quarterly prune |
 
 ### Work
 
-The same project folder principles apply to professional workflows — writing, proposals, reports, literature reviews. Start with the life examples above to learn the pattern.
+The same principles apply to professional workflows — writing, proposals, reports, literature reviews.
 
 **ChatGPT Deep Research** deserves a special mention: it may be the single most valuable AI tool for faculty right now. Give it a clear, well-engineered prompt and it produces detailed research briefings that would take hours of manual searching.
 
@@ -284,9 +434,7 @@ For project management workflows that go beyond project folders — weekly revie
 | Active trip/project planning | Better (browsing) | Good |
 | Automating recurring processes | Limited | Claude Code excels |
 
-**Caveat on web research:** ChatGPT's web browsing is useful for discovery but frequently hallucinates specific prices, hours, and availability — especially for travel planning. Always verify time-sensitive details independently.
-
-**My approach:** I use ChatGPT project folders for research-heavy planning where I need current web info. I use Claude Code for professional tasks that I run repeatedly with standardized inputs. For building the canonical file itself, Claude tends to produce better-organized, more precise output.
+**My approach:** I use ChatGPT project folders for research-heavy planning where I need current web info. I use Claude Code for professional tasks that I run repeatedly with standardized inputs. For building the canonical file itself, Claude tends to produce better-organized, more precise output. Note that ChatGPT's web browsing frequently hallucinates specific prices, hours, and availability — always verify time-sensitive details independently.
 
 ---
 

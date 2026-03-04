@@ -75,16 +75,44 @@ The two most popular options:
 |------|---------------|------|
 | **[Set Up VS Code](vscode-setup.md)** *(optional)* | Install VS Code and the Claude Code extension. My preferred way to work, but not required. | 15 min |
 | **[Your CLAUDE.md](../toolkit/claude-md.md)** | Create the instruction file that makes Claude Code work *for you*. | 30 min |
-| **[How Claude Code Thinks](modes.md)** | Understand the three modes that control how Claude behaves. | 5 min read |
 | **[MCP Setup](../toolkit/mcp-setup.md)** | Connect Claude Code to Gmail, Google Docs, Calendar, and other services. | 30-60 min |
+
+<span id="how-claude-code-thinks"></span>
+??? tip "How Claude Code Thinks"
+
+    When you first launch Claude Code, you're in **Default mode** — the safest starting point. Claude proposes changes and waits for you to approve each one before it touches your files. As you get comfortable, you can change that.
+
+    **The Three Modes**
+
+    | Mode | What Claude Does | What You See |
+    |------|-----------------|-------------|
+    | **Default** | Proposes edits as diffs. You confirm each one. | Normal prompt |
+    | **Plan Mode** | Explores and proposes — touches nothing. Reads files, suggests approaches. You decide. | `(plan)` label |
+    | **Auto-Accept** | Applies edits automatically without asking. | `⏵⏵ accept edits on` |
+
+    !!! warning "Accidentally in Auto-Accept?"
+        If Claude started making changes without asking, look for the `⏵⏵` indicator. Press **Shift+Tab** until it disappears and you see the normal prompt. To undo changes: **Cmd+Z** (Mac) or **Ctrl+Z** (Windows) in VS Code.
+
+    **How to Switch:** Press **Shift+Tab** to cycle through modes (Default → Plan → Auto-Accept → Default). You can also type `/plan` to jump to Plan mode directly.
+
+    **When to Use Each Mode**
+
+    | Situation | Mode |
+    |-----------|------|
+    | "I want to understand what's in this project" | **Plan mode** — Claude reads and proposes without touching files |
+    | "Claude keeps asking me to approve small edits and I trust it" | **Auto-Accept** — edits apply immediately |
+    | "I want Claude to draft something but I want to review first" | **Default** — Claude proposes, you confirm |
+    | "I want Claude to explore options, then I'll decide" | **Plan mode**, then switch to Default to execute |
+
+    **Start in Default mode.** Switch to Plan mode when you want Claude to think without acting, and to Auto-Accept when you're doing trusted, routine work and the confirmation prompts slow you down.
+
+    See [Prompt, Plan, Review, Revise](../workflows/first-session-skills.md) for a workflow that puts Plan mode at the center.
 
 ## Learn and Browse
 
 | Page | What You'll Learn | Time |
 |------|------------------|------|
-| **[How Skills Work](../toolkit/skills-guide.md)** | What skills (slash commands) are, how to use them, and how they change your workflow. | 15 min read |
-| **[Skill Library](skill-reference.md)** | All downloadable skills with installation, usage, and customization details. | Browse |
-| **[Downloads & Templates](../downloads/index.md)** | Starter files: CLAUDE.md template, email voice template, goals.yaml, and a real annotated example. | Browse |
+| **[Skill Library](skill-reference.md)** | All downloadable skills — what they are, how to install and use them, with customization details. | Browse |
 
 ---
 

@@ -201,7 +201,7 @@ claude
 ## What's Next
 
 1. **[Set up your CLAUDE.md file](claude-md.md)** — Tells Claude about you and your preferences. (~30 minutes)
-2. **[How Claude Code Thinks](../setup/modes.md)** — Understand the three modes that control Claude's behavior (Default, Plan, Auto-Accept). (~5 minute read)
+2. **[How Claude Code Thinks](../setup/index.md#how-claude-code-thinks)** — Understand the three modes that control Claude's behavior (Default, Plan, Auto-Accept). (~5 minute read)
 3. **[Connect external services](mcp-setup.md)** — Give Claude access to Gmail, Google Docs, etc. (~30-60 minutes)
 4. **[Explore the Skill Library](../setup/skill-reference.md)** — Download pre-built skills for common workflows.
 

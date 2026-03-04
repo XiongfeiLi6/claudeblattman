@@ -243,7 +243,7 @@ This matters because the default mode will start editing files as soon as it has
 
 **The persona technique:** For the website, I told Claude to plan as both a web designer and a skills engineer. They debated and converged on a single plan. You can assign whatever personas suit the problem — the point is to get multiple perspectives before committing to an approach.
 
-For more on how modes work, see [How Claude Code Thinks](../setup/modes.md).
+For more on how modes work, see [How Claude Code Thinks](../setup/index.md#how-claude-code-thinks).
 
 ---
 

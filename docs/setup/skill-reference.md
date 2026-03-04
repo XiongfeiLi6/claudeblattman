@@ -1,22 +1,48 @@
 # Skill Library
 
-All downloadable skills, agents, and templates. Each entry includes installation commands, usage examples, and customization guidance.
+Skills (also called slash commands) are reusable prompts that run inside Claude Code with a single command. Instead of typing out a detailed prompt every time, you type `/done` or `/review-plan` and the skill handles the rest.
 
-**Workflow tags:** Skills are tagged by which workflow they belong to — `[PM]` for [Project Management](../workflows/project-management.md), `[EA]` for [Executive Assistant](../toolkit/executive-assistant.md), `[First Session]` for [First Session Skills](../workflows/first-session-skills.md), `[Advanced]` for [system-level tools](../system/continuous-improvement.md).
+A skill is just a markdown file saved in `~/.claude/commands/`. It contains instructions, optional arguments, and optional references to other files. When you type `/skillname`, Claude reads the file and follows the instructions. **No code, no compilation, no special syntax — just saved prompts with a shortcut.**
 
 ---
 
-## Quick Setup
+## Install & Use
 
-These commands create the folders where Claude Code looks for skills and agents. `mkdir -p` creates a folder (and any parent folders needed). `curl -o` (used below) downloads a file from the internet and saves it to your computer.
+!!! warning "Read before you install"
+    Skills are executable instruction files — when you run them, Claude follows every instruction in the file, including MCP tool calls. Before installing a skill from any source, open the `.md` file and read through it. Skills from this site are published on [GitHub](https://github.com/chrisblattman/claudeblattman/tree/main/skills) where you can review the full source.
+
+**Setup** — create the folders where Claude Code looks for skills:
 
 ```bash
-# Create the directories (if they don't exist)
 mkdir -p ~/.claude/commands
 mkdir -p ~/.claude/agents
 ```
 
+**Install a skill** — download and restart:
+
+```bash
+# Example: download the /done skill
+curl -o ~/.claude/commands/done.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/done.md
+```
+
 After saving any new skill file, **restart Claude Code** for the command to become available.
+
+**Use a skill** — type `/` followed by the skill name:
+
+```
+> /done
+> /done quick
+> /prompt Draft an email to the team about the schedule change
+```
+
+Most skills accept arguments — text after the command name that gets passed as `$ARGUMENTS`.
+
+**Build your own** — identify a task you do repeatedly, write out the prompt, save it as a `.md` file in `~/.claude/commands/`, and add `$ARGUMENTS` where you want user input. See [Building Skills](../system/building-skills.md) for patterns and a quality checklist.
+
+---
+
+**Workflow tags:** Skills below are tagged by workflow — `[PM]` for [Project Management](../workflows/project-management.md), `[EA]` for [Executive Assistant](../toolkit/executive-assistant.md), `[First Session]` for [First Session Skills](../workflows/first-session-skills.md), `[Advanced]` for [system-level tools](../system/continuous-improvement.md).
 
 ---
 
@@ -651,3 +677,9 @@ mkdir -p ~/.claude-assistant/config
 curl -o ~/.claude-assistant/config/calendar-policy.md \
   https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/calendar-policy-template.md
 ```
+
+---
+
+## Reference Library
+
+For additional downloads — a real annotated CLAUDE.md, skill development patterns, agents vs skills decision guide, and tool comparison guides — see the [Downloads & Templates](../downloads/index.md) page.
