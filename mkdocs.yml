@@ -49,7 +49,6 @@ theme:
 
 nav:
   - Home: index.md
-  - Quickstart: quickstart.md
   - Essentials:
     - essentials/index.md
     - Chatbots Done Right: essentials/chatbots.md
@@ -61,7 +60,6 @@ nav:
       - "Example: Vacation Planning": essentials/folders/vacation.md
       - "Example: Shopping Decisions": essentials/folders/shopping.md
       - "Example: Health & Fitness": essentials/folders/health.md
-      - "Example: Work Projects": essentials/folders/work.md
     - "Stress-Test Any Plan": workflows/plan-review-browser.md
     - Voice Dictation: essentials/wispr-flow.md
     - Meeting Transcription: essentials/granola.md
@@ -135,6 +133,9 @@ markdown_extensions:
 plugins:
   - search
   - meta
+  - redirects:
+      redirect_maps:
+        quickstart.md: essentials/index.md
   - social:
       cards_layout_options:
         background_color: "#263238"

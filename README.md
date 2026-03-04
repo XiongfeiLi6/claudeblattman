@@ -24,7 +24,7 @@ No coding background required. Everything is built with markdown and AI tools.
 
 ## Quick Start
 
-Visit [claudeblattman.com/quickstart](https://claudeblattman.com/quickstart/) for a 5-minute exercise that demonstrates the core principles.
+Visit [claudeblattman.com/essentials](https://claudeblattman.com/essentials/) for tools and foundations to get started.
 
 ## Install Skills
 

@@ -103,7 +103,7 @@ I built one for family vacation planning. It knows our climate thresholds, each 
 
 ## Structure Your Requests
 
-The [Quickstart](../quickstart.md) demonstrated this, but it bears repeating: structured prompts get dramatically better results.
+The Quickstart demonstrated this, but it bears repeating: structured prompts get dramatically better results.
 
 **The pattern:**
 

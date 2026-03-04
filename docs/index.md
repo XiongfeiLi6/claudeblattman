@@ -13,8 +13,9 @@ social:
 <p class="hero-pitch">Tools I use to manage my schedule, communication, and complex projects with large teams across several countries. Examples and tutorials for productivity and sanity.</p>
 
 <div class="hero-buttons">
+<a href="setup/" class="md-button md-button--primary">Get started</a>
 <a href="workflows/" class="md-button md-button--primary">See what it does</a>
-<a href="setup/skill-reference/" class="md-button md-button--primary">Get Skills & Templates</a>
+<a href="setup/skill-reference/" class="md-button">Get Skills & Templates</a>
 <a href="about/#how-i-got-here" class="md-button">Read the background</a>
 </div>
 
