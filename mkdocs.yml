@@ -74,8 +74,8 @@ nav:
     - Set Up VS Code: setup/vscode-setup.md
     - Your CLAUDE.md: toolkit/claude-md.md
     - How Claude Code Thinks: setup/modes.md
-    - MCP Setup: toolkit/mcp-setup.md
     - How Skills Work: toolkit/skills-guide.md
+    - MCP Setup: toolkit/mcp-setup.md
     - Skill Library: setup/skill-reference.md
     - Downloads & Templates: downloads/index.md
   - Workflows:
@@ -104,7 +104,6 @@ nav:
     - Agents vs Skills: system/agents-vs-skills.md
     - Continuous Improvement: system/continuous-improvement.md
     - Patterns: system/patterns.md
-    - Downloads & Reference Library: downloads/index.md
     - "A Real CLAUDE.md": downloads/real-claude-md-example.md
   - About:
     - about.md

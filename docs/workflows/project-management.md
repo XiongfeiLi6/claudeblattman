@@ -228,13 +228,30 @@ This system was developed primarily for quantitative research projects (randomiz
 
 ## Get the Skills
 
-All skills referenced above are available for download:
+Install the project management skills with these commands. Each works independently — start with `/setup-project-management` and add the others as you build each layer.
 
-| Skill | What it does | Install |
-|-------|-------------|---------|
-| `/setup-project-management` | Interactive project folder setup | [Details](../setup/skill-reference.md#setup-project-management-project-setup) |
-| `/weekly-review` | Multi-source weekly synthesis | [Details](../setup/skill-reference.md#weekly-review-weekly-project-review) |
-| `/proposal-write` | Draft proposals from project context | [Details](../setup/skill-reference.md#proposal-write-proposal-drafting) |
-| `/proposal-revise` | Apply feedback to drafts | [Details](../setup/skill-reference.md#proposal-revise-proposal-revision) |
-| Writing Reviewer | Academic prose QA (agent) | [Details](../setup/skill-reference.md#review-writing) |
-| Methodology Reviewer | Empirical methods QA (agent) | [Details](../setup/skill-reference.md#review-methodology) |
+```bash
+mkdir -p ~/.claude/commands ~/.claude/agents
+
+# Layer 1: Project setup
+curl -o ~/.claude/commands/setup-project-management.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/setup-project-management.md
+
+# Layer 3: Weekly review
+curl -o ~/.claude/commands/weekly-review.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/weekly-review.md
+
+# Layer 4: Proposal writing and revision
+curl -o ~/.claude/commands/proposal-write.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-write.md
+curl -o ~/.claude/commands/proposal-revise.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/proposal-revise.md
+
+# QA agents (optional — run after drafting)
+curl -o ~/.claude/agents/review-writing.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/review-writing.md
+curl -o ~/.claude/agents/review-methodology.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/agents/review-methodology.md
+```
+
+Restart Claude Code after installing. For full customization details, see each skill's entry in the [Skill Library](../setup/skill-reference.md).

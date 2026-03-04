@@ -1,8 +1,8 @@
 # Continuous Improvement
 
-Your AI setup drifts. You learn a better prompting pattern on Tuesday, forget it by Thursday, and rediscover it a month later. Tips evaporate unless you capture them *and* convert them into config changes.
+Your AI setup drifts. You learn a better prompting pattern on Tuesday, forget it by Thursday, and rediscover it a month later. Tips evaporate unless you capture them *and* convert them into config changes. Without a system, you either try everything immediately (creating a mess) or ignore everything (missing real improvements).
 
-I built a pipeline to fix this. It's specific to Gmail and Claude Code, but the principle — *capture, filter, convert* — works anywhere.
+I built a pipeline to fix this — a rate-limiting layer between discovery and action. It's specific to Gmail and Claude Code, but the principle works anywhere: collect continuously, evaluate weekly, act when you have evidence.
 
 ---
 
@@ -37,24 +37,34 @@ No skill needed. Email yourself with `@toself` in the subject. That's it.
 
 ### 3. Curate (`/tips-curate`)
 
-Fetches unread @ToSelf emails, follows any links to fetch full content, rates each tip (High / Medium / Low), and presents a structured report. You approve or skip each one. Approved tips go into a searchable log with tags, source attribution, and a concrete action proposal.
+Fetches unread @ToSelf emails, follows any links to fetch full content, rates each tip (High / Medium / Low), and presents a structured report. You approve or skip each one. Approved tips go into your [tips log](#the-tips-log) — a persistent, searchable file that grows over time. Each run takes about 15 minutes for a batch of 5–10 emails.
 
 ### 4. Integrate (`/tips-integrate`)
 
 Scans your tips log and generates proposals:
 
 - **Type A (direct)** — A specific edit to a specific config file. Shows current state, proposed change, rationale.
-- **Type B (investigation)** — Needs more research first. Lands in your [learning catalog's](#the-learning-catalog) INBOX.
+- **Type B (investigation)** — Needs more research first. Lands in your [learning catalog's](#the-learning-catalog) INBOX for triage.
 
 Every proposal requires your approval. The skill tracks what it has processed and never re-proposes the same item.
 
 ---
 
+## The tips log
+
+The curate step writes approved tips to a dated, tagged markdown file that grows over time. Each entry records what you found, where it came from, and what to do about it. The [example below](#example-from-email-to-proposal) shows the exact format — date, tags like `[prompting]` or `[context-management]`, source link, insight, and a concrete next action.
+
+After six months mine had 85+ entries. You don't need to remember what you read last month — search the log by keyword or tag, or point Claude at it and ask "what do I have on agent patterns?" The log becomes institutional memory that survives across sessions.
+
+Browse a [snapshot of my actual tips log](../downloads/collected-tips-log.md) to see what this looks like at scale.
+
+---
+
 ## The learning catalog
 
-The tips log captures discoveries. The learning catalog captures decisions — what's worth doing, what you've tried, what you've dismissed.
+The tips log captures discoveries. The learning catalog captures *decisions* — what's worth doing, what you've tried, what you've dismissed.
 
-Type B proposals land in an **INBOX** section. You review them periodically (I do it biweekly) and promote each to the right tier:
+When `/tips-integrate` flags a tip as needing research before action (Type B), it lands in the catalog's **INBOX** section. You review periodically and promote each item to a tier:
 
 | Tier | Meaning |
 |------|---------|
@@ -65,6 +75,14 @@ Type B proposals land in an **INBOX** section. You review them periodically (I d
 | **REJECTED** | Assessed and dismissed; won't resurface |
 
 Items always enter via INBOX — the skill doesn't make priority calls on your behalf.
+
+Each HIGH and MEDIUM entry carries plain-English context: *what it is*, *why it matters for you*, and *next step*. The format is designed for future-you who's forgotten the original tip. A DONE entry looks like:
+
+| Item | Was | Completed |
+|------|-----|-----------|
+| arjunkmrm/recall | Cross-session search — `/recall` searches 1,918 past conversations by keyword | Mar 3, 2026 |
+
+DONE and REJECTED entries are never deleted — they prevent you from re-evaluating the same thing six months later.
 
 ---
 

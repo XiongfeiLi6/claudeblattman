@@ -148,17 +148,29 @@ Guides, templates, and reference documents from my actual setup. Download, adapt
 
 ## Templates
 
-Starter configuration files for setting up your own system. All are in the [GitHub repository](https://github.com/chrisblattman/claudeblattman/tree/main/templates).
+Starter configuration files for setting up your own system. Download with `curl`, then customize for your workflow.
 
-| Template | Purpose |
-|----------|---------|
-| [CLAUDE.md Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/claude-md-template.md) | Starter configuration for Claude Code |
-| [Email Policy Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/email-policy-template.md) | Rules for email triage autonomy |
-| [Calendar Policy Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/calendar-policy-template.md) | Calendar management policies |
-| [Triage Config Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/triage-config-template.md) | Email classification rules |
-| [Email Voice Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/email-voice-template.md) | Email tone, signature blocks, and drafting preferences |
-| [Voice Pack Template](voice-pack-template.md) | Full voice file framework: spec, examples, testing, maintenance |
-| [Goals Template](https://github.com/chrisblattman/claudeblattman/blob/main/templates/goals-yaml-template.yaml) | Quarterly goal tracking format |
+**Download all templates at once:**
+```bash
+mkdir -p ~/claude-templates && cd ~/claude-templates
+for f in claude-md-template.md email-policy-template.md calendar-policy-template.md \
+         triage-config-template.md email-voice-template.md voice-pack-template.md \
+         goals-yaml-template.yaml; do
+  curl -O "https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/$f"
+done
+```
+
+**Or download individually:**
+
+| Template | Purpose | Install |
+|----------|---------|---------|
+| **CLAUDE.md** | Starter configuration for Claude Code | `curl -O https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/claude-md-template.md` |
+| **Email Policy** | Rules for email triage autonomy | `curl -O https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/email-policy-template.md` |
+| **Calendar Policy** | Calendar management policies | `curl -O https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/calendar-policy-template.md` |
+| **Triage Config** | Email classification rules | `curl -O https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/triage-config-template.md` |
+| **Email Voice** | Email tone, signature blocks, and drafting preferences | `curl -O https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/email-voice-template.md` |
+| **Voice Pack** | Full voice file framework: spec, examples, testing, maintenance | `curl -O https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/voice-pack-template.md` |
+| **Goals** | Quarterly goal tracking format | `curl -O https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/templates/goals-yaml-template.yaml` |
 
 ---
 

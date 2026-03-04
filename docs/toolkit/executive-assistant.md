@@ -25,6 +25,9 @@ A system that manages your inbox, tracks your projects, processes your meetings,
 
 Each skill works on its own — you can install just `/triage-inbox` and get value from day one. But they compound: `/triage-inbox` runs standalone, and `/checkin` wraps triage + briefing into one interactive session. The advantage of installing `/triage-inbox` first is that you can run it standalone, review what it does, and tune your config before adding more complex sessions. `/goals-review` adds a strategic layer that aligns everything toward your quarterly objectives. The recommended path: start with triage, add the check-in, then layer on the briefing and goals.
 
+!!! tip "Ready to install?"
+    Jump to [Quickstart: Your First Three Skills](#quickstart-your-first-three-skills) for step-by-step install commands, or expand the [Install All EA Skills](#step-2-skill-dependency-order) block to get everything at once. Need MCP setup first? Start with [Prerequisites](#prerequisites).
+
 <span id="how-i-built-this"></span>
 
 ??? quote "How I built this — the full story"

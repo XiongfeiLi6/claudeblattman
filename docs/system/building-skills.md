@@ -99,7 +99,7 @@ Load external files into the skill's context:
 
 Use for:
 - Shared rules across multiple skills
-- Style guides or voice preferences
+- Style guides or voice preferences — see the [Voice Pack Template](../downloads/voice-pack-template.md) for a complete example
 - Configuration that changes independently
 
 ### Error Handling

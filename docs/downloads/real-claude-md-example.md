@@ -88,7 +88,8 @@ distributed workflows.
 │   ├── CLAUDE.md           # This file
 │   ├── settings.json       # Permissions
 │   ├── commands/           # Skills/slash commands
-│   └── rules/              # Modular guidelines
+│   ├── rules/              # Modular guidelines + core voice file
+│   └── voice/              # Context-specific voice registers (optional)
 ├── Guidelines_and_preferences/
 │   ├── my_prompt_preferences.md
 │   └── skill-building/
@@ -103,6 +104,7 @@ Detailed instructions split into topic files:
 
 | Rule File | Topics Covered |
 |-----------|---------------|
+| `core-voice.md` | Writing voice invariants — claim-first stance, active voice, AI ban list |
 | `email-voice.md` | Email tone, signature blocks, frequent recipients |
 | `project-management.md` | Document structure, meeting log conventions |
 | `integration-notes.md` | All MCP integrations, workarounds |

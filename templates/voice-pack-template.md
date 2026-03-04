@@ -11,7 +11,7 @@ Based on a multi-register voice system built for research writing, donor communi
 ## 0) How to use this template
 
 **In a chatbot (ChatGPT or Claude.ai):**
-Paste this entire file — filled in with your content — into the Instructions field of a Project. Every conversation in that project starts with your voice loaded. See [Chatbots Done Right](../essentials/chatbots.md) for setup.
+Paste this entire file — filled in with your content — into the Instructions field of a Project. Every conversation in that project starts with your voice loaded. See https://claudeblattman.com/essentials/chatbots/ for setup.
 
 **In Claude Code (simplest path):**
 Save your core voice file to `~/.claude/rules/core-voice.md`. It auto-loads every session — no imports needed. This handles the fundamentals (ban list, sentence patterns, claim-first stance) across all contexts. For context-specific registers, use `@voice/` imports in project-level CLAUDE.md files. See Section 8 for copy-paste CLAUDE.md and output style snippets.

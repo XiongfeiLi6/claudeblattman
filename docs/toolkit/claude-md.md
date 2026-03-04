@@ -262,6 +262,20 @@ This is useful when you work on multiple projects with different conventions, te
 !!! tip "What goes in your CLAUDE.md is sent to the API"
     Everything in your CLAUDE.md files is included in every conversation with Claude Code. This is how Claude knows about you and your projects. The data is covered by Anthropic's [API data policy](https://www.anthropic.com/policies/privacy). Avoid including passwords, API keys, or information you wouldn't want transmitted to a cloud service.
 
+### Voice & Writing Style
+
+If AI output never quite sounds like your writing — too formal, too hedgy, full of words you'd never use — a voice file fixes that. It's a document that captures your actual writing patterns: sentence structure, vocabulary preferences, a ban list of AI-isms, and annotated examples.
+
+The simplest implementation: save your core voice file to `~/.claude/rules/` and it auto-loads every session, just like other rule files. No `@import` needed for the fundamentals.
+
+```
+~/.claude/rules/core-voice.md    ← auto-loads every session
+```
+
+For context-specific registers (proposal voice vs. email voice), load those on demand through skills or `@voice/` imports in project-level CLAUDE.md files.
+
+[:octicons-download-16: Voice Pack Template](../downloads/voice-pack-template.md) — fill-in-the-blank framework for building your voice file · [:octicons-arrow-right-24: Full walkthrough](../essentials/voice.md)
+
 ---
 
 ## Downloadable Template & Real Example
