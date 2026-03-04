@@ -144,6 +144,11 @@ From the [Skill Library](../setup/skill-reference.md#tips-scout-search-prompt-ge
 | [`/tips-curate`](../setup/skill-reference.md#tips-curate-tip-curation) | Gmail MCP | Reads and marks @ToSelf emails |
 | [`/tips-integrate`](../setup/skill-reference.md#tips-integrate-tip-integration) | None | Includes a `references/` subdirectory |
 
+??? tip "Adapt to your setup before first run"
+    The public skill files use generic paths like `~/.claude-assistant/tips/` and `~/.claude-assistant/catalog/`. Search each file for these paths and update them to match your directory structure. Also check the Gmail label name in `/tips-curate` — the default is `@ToSelf`.
+
+    On first run, expect mostly Type B (investigation) proposals. Type A (direct edit) proposals only fire when the skill finds matching config files in your setup. As your system grows, so do the direct edit targets.
+
 ---
 
 ## Browse real examples
