@@ -28,6 +28,14 @@
 
     [:octicons-arrow-right-24: Read more](prompting.md)
 
+-   **:material-format-quote-close: Teaching AI Your Voice**
+
+    ---
+
+    AI has a house style. The fix is a voice file: one document that captures how you actually write. Load it once; every conversation starts with your patterns, not the AI's defaults.
+
+    [:octicons-arrow-right-24: Read more](voice.md)
+
 -   **:material-folder-star-outline: AI Project Folders**
 
     ---
