@@ -150,6 +150,8 @@ These are the kinds of workflows and resources the pipeline is designed to captu
 !!! tip "The other input channel: your own corrections"
     This pipeline is *proactive* — scheduled discovery. Your system also learns *reactively*: when you override a classification, substantially edit a draft, or manually do something a skill should handle, a self-improvement protocol proposes targeted config changes on the spot. Scheduled scouting from outside, continuous feedback from inside.
 
+---
+
 ## See also
 
 - **[Collected Tips & Research Log](../downloads/collected-tips-log.md)** — A snapshot of my own tips log. Searchable by keyword, tag, or date.
