@@ -26,8 +26,8 @@ By [Chris Blattman](https://chrisblattman.com), political economist at UChicago 
 
 This site covers AI tools for knowledge work — from [chatbot prompting](essentials/index.md) to advanced automation with [Claude Code](https://code.claude.com/docs/en/overview), a terminal-based AI tool that can read your files, search your email, manage your calendar, and run custom workflows. The site documents how I built a working system and shares everything so you can do the same.
 
-!!! tip "Already have Claude Code?"
-    Skip the reading — jump to the [Skill Library](setup/skill-reference.md) (19 skills, one-command install) or grab [config templates](downloads/index.md#templates).
+!!! tip "Already a power user? Skip the tour."
+    [Skill Library](setup/skill-reference.md) — 19 skills, one-command install · [Config Templates](downloads/index.md#templates) — starter files for CLAUDE.md, email policy, voice · [GitHub Repo](https://github.com/chrisblattman/claudeblattman) — browse the source
 
 ## Where to Start
 
