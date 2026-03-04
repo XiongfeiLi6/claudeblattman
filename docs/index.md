@@ -12,20 +12,13 @@ social:
 
 <p class="hero-pitch">Tools I use to manage my schedule, communication, and complex projects with large teams across several countries. Examples and tutorials for productivity and sanity.</p>
 
-<div class="hero-buttons">
-<a href="setup/" class="md-button md-button--primary">Get started</a>
-<a href="workflows/" class="md-button md-button--primary">See what it does</a>
-<a href="setup/skill-reference/" class="md-button">Get Skills & Templates</a>
-<a href="about/#how-i-got-here" class="md-button">Read the background</a>
-</div>
-
 <div class="credibility-strip" markdown>
 By [Chris Blattman](https://chrisblattman.com), political economist at UChicago Harris. In January 2026 I started building AI workflows with Claude Code. What seemed impossible then — inbox triage, meeting capture, proposal drafting, project dashboards, trip planning — is running today. Claude Blattman isn't real, but the tools are. I've never coded in my life, so if I can do this you can. Have a question, suggestion, or request? [Send Claude Blattman a note](mailto:claudeblattman+feedback@gmail.com?subject=Feedback).
 </div>
 
 ## What Is This?
 
-This site covers AI tools for knowledge work — from [chatbot prompting](essentials/index.md) to advanced automation with [Claude Code](https://code.claude.com/docs/en/overview), a terminal-based AI tool that can read your files, search your email, manage your calendar, and run custom workflows. The site documents how I built a working system and shares everything so you can do the same.
+This site covers AI tools for knowledge work — from [chatbot prompting](essentials/index.md) to advanced automation with [Claude Code](https://code.claude.com/docs/en/overview), a terminal-based AI tool that can read your files, search your email, manage your calendar, and run custom workflows. The site documents how I built a working system and shares everything so you can do the same. Here's [how I got here](about.md#how-i-got-here).
 
 !!! tip "Already a power user? Skip the tour."
     [Skill Library](setup/skill-reference.md) — 19 skills, one-command install · [Config Templates](downloads/index.md#templates) — starter files for CLAUDE.md, email policy, voice · [GitHub Repo](https://github.com/chrisblattman/claudeblattman) — browse the source
