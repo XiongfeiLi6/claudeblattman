@@ -30,6 +30,14 @@ These aren't individual tools — they're **systems** built from skills, integra
 
     [:octicons-arrow-right-24: Read the full story](../toolkit/executive-assistant.md)
 
+-   **:material-filter-outline: EA Example: Noise Canceling**
+
+    ---
+
+    Compressing high-volume school and organizational announcements into a 30-second digest. Two transferable patterns: calibrating classification from real data, and source quoting to keep AI from getting dates wrong.
+
+    [:octicons-arrow-right-24: Read the full story](school-digest.md)
+
 -   **:material-file-document-check-outline: Tax Season Case Study**
 
     ---
@@ -50,6 +58,7 @@ These workflows serve different needs and timelines:
 |----------|---------------|------------|---------------|
 | **Prompt, Plan, Review, Revise** | Structured prompts, plan review, session capture | 5 minutes | Day 1 |
 | **Executive Assistant** | Email, calendar, daily workflow | 1-3 weeks of iteration | After MCP is configured |
+| **Noise Canceling** | High-volume organizational announcements | < 1 hour | After Gmail MCP is configured |
 | **Project Management** | Multi-project oversight and reporting | 3+ weeks of iteration | After EA basics are working |
 | **Tax Season** | Document collection, compilation, verification | 2-3 hours one-time | When you're comfortable with MCP + skills |
 

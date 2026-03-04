@@ -389,6 +389,8 @@ Restart Claude Code, then try: `/checkin quick` (abbreviated version — good fo
 
 Once `/triage-inbox` and `/checkin` are running daily, add [`/morning-brief`](../setup/skill-reference.md#morning-brief-daily-briefing) if you want a lighter passive report alongside your interactive session. Set up [`/goals-review`](../setup/skill-reference.md#goals-review-goals-review) to maintain the `goals.yaml` file that powers goal alignment in both `/checkin` and `/morning-brief`.
 
+If you have a high-volume source that floods your inbox — school announcements, employer updates, nonprofit newsletters — see [Organizational Noise Canceling](../workflows/school-digest.md) for how to build a digest skill that compresses it into a 30-second read.
+
 ---
 
 ??? note "Research notes and sources"

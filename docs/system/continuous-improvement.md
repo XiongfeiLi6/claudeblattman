@@ -1,131 +1,76 @@
 # Continuous Improvement
 
-Most AI setups are static. You configure once and hope it holds. The tips pipeline makes your system learn — capturing discoveries as you encounter them and converting them into concrete changes to your configuration files.
+Your AI setup drifts. You learn a better prompting pattern on Tuesday, forget it by Thursday, and rediscover it a month later. Tips evaporate unless you capture them *and* convert them into config changes.
 
-There are a hundred ways to build a continuous improvement loop. This is the one I invented for my own workflow. It's opinionated, it's specific to Gmail and Claude Code, and it may not be your style. But the principle — *capture discoveries, filter them, and turn them into config changes* — is universal. Steal the idea and build your own version if this one doesn't fit.
-
-!!! warning "This pipeline is clunky — by necessity"
-    Much of the best AI workflow discussion happens on X/Twitter and other social platforms that don't have reliable MCP integrations. So the current pipeline routes through email: you forward interesting posts to yourself, and a Gmail-based skill processes them later. It works, but it's a workaround. I expect this to change significantly as better integrations emerge — if you have ideas for a cleaner approach, [I'd love to hear them](mailto:claudeblattman+feedback@gmail.com?subject=Tips%20pipeline%20idea).
+I built a pipeline to fix this. It's specific to Gmail and Claude Code, but the principle — *capture, filter, convert* — works anywhere.
 
 ---
 
-## The idea
+## What this looks like in practice
 
-You're reading an article on your phone. A colleague shares a Claude Code trick over coffee. You stumble on a workflow pattern at midnight. These discoveries are valuable, but they evaporate unless you capture them *and* act on them.
+Tuesday morning you see a tweet about using XML tags in multi-step prompts. You forward it to yourself. Sunday you run `/tips-curate` and it rates the tip HIGH. Two weeks later, `/tips-integrate` proposes adding an XML tag convention to your CLAUDE.md. You approve. Done.
 
-The tips pipeline solves this with four steps:
-
-1. **Scout** — `/tips-scout` analyzes what topics you've covered recently and generates a customized search prompt for Grok DeepSearch (or any AI search tool). It boosts under-covered categories and injects your current investigation topics.
-2. **Capture** — Email tips to yourself, tagged `@ToSelf`. Any device, any time. Scout results, forwarded articles, quick notes — anything goes.
-3. **Curate** — `/tips-curate` fetches those emails, researches them, quality-filters, and builds a searchable log.
-4. **Integrate** — `/tips-integrate` scans the log and proposes concrete changes to your CLAUDE.md, skills, and rules files.
-
-The result: your system gets better every two weeks, driven by targeted research and your own discoveries.
+Four steps: **scout** for new techniques, **capture** what you find, **curate** it into a rated log, **integrate** the best items into your config files.
 
 ---
 
-## Prerequisites
+## Setup
 
-| Requirement | Notes |
-|-------------|-------|
-| Claude Code installed | Required for all skills |
-| Gmail MCP configured | Required for `/tips-curate`. See [MCP Setup](../toolkit/mcp-setup.md). |
-| Gmail account | Used for the @ToSelf label below |
-| Grok (free tier) or similar AI search | Used by `/tips-scout` to generate targeted search prompts. Any AI search tool works. |
-| `/tips-curate` run at least once | Required before `/tips-integrate` does anything useful |
+You need [Gmail MCP configured](../toolkit/mcp-setup.md) and a Gmail label called `@ToSelf`:
 
-If you haven't set up Gmail MCP yet, `/tips-curate` will report "Gmail integration unavailable" on first run. Follow the [MCP Setup guide](../toolkit/mcp-setup.md) first.
+1. In Gmail → left sidebar → **+ Create new label** → name it `@ToSelf`
+2. Optional filter: search bar filter icon → **Subject:** `@toself` → **Create filter** → **Apply label:** `@ToSelf`
+
+Now any email with `@toself` in the subject gets tagged automatically. Forward interesting articles, email yourself quick notes, or manually label anything you want processed later. Works from any device.
 
 ---
 
-## Setup: The @ToSelf label
+## The four steps
 
-Before using `/tips-curate`, you need a Gmail label so the skill knows which emails to process.
+### 1. Scout (`/tips-scout`)
 
-### Create the label
+Reads your recent tips log, finds what topics you've under-covered, and generates a targeted search prompt for [Grok DeepSearch](https://grok.com/) (or any AI search tool). Copy the prompt, run the search, forward the best results to yourself.
 
-1. Open Gmail in your browser
-2. In the left sidebar, scroll down and click **+ Create new label**
-3. Name it `@ToSelf` (the `@` prefix keeps it at the top of your label list)
+### 2. Capture
 
-### Create a filter (optional but recommended)
+No skill needed. Email yourself with `@toself` in the subject. That's it.
 
-1. In Gmail, click the search bar filter icon (right side)
-2. Set **From:** to your own email address
-3. Set **Subject:** to `tip` or `@toself`
-4. Click **Create filter**
-5. Check **Apply the label:** and select `@ToSelf`
-6. Click **Create filter**
+### 3. Curate (`/tips-curate`)
 
-This auto-labels any email you send yourself with "tip" in the subject. You can also manually apply the label to any email — forwarded articles, newsletters you want to process later, etc.
+Fetches unread @ToSelf emails, follows any links to fetch full content, rates each tip (High / Medium / Low), and presents a structured report. You approve or skip each one. Approved tips go into a searchable log with tags, source attribution, and a concrete action proposal.
 
-### The mobile workflow
+### 4. Integrate (`/tips-integrate`)
 
-The filter makes capture effortless:
+Scans your tips log and generates proposals:
 
-- **See something interesting?** Forward the article/link to yourself
-- **Have a quick idea?** Email yourself with "tip" in the subject
-- **Reading a thread on X?** Forward the email notification to yourself
+- **Type A (direct)** — A specific edit to a specific config file. Shows current state, proposed change, rationale.
+- **Type B (investigation)** — Needs more research first. Lands in your [learning catalog's](#the-learning-catalog) INBOX.
 
-Claude processes everything later when you run `/tips-curate`.
+Every proposal requires your approval. The skill tracks what it has processed and never re-proposes the same item.
 
 ---
 
-## The pipeline
+## The learning catalog
 
-### Step 1: Scout (`/tips-scout`)
+The tips log captures discoveries. The learning catalog captures decisions — what's worth doing, what you've tried, what you've dismissed.
 
-This skill reads your recent tips log and active to-do items, then generates a customized search prompt for Grok DeepSearch (or any AI search tool). It:
+Type B proposals land in an **INBOX** section. You review them periodically (I do it biweekly) and promote each to the right tier:
 
-- **Analyzes coverage gaps** — counts recent tips by category (skill architecture, Claude Code features, research workflows, new repos, etc.) and boosts under-represented areas
-- **Injects active topics** — pulls your current investigation items so the search targets what you're actually working on
-- **Outputs a ready-to-paste prompt** — copy it into Grok DeepSearch (free tier), run the search, and forward the best results to yourself
+| Tier | Meaning |
+|------|---------|
+| **HIGH** | Clear payoff, do soon |
+| **MEDIUM** | Worth evaluating, not urgent |
+| **LOW** | Not worth pursuing now; kept for reference |
+| **DONE** | Implemented and working |
+| **REJECTED** | Assessed and dismissed; won't resurface |
 
-You don't need Grok specifically — any AI search tool that accepts long prompts works. The value is in the targeted search, not the tool.
-
-**MCP required:** None. This skill is filesystem-only.
-
-### Step 2: Capture
-
-No skill needed. Just email yourself. The @ToSelf label collects everything.
-
-Tips can be anything: Scout search results, articles, X/Twitter threads, blog posts, tool announcements, workflow ideas, or even brief notes like "try using XML tags for multi-step prompts."
-
-### Step 3: Curate (`/tips-curate`)
-
-This skill connects to Gmail, fetches unread @ToSelf emails, and processes each one:
-
-- **Classifies** each email as worth-reviewing, not-relevant, or needs-manual-review
-- **Enriches** — for emails with URLs, fetches the linked content for deeper analysis
-- **Quality-filters** — rates each tip as High, Medium, or Low based on novelty, credibility, and actionability
-- **Presents recommendations** — shows you a structured report and waits for your decision
-
-What you approve gets appended to a searchable tips log file with tags, source attribution, and a concrete action proposal.
-
-If the skill can't extract content from a URL (paywalled, video-only, or X.com), it flags the item as "NEEDS YOUR HELP" in the review report. You can paste the content manually or type "skip."
-
-**MCP required:** Gmail MCP (to read and mark emails).
-
-### Step 4: Integrate (`/tips-integrate`)
-
-This skill scans your tips log (and optionally session follow-ups and reference packs) and generates two types of proposals:
-
-- **Direct proposals** — Ready-to-apply edits to specific config files. Shows you the current state, the proposed change, and the rationale.
-- **Investigation proposals** — Items that need more research before they become edits. These get added to your to-do list as development tasks.
-
-Every proposal gets your approval before anything changes. The skill tracks what it has already processed so it never re-proposes the same item. Investigation proposals are written to a to-do file (`~/.claude-assistant/tasks/todo-items.md`), created automatically if it doesn't exist.
-
-On first run, `/tips-integrate` will warn that tips have never been curated and ask whether to continue. This is expected if you haven't run `/tips-curate` yet.
-
-**MCP required:** None. This skill is filesystem-only.
+Items always enter via INBOX — the skill doesn't make priority calls on your behalf.
 
 ---
 
-## Example output
+## Example: from email to proposal
 
-### A curated tip entry
-
-Here's what a real entry looks like in the tips log after `/tips-curate` processes it:
+A curated tip entry in the log:
 
 ```markdown
 ## 2026-02-20
@@ -136,16 +81,12 @@ Here's what a real entry looks like in the tips log after `/tips-curate` process
   in persistent markdown files, (2) Annotation cycle — add inline notes to
   Claude's plan correcting assumptions, rejecting approaches, injecting domain
   knowledge (repeat 1-6 times), (3) Execute with "implement it all" only after
-  plan is approved. Key principle: "Never let Claude write code until you've
-  reviewed a written plan."
-- **Action:** Compare annotation cycle against current plan-mode workflow. The
-  inline-notes-on-plan-doc pattern is more structured than chat-based iteration.
+  plan is approved.
+- **Action:** Compare annotation cycle against current plan-mode workflow.
 - **URL:** https://boristane.com/blog/how-i-use-claude-code/
 ```
 
-### An integration proposal
-
-When `/tips-integrate` processes that tip, it might generate:
+The integration proposal it generates:
 
 ```
 ────────────────────
@@ -153,11 +94,10 @@ INVESTIGATION PROPOSAL [2 of 5]
 ────────────────────
 Source: tips
 Item: Boris Tane's Research-Annotate-Implement Workflow
-Task: Compare the annotation-cycle pattern (inline notes on a plan document,
-  repeated 1-6 times before implementation) against current plan-mode workflow.
+Task: Compare the annotation-cycle pattern against current plan-mode workflow.
   Design a /plan-annotate skill or modify /review-plan to support iterative
   annotation on saved plan files.
-Destination: todo-items.md (as new development task)
+Destination: learning catalog INBOX
 Rationale: Current plan mode is chat-based; structured annotation on a
   persistent document may produce better plans for complex tasks.
 ```
@@ -168,70 +108,50 @@ Rationale: Current plan mode is chat-based; structured annotation on a
 
 | Skill | Frequency | Trigger |
 |-------|-----------|---------|
-| `/tips-scout` | Weekly (Sunday/Monday) | Run before `/tips-curate` to generate a targeted search prompt. |
-| `/tips-curate` | Weekly | When you have unread @ToSelf emails. Your morning briefing can flag the count automatically. |
-| `/tips-integrate` | Biweekly | After one or two curate sessions have added new entries to the log. |
+| `/tips-scout` | Weekly | Before `/tips-curate`, to generate a search prompt |
+| `/tips-curate` | Weekly | When you have unread @ToSelf emails |
+| `/tips-integrate` | Biweekly | After a curate session or two |
 
-You don't need to run them on a rigid schedule. The integrate skill checks when curate last ran and warns you if tips are stale.
+No rigid schedule. The integrate skill warns you if tips are stale.
 
 ---
 
 ## Install
 
-All three skills are available in the [Skill Library](../setup/skill-reference.md#tips-scout-search-prompt-generator):
+From the [Skill Library](../setup/skill-reference.md#tips-scout-search-prompt-generator):
 
-- **`/tips-scout`** — filesystem only, no MCP needed
-- **`/tips-curate`** — requires Gmail MCP
-- **`/tips-integrate`** — filesystem only, includes a reference subdirectory
-
-See each entry in the Skill Library for installation commands.
-
----
-
-## The artifact
-
-The tips log itself is a useful reference document — a searchable, tagged collection of discoveries with source attribution. You can browse it by keyword, tag, or date.
-
-A snapshot of my own tips log is available as a download: [Collected Tips & Research Log](../downloads/collected-tips-log.md).
+| Skill | MCP needed | Notes |
+|-------|-----------|-------|
+| [`/tips-scout`](../setup/skill-reference.md#tips-scout-search-prompt-generator) | None | Filesystem only |
+| [`/tips-curate`](../setup/skill-reference.md#tips-curate-tip-curation) | Gmail MCP | Reads and marks @ToSelf emails |
+| [`/tips-integrate`](../setup/skill-reference.md#tips-integrate-tip-integration) | None | Includes a `references/` subdirectory |
 
 ---
 
-## MCP requirements
+## Browse real examples
 
-| Skill | Gmail MCP | Other MCP |
-|-------|-----------|-----------|
-| `/tips-scout` | Not needed | None — filesystem only |
-| `/tips-curate` | **Required** — reads and marks @ToSelf emails | None |
-| `/tips-integrate` | Not needed | None — filesystem only |
+These are the kinds of workflows and resources the pipeline is designed to capture and evaluate. Worth browsing to see what's out there:
 
-You can run `/tips-scout` standalone to generate search prompts even without `/tips-curate`. You can run `/tips-integrate` without `/tips-curate` if you maintain the tips log file manually. The log format is documented in the scanning rules file included with `/tips-integrate` (see `~/.claude/commands/tips-integrate-references/scanning-rules.md` after installation).
+- **[Boris Tane: How I Use Claude Code](https://boristane.com/blog/how-i-use-claude-code/)** — The research-annotate-implement workflow. One of the highest-rated tips in my log.
+- **[Anthropic's Official Skills Library](https://github.com/anthropics/skills)** — Anthropic's own example skills, including a document plugin for PDFs and spreadsheets.
+- **[Awesome Claude Skills](https://github.com/travisvn/awesome-claude-skills)** — Community-curated list of skills, patterns, and tools. Good scouting territory.
+- **[Anthropic Skills Cookbooks](https://github.com/anthropics/claude-cookbooks/blob/main/skills/README.md)** — Tutorial notebooks for building custom skills from scratch.
 
 ---
 
 ## Customization
 
-Both skills have configurable paths and behaviors:
+**`/tips-curate`:** Tips log location, Gmail label name, batch size, quality thresholds — all configurable by editing the skill file directly.
 
-**`/tips-curate`:**
-
-- Tips log location (default `~/.claude-assistant/tips/collected-tips-log.md`)
-- Gmail label name (default `@ToSelf`)
-- Batch size (default 5)
-- Quality thresholds and tag vocabulary
-
-**`/tips-integrate`:**
-
-- Source selection (tips, reference packs, session log — or all)
-- State file location (default `~/.claude-assistant/state/integrate-state.json`)
-- Target config files (CLAUDE.md, skills directory, rules directory)
-- Pruning intervals (deferred items: 90 days, old change summaries: 6 months)
-
-Edit the skill files directly to change defaults. Both files are plain markdown — find the path strings or default values in the relevant step and update them. Changes take effect on the next Claude Code restart.
+**`/tips-integrate`:** Source selection, state file location, target config files, pruning intervals — same approach, edit the markdown.
 
 ---
 
+!!! tip "The other input channel: your own corrections"
+    This pipeline is *proactive* — scheduled discovery. Your system also learns *reactively*: when you override a classification, substantially edit a draft, or manually do something a skill should handle, a self-improvement protocol proposes targeted config changes on the spot. Scheduled scouting from outside, continuous feedback from inside.
+
 ## See also
 
-- **[`/review-plan` — Plan Review](../workflows/first-session-skills.md#step-3-stress-test-with-fresh-eyes-review-plan)** — Stress-test any plan with structured expert critique before you build it. Pairs well with the tips pipeline: curate ideas, then review plans before implementing them.
-- **[Resources & Reference Implementations](../resources.md)** — Open-source repos and frameworks that inspired this system, including chief-of-staff patterns, delegation frameworks, and community skill libraries.
-- **[Skill Design Patterns](../downloads/skill-patterns.md)** — If you want to build your own skills, these patterns show how production skills are structured.
+- **[Collected Tips & Research Log](../downloads/collected-tips-log.md)** — A snapshot of my own tips log. Searchable by keyword, tag, or date.
+- **[`/review-plan` — Stress-Test Any Plan](../workflows/plan-review-browser.md)** — Pairs well with the pipeline: curate ideas, then review plans before implementing.
+- **[Skill Design Patterns](../downloads/skill-patterns.md)** — How production skills are structured, if you want to build your own.

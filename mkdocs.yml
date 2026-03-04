@@ -55,6 +55,7 @@ nav:
     - Chatbots Done Right: essentials/chatbots.md
     - The Cost Reality: essentials/cost.md
     - Prompt Engineering: essentials/prompting.md
+    - "Teaching AI Your Voice": essentials/voice.md
     - AI Project Folders:
       - essentials/project-folders.md
       - "Example: Vacation Planning": essentials/folders/vacation.md
@@ -80,7 +81,9 @@ nav:
   - Workflows:
     - workflows/index.md
     - "Prompt, Plan, Review, Revise": workflows/first-session-skills.md
-    - Executive Assistant: toolkit/executive-assistant.md
+    - Executive Assistant:
+      - toolkit/executive-assistant.md
+      - "Example: Noise Canceling": workflows/school-digest.md
     - Project Management: workflows/project-management.md
     - "Example: Project Dashboard": workflows/examples/project-overview-example.md
     - "Example: Research Design": workflows/examples/research-design-example.md

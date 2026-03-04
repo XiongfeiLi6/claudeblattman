@@ -71,7 +71,7 @@ Item: [title]
 Task: [1-2 sentences — what to research/design]
 Rationale: [1 sentence]
 ```
-Investigation tasks go to `~/.claude-assistant/tasks/todo-items.md`.
+Investigation tasks go to your learning catalog (`~/.claude-assistant/catalog/skills-learning-catalog.md`) under the `## INBOX — New Items` section.
 
 For Type A only: read the specific target file section (not entire file) for `Current:` field.
 
@@ -97,7 +97,7 @@ Apply which? (1,3,5 / all direct / all investigate / all / none / defer 2,4)
 ### Phase 4: Execute Approved Changes
 
 - **Direct:** Read full target file, apply edit, record in state as `integrated_items` (`type: "direct"`, `change_summary`).
-- **Investigation:** Append to `~/.claude-assistant/tasks/todo-items.md` under `## Active (Current Focus)` as `- [ ] **[Title]** — [description]. *(Source: /tips-integrate, YYYY-MM-DD)*`. Record in state (`type: "investigation"`).
+- **Investigation:** Append to `~/.claude-assistant/catalog/skills-learning-catalog.md` under `## INBOX — New Items` as `- [ ] **YYYY-MM-DD** — **[Title]** — [description]. *(Source: /tips-integrate, YYYY-MM-DD)*`. Do not modify any other section of that file. Record in state (`type: "investigation"`).
 - **Deferred/rejected:** Record in state with reason (user's words or "deferred"/"rejected").
 
 Save updated state file.
@@ -118,7 +118,7 @@ Log: `echo "$(date +%Y-%m-%d),tips-integrate,~TOOL_CALLS,[N]-direct-[M]-investig
   "last_run": "2026-02-22",
   "integrated_items": [
     { "source": "tips", "item_key": "2026-02-20::SDD Pattern", "date_integrated": "2026-02-22",
-      "target": "todo-items.md", "type": "investigation", "change_summary": "Added as dev task" }
+      "target": "skills-learning-catalog.md", "type": "investigation", "change_summary": "Added to INBOX" }
   ],
   "deferred_items": [
     { "source": "tips", "item_key": "2026-02-20::Volt Tool", "date_deferred": "2026-02-22",
@@ -129,7 +129,7 @@ Log: `echo "$(date +%Y-%m-%d),tips-integrate,~TOOL_CALLS,[N]-direct-[M]-investig
 
 ## Error Handling
 
-General rule: missing source files are skipped gracefully with a note. Missing state file or todo-items.md are created fresh. Corrupt state file triggers a warning and fresh creation. Target file missing for a direct edit skips that proposal with a warning.
+General rule: missing source files are skipped gracefully with a note. Missing state file or skills-learning-catalog.md are created fresh (with default tier headings). Corrupt state file triggers a warning and fresh creation. Target file missing for a direct edit skips that proposal with a warning.
 
 ## Integration Points
 
@@ -139,4 +139,4 @@ General rule: missing source files are skipped gracefully with a note. Missing s
 | `/done` | Upstream — writes session log follow-ups |
 | `/skill-inventory` | Downstream — reflects changes |
 | `self-improvement.md` | Complementary — reactive in-session corrections |
-| `todo-items.md` | Downstream — receives investigation tasks |
+| `skills-learning-catalog.md` | Downstream — receives investigation tasks (INBOX) |

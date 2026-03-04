@@ -87,6 +87,10 @@ When I ask for help with proposals:
 
 With this in place, every conversation in that project starts with full context.
 
+### The Next Level: Teach It Your Voice
+
+Saved context tells the AI *about* you. A voice file teaches it to *write like* you. If AI output never quite sounds right — too formal, too hedgy, full of words you'd never use — the fix is a reference document that captures your actual patterns. [:octicons-arrow-right-24: Teaching AI Your Voice](voice.md)
+
 ### The Next Level: Project Folders
 
 Saved context gets you started. But for recurring planning tasks — vacations, home projects, health goals — you can go further: a canonical file that stores your stable preferences, constraints, and past results so every new conversation starts from a consistent baseline and improves over time.
