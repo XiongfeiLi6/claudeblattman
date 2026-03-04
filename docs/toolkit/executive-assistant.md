@@ -21,6 +21,7 @@ A system that manages your inbox, tracks your projects, processes your meetings,
 | **Session capture** | Records decisions, follow-ups, and handoff notes after each session | [`/done`](../setup/skill-reference.md#done-session-capture) |
 | **To-do management** | Add, review, and batch-process tasks across lists | [`/todo-add`](../setup/skill-reference.md#todo-add-add-to-do-item), [`/todo-review`](../setup/skill-reference.md#todo-review-to-do-review), [`/todo-queue`](../setup/skill-reference.md#todo-queue-todo-queue) |
 | **Goals tracking** | Quarterly objectives, progress scores, stalled-goal alerts | [`/goals-review`](../setup/skill-reference.md#goals-review-goals-review) |
+| **Noise canceling** | Digest of high-volume announcements (school, employer, nonprofit) | [Example walkthrough](../workflows/school-digest.md) |
 
 Each skill works on its own — you can install just `/triage-inbox` and get value from day one. But they compound: `/triage-inbox` runs standalone, and `/checkin` wraps triage + briefing into one interactive session. The advantage of installing `/triage-inbox` first is that you can run it standalone, review what it does, and tune your config before adding more complex sessions. `/goals-review` adds a strategic layer that aligns everything toward your quarterly objectives. The recommended path: start with triage, add the check-in, then layer on the briefing and goals.
 
