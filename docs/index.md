@@ -13,7 +13,7 @@ social:
 <p class="hero-pitch">Tools I use to manage my schedule, communication, and complex projects with large teams across several countries. Examples and tutorials for productivity and sanity.</p>
 
 <div class="credibility-strip" markdown>
-By [Chris Blattman](https://chrisblattman.com), political economist at UChicago Harris. In January 2026 I started building AI workflows with Claude Code. What seemed impossible then — inbox triage, meeting capture, proposal drafting, project dashboards, trip planning — is running today. Claude Blattman isn't real, but the tools are. I've never coded in my life, so if I can do this you can. Have a question, suggestion, or request? [Send Claude Blattman a note](mailto:claudeblattman+feedback@gmail.com?subject=Feedback).
+By [Chris Blattman](https://chrisblattman.com), political economist at UChicago Harris. In January 2026 I started building AI workflows with Claude Code. What seemed impossible then — inbox triage, meeting capture, proposal drafting, project dashboards, trip planning — is running today. Claude Blattman isn't real, but the tools are. I've never coded in my life, so if I can do this you can.
 </div>
 
 ## What Is This?
