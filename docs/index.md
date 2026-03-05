@@ -75,7 +75,7 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
 
     [:octicons-arrow-right-24: Executive Assistant Workflow](toolkit/executive-assistant.md)
 
--   **:material-text-account: Teaching AI Your Voice** <span class="badge-teal">No Claude Code required</span>
+-   **:material-text-account: Teaching AI Your Voice** <span class="badge-teal">Claude Code optional</span>
 
     ---
 
