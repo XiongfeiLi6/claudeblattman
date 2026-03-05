@@ -51,14 +51,6 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
 
     [:octicons-arrow-right-24: Skill Library](setup/skill-reference.md) · [:octicons-arrow-right-24: Templates](downloads/index.md#templates)
 
--   **:material-text-account: Teaching AI Your Voice** <span class="badge-teal">No Claude Code required</span>
-
-    ---
-
-    AI has a house style and it's not yours. Build a voice file that captures how you actually write — ban list, annotated examples, sentence-level rules — and load it into any chatbot or Claude Code project.
-
-    [:octicons-arrow-right-24: Build your voice file](essentials/voice.md)
-
 -   **:material-sync: Prompt, Plan, Review, Revise**
 
     ---
@@ -82,6 +74,14 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
     Email triage, morning briefings, calendar queries, and communication drafting. A set of skills that handle the daily overhead of managing a busy schedule and high-volume inbox.
 
     [:octicons-arrow-right-24: Executive Assistant Workflow](toolkit/executive-assistant.md)
+
+-   **:material-text-account: Teaching AI Your Voice** <span class="badge-teal">No Claude Code required</span>
+
+    ---
+
+    AI has a house style and it's not yours. Build a voice file that captures how you actually write — ban list, annotated examples, sentence-level rules — and load it into any chatbot or Claude Code project.
+
+    [:octicons-arrow-right-24: Build your voice file](essentials/voice.md)
 
 -   **:material-sync-circle: Continuous Improvement**
 
