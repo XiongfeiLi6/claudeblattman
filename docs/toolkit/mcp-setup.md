@@ -215,6 +215,12 @@ Add to `~/.claude.json`:
 
 Access Notes, Calendar, Contacts, Reminders, Messages, and Mail through Apple's native apps.
 
+!!! warning "Reliability issues — set expectations"
+    The `apple-mcp` package ([supermemoryai/apple-mcp](https://github.com/supermemoryai/apple-mcp)) is **archived and no longer maintained**. It works for some operations (especially Reminders and Calendar reads) but is unreliable for others (Notes is broken, Mail is inconsistent). Check the [GitHub issue tracker](https://github.com/supermemoryai/apple-mcp/issues) before investing time. Apple has announced native MCP support coming in a future macOS release — when that ships, it will replace this package entirely.
+
+    **What works reasonably well:** Reminders (create/read), Calendar (read), Contacts (read).
+    **What doesn't work reliably:** Notes (use [apple-notes-mcp](https://github.com/sweetrb/apple-notes-mcp) instead), Mail (use Gmail MCP), Messages (limited).
+
 **Package:** `apple-mcp` (runs via Bun)
 
 ### Setup
