@@ -1,6 +1,6 @@
 # Smart Inbox Triage
 
-*v1.4 — Added travel email routing phase*
+*v1.5 — Added Phase 5.5: student reply detection with batch-confirm*
 
 Scan your inbox for emails that should be in labeled folders (@ToRead, @Announcements, @School, Expenses-Pending, Auto-Archive, etc.) but are not filtered there yet. Uses header and content heuristics that Gmail's native filters cannot replicate.
 
@@ -215,22 +215,25 @@ FILTER BYPASS RECOVERY: [N]
 
 ### Phase 8b: Travel Email Routing
 
-Before general classification, check emails from airline and hotel domains for travel-specific routing. Emails handled here are **excluded from Phase 10**.
+Before general classification, check emails from travel-related domains for travel-specific routing. Emails handled here are **excluded from Phase 10**.
 
-**Applies to:** Emails from airline domains (united.com, aa.com, delta.com, southwest.com, jetblue.com, spirit.com) and hotel domains (marriott.com, hilton.com, hyatt.com, ihg.com) that were NOT already flagged as expenses in Phase 7.
+**Applies to:** Emails from any domain in the **Travel Domains** table in `triage-config.md` (airlines, hotels, accommodation platforms, booking platforms, rental cars, travel tools) that were NOT already flagged as expenses in Phase 7.
 
-**Stay in INBOX** if subject matches any of these patterns (case-insensitive):
-- Check-in: "check in", "time to check in", "check-in"
-- Alerts/disruptions: "delay", "cancelled", "canceled", "gate change", "schedule change"
-- Documents: "upload", "visa", "ESTA", "passport", "required documents"
+**Stay in INBOX** if any of these apply (case-insensitive):
+- Check-in: subject contains "check in", "time to check in", "check-in"
+- Alerts/disruptions: subject contains "delay", "cancelled", "canceled", "gate change", "schedule change"
+- Documents: subject contains "upload", "visa", "ESTA", "passport", "required documents"
+- **Host/property messages** (Airbnb, VRBO): subject contains "message from", "your host", "check-in instructions", OR sender matches `@guest.airbnb.com`, `@messages.airbnb.com` — these are actionable direct messages
 
 **Route to @Announcements** (skip inbox, leave unread) for everything else from these domains:
 - Itineraries, booking confirmations, boarding passes
 - Trip summaries, post-trip emails
-- "Thanks for your purchase" (non-expense)
+- "Thanks for your purchase" / booking receipts (non-expense)
 - Loyalty/mileage updates
+- Rental car confirmations, return reminders
+- Travel platform deal alerts, price watches
 
-**Log:** `[Travel] {sender} | {subject} -> @Announcements` or `[Travel] {sender} | {subject} -> KEEP IN INBOX (check-in/alert)`
+**Log:** `[Travel] {sender} | {subject} -> @Announcements` or `[Travel] {sender} | {subject} -> KEEP IN INBOX (check-in/alert/host message)`
 
 ### Phase 9: Calendar Invitation Detection
 
@@ -291,6 +294,64 @@ For emails that pass the safety check and are NOT flagged as expenses, filter by
    **Classification Priority** table in triage-config.md.
 ```
 
+### Phase 10.5: Student Reply Detection (Batch-Confirm)
+
+After classification, check emails that were **SKIPPED** (left in inbox) for student inquiry patterns. This phase proposes replies for batch approval — it does NOT auto-send.
+
+**For each SKIPPED email, run these checks in order:**
+
+1. **Skip if** sender is on VIP list (Tier 1 or Tier 2)
+2. **Skip if** subject starts with "Re:" (reply in existing thread)
+3. **30-day dedup:** Search Gmail for prior reply from your assistant address:
+   ```
+   mcp__google_workspace__search_gmail_messages
+     user_google_email: your-email@gmail.com
+     query: "from:your-assistant@gmail.com to:[sender_address] newer_than:30d"
+   ```
+   If any results -> skip (already replied recently)
+4. **Domain routing:**
+   - Your institution's `.edu` domain -> check institutional keyword tables (office hours/advice + RA position)
+   - Other domain -> check external student keywords + journalist/NGO exclusion signals (`journalist`, `reporter`, `article`, `interview`, `NGO`, `organization`, `partnership`, `faculty`, `professor`, `colleague`)
+5. **Keyword scoring** per `triage-config.md` Classification Keywords tables:
+   - **HIGH**: 2+ positive keyword signals
+   - **MEDIUM**: 1 keyword signal + strong contextual indicator (institutional domain + "Dear Professor", student self-identification)
+   - **LOW**: 0-1 signals -> skip entirely (no proposal)
+6. **Template selection:**
+   - Institutional + office-hours signals (no RA) -> **Template A** (office hours)
+   - Institutional + RA signals -> **Template B** (if hiring is active) or **Template C** (if not)
+   - External + predoc signals -> **Template F** (priority over D)
+   - External + student signals, no exclusions -> **Template D**
+7. **Substitute variables:** `[Name]` = sender first name, `[office_hours_url]` from triage-config.md Student Inquiry Config
+8. **Staleness check:** If `triage-config.md` Student Inquiry Config `last verified` > 30 days ago, add warning: `!! Student config not verified since [date] -- still accurate?`
+
+**Report section** (added to the classification report):
+```
+STUDENT REPLIES PROPOSED: [N]
+  1. To: [address] | [Template X] ([description]) | [confidence]
+     Keywords: [matched keywords]
+     Preview: "[first 100 chars of reply body]..."
+  2. ...
+
+  Skipped (LOW confidence): [N]
+    - [sender] | [reason]
+
+Send all? (yes / no / review individually)
+```
+
+**Sending approved replies:**
+
+After you approve (say "yes", "send", "go", etc.), send each proposed reply using your email send method (Gmail MCP draft or custom send script).
+
+**Post-send actions:**
+- Mark original email as read (remove UNREAD label)
+- For RA-related templates: also forward to your RAs per triage-config.md RA Forwarding List
+- For external templates: apply @FYI label, remove INBOX
+- **Log** each action to `state/student-reply-log.csv`: `date,sender,sender_email,subject,template,confidence,action,notes`
+
+**If you say "no" or "skip":** Do not send. Log as `action: skipped-by-user` in student-reply-log.csv.
+
+**If `noapply` mode:** Show proposals in report but do not prompt for sending.
+
 ### Phase 11: Classification Report
 
 Generate report grouped by proposed action:
@@ -334,6 +395,14 @@ EXPENSES DETECTED: [N]
   - [Sender] | [Subject] | [Date] | [Category hint: AI subscription / transport / retail / etc.]
   - ...
   [Already in Expenses-Pending: [N] -- skipped]
+
+STUDENT REPLIES PROPOSED: [N]
+  1. To: [address] | [Template X] ([description]) | [confidence]
+     Keywords: [matched keywords]
+     Preview: "[first 100 chars]..."
+  Skipped (LOW confidence): [N]
+
+Send student replies? (yes / no / review individually)
 
 SKIPPED (Uncertain or VIP): [N]
   - [Sender] | [Subject] | [Reason]
@@ -464,6 +533,7 @@ Append session summary to `~/.claude-assistant/logs/email-triage-observations.md
 | @School applied | [N] |
 | Expenses-Pending applied | [N] |
 | Auto-Archive applied | [N] |
+| Student replies sent | [N] |
 | Filter bypass recovery | [N] |
 | Auto-created filters | [N] |
 | Skipped | [N] |
@@ -530,7 +600,8 @@ The overrides table should be a temporary holding pen, not a permanent rule stor
 - **Classification overrides** -- Add specific senders to the overrides table in `triage-config.md` to bypass all scoring and always route them to a specific label.
 - **School domains** -- If you are at a university, add your institution's email domains to the school domains list. Otherwise, remove the @School label and related logic.
 - **Newsletter platform domains** -- Substack, Mailchimp, etc. Emails from these domains go straight to @ToRead.
-- **Travel domains** -- The skill has built-in airline and hotel domain routing (Phase 8 area). Add or remove domains to match your travel patterns.
+- **Travel domains** -- Add airline, hotel, accommodation, booking, and rental car domains to the Travel Domains table in `triage-config.md`. The skill routes confirmations to @Announcements and keeps actionable travel emails (check-in, alerts, host messages) in your inbox.
+- **Student reply templates** -- Configure templates in `triage-config.md` Student Inquiry Config for auto-drafted replies to student emails. Set keyword tables, office hours URL, and hiring status.
 - **Search window defaults** -- Change the 7-day cap or 6-hour buffer in Phase 2 if you prefer different adaptive windows.
 - **Gmail email address** -- Replace `your-email@gmail.com` in all MCP calls with your actual Gmail address.
 - **Observation log location** -- Change the path in Phase 14 if you prefer a different log location.

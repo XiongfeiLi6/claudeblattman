@@ -311,6 +311,31 @@ curl -o ~/.claude-assistant/config/calendar-policy.md \
 
 ---
 
+### /post-meeting — Meeting Follow-Up
+`[EA]`
+
+**What it does:** Reads a meeting transcript (from Granola, Zoom export, or a local file), extracts decisions and action items grouped by attendee, and drafts a follow-up email. Includes a concise summary for busy readers and a detailed meeting notes appendix for the record.
+
+**MCP dependencies:** Gmail MCP (required for email drafting). Granola MCP (optional — also works with local transcript files).
+
+**Install:**
+```bash
+curl -o ~/.claude/commands/post-meeting.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/post-meeting.md
+```
+
+**Usage:**
+```
+/post-meeting                    # Find most recent transcript automatically
+/post-meeting keyword            # Search transcripts by keyword
+/post-meeting nosend             # Generate summary without drafting email
+/post-meeting save               # Save summary to project folder
+```
+
+**Customization:** Transcript source paths, email signature, meeting notes format, sensitivity flags.
+
+---
+
 ### /setup-project-management — Project Setup
 `[PM]`
 

@@ -1,6 +1,6 @@
 # Morning Briefing
 
-*v1.5 -- Unified hard deadline keywords; structural cleanup.*
+*v1.5 — Unified hard deadline keywords; edge case fixes; structural cleanup*
 
 Generate a comprehensive daily morning briefing combining calendar, reminders, inbox state, weather, meeting context, and optional email triage into a single view.
 
@@ -86,7 +86,7 @@ This skill requires several MCP integrations and config files to function fully.
 | **VIP list** | `email-policy.md` > VIP List | No VIP highlighting |
 | **Goal alignment** | `goals.yaml` > objectives | Section omitted |
 | **Deep work push level** | `goals.yaml` > push_level | `moderate` |
-| **Email delivery** | See Phase 6 below | Terminal only |
+| **Email delivery** | See Phase 7 below | Terminal only |
 | **Auto-triage** | Requires `/triage-inbox` + `triage-config.md` | Skipped |
 | **Granola meeting context** | Requires Granola MCP | Gmail-only context |
 | **Reminders** | Requires macOS (osascript) | Section omitted |

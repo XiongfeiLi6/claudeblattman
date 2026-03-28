@@ -1,5 +1,5 @@
 ---
-description: Build an AI executive assistant with Claude Code — inbox triage, morning briefings, meeting capture, and project tracking. From 5,000 unread emails to six.
+description: Build an AI executive assistant with Claude Code — inbox triage, morning briefings, meeting prep, post-meeting follow-up, and project tracking. From 5,000 unread emails to six.
 ---
 
 # Building an AI Executive Assistant
@@ -21,9 +21,11 @@ A system that manages your inbox, tracks your projects, processes your meetings,
 | **Session capture** | Records decisions, follow-ups, and handoff notes after each session | [`/done`](../setup/skill-reference.md#done-session-capture) |
 | **To-do management** | Add, review, and batch-process tasks across lists | [`/todo-add`](../setup/skill-reference.md#todo-add-add-to-do-item), [`/todo-review`](../setup/skill-reference.md#todo-review-to-do-review), [`/todo-queue`](../setup/skill-reference.md#todo-queue-todo-queue) |
 | **Goals tracking** | Quarterly objectives, progress scores, stalled-goal alerts | [`/goals-review`](../setup/skill-reference.md#goals-review-goals-review) |
+| **Meeting prep** | Pulls context from email, chat, calendar, and past meetings to generate a pre-meeting briefing | `/pre-meeting-brief` (not yet published — [patterns below](#meeting-prep-and-follow-up)) |
+| **Meeting follow-up** | Extracts decisions and action items from a transcript, drafts follow-up email to attendees | [`/post-meeting`](../setup/skill-reference.md#post-meeting-meeting-follow-up) |
 | **Noise canceling** | Digest of high-volume announcements (school, employer, nonprofit) | [Example walkthrough](../workflows/school-digest.md) |
 
-Each skill works on its own — you can install just `/triage-inbox` and get value from day one. But they compound: `/triage-inbox` runs standalone, and `/checkin` wraps triage + briefing into one interactive session. The advantage of installing `/triage-inbox` first is that you can run it standalone, review what it does, and tune your config before adding more complex sessions. `/goals-review` adds a strategic layer that aligns everything toward your quarterly objectives. The recommended path: start with triage, add the check-in, then layer on the briefing and goals.
+Each skill works on its own — you can install just `/triage-inbox` and get value from day one. But they compound: `/triage-inbox` runs standalone, and `/checkin` wraps triage + briefing into one interactive session. `/post-meeting` captures what happened; `/done` captures what you decided. `/goals-review` adds a strategic layer that aligns everything toward your quarterly objectives. The recommended path: start with triage, add the check-in, then layer on meetings and goals.
 
 !!! tip "Ready to install?"
     Jump to [Quickstart: Your First Three Skills](#quickstart-your-first-three-skills) for step-by-step install commands, or expand the [Install All EA Skills](#step-2-skill-dependency-order) block to get everything at once. Need MCP setup first? Start with [Prerequisites](#prerequisites).
@@ -232,20 +234,21 @@ Install skills roughly in this order. Each works independently, but this sequenc
 | 6 | `/todo-add` | Nothing | Add items to session task list |
 | 7 | `/todo-review` | Nothing | Review and consolidate to-do items |
 | 8 | `/todo-queue` | Gmail MCP, Apple Reminders | Batch-convert emails to reminders |
-| 9 | `/goals-review` | goals.yaml | Quarterly goal review and recalibration |
+| 9 | `/post-meeting` | Granola or transcript file | Extract decisions, action items, draft follow-up email |
+| 10 | `/goals-review` | goals.yaml | Quarterly goal review and recalibration |
 
 ??? example "Install all EA skills at once (after completing setup above)"
 
     Only use this after you've installed the config templates (Step 1) and tested your first three skills. Running this before setup is complete will install skills that can't work yet.
 
     ```bash
-    # Last verified: 2026-02-22. If any curl fails, check the Skill Library for current URLs.
+    # Last verified: 2026-03-27. If any curl fails, check the Skill Library for current URLs.
     mkdir -p ~/.claude/commands ~/.claude-assistant/config \
       ~/.claude-assistant/state ~/.claude-assistant/logs
 
     # EA skills (dependency order)
     for skill in done triage-inbox checkin morning-brief schedule-query \
-      todo-add todo-review todo-queue goals-review; do
+      todo-add todo-review todo-queue post-meeting goals-review; do
       curl -o ~/.claude/commands/$skill.md \
         https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/$skill.md
     done
@@ -394,6 +397,60 @@ Restart Claude Code, then try: `/checkin quick` (abbreviated version — good fo
 Once `/triage-inbox` and `/checkin` are running daily, add [`/morning-brief`](../setup/skill-reference.md#morning-brief-daily-briefing) if you want a lighter passive report alongside your interactive session. Set up [`/goals-review`](../setup/skill-reference.md#goals-review-goals-review) to maintain the `goals.yaml` file that powers goal alignment in both `/checkin` and `/morning-brief`.
 
 If you have a high-volume source that floods your inbox — school announcements, employer updates, nonprofit newsletters — see [Organizational Noise Canceling](../workflows/school-digest.md) for how to build a digest skill that compresses it into a 30-second read.
+
+---
+
+## Meeting Prep and Follow-Up
+
+Meetings were the second thing I automated after inbox triage. The value isn't the transcript — it's never having to remember what was decided, and never walking into a meeting unprepared.
+
+### Pre-Meeting Briefing
+
+Before each meeting, a skill gathers context from your email, chat, calendar, and past meeting notes — then identifies decisions you need to make, open loops (things others owe you), and materials to review. The goal: walk in knowing what matters instead of scrambling to remember.
+
+**Design patterns worth stealing:**
+
+- **Multi-source health checks.** Before synthesizing, validate each data source (email, chat, calendar, transcripts, project docs). If a source is down or empty, degrade gracefully instead of producing garbage. Set a minimum-signal gate: require at least two sources returning data before generating a structured brief.
+- **Claim confidence tagging.** Tag every piece of evidence: VERIFIED (confirmed by 2+ sources), SINGLE-SOURCE (one channel only), or INFERRED (your best guess). Suppress inferred claims in decision sections. This prevents treating speculation as fact.
+- **Per-source tool call budgets.** Cap the number of tool calls per data source (e.g., max 8 Gmail searches, max 5 WhatsApp queries). When the cap is hit, stop and synthesize what you have. This prevents runaway costs and keeps the skill under 60 seconds.
+
+!!! tip "Build your own version"
+    The `/pre-meeting-brief` skill is not published because it depends heavily on my specific MCP stack (Gmail + Calendar + Granola + WhatsApp + Google Docs). But the patterns above are portable. Start simple: a skill that reads your calendar for today's meetings, searches Gmail for recent threads with each attendee, and outputs a one-page brief. Add sources as your integrations grow.
+
+### Post-Meeting Follow-Up
+
+After a meeting, `/post-meeting` reads the transcript (from [Granola](../essentials/granola.md), Zoom, or a local file), extracts decisions and action items grouped by person, and drafts a follow-up email to attendees.
+
+**What makes it useful:**
+
+- **Action items grouped by person**, not a flat list. Each attendee can scan their own obligations without reading everyone else's.
+- **Dual-format email**: a concise summary up top (decisions + action items + next steps) for busy readers, with detailed meeting notes as an appendix for the record.
+- **Transcript-not-ready detection**: if no transcript newer than 30 minutes exists, the skill warns you rather than summarizing an incomplete file.
+
+```bash
+# Install post-meeting
+curl -o ~/.claude/commands/post-meeting.md \
+  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/post-meeting.md
+```
+
+After a meeting, run `/post-meeting` — it will find the most recent transcript and walk you through the follow-up.
+
+---
+
+## The Daily Ritual Stack
+
+After a few weeks, individual skills start compounding into a daily rhythm. Here's how mine works:
+
+| Time | What I Run | What Happens | Duration |
+|------|-----------|-------------|----------|
+| Morning | `/checkin` or `/morning-brief` | Triage inbox, review calendar, surface overdue reminders, prep for first meeting | 10-15 min |
+| Before meetings | `/pre-meeting-brief` | Pull context, identify decisions needed, review open loops | 2-3 min |
+| After meetings | `/post-meeting` | Extract decisions and action items, draft follow-up email | 3-5 min |
+| End of session | `/done` | Capture decisions, open questions, and handoff notes | 1 min |
+
+You don't need all of these. `/triage-inbox` alone saves an hour a week. But they compound: the morning brief references your goals, the meeting prep references your triage results, and `/done` creates the handoff that makes tomorrow's session seamless.
+
+The key insight: **start with one skill, use it for a week, then add the next.** Each addition feels small but the system gets meaningfully smarter with each layer.
 
 ---
 

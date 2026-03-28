@@ -35,6 +35,7 @@ Restart Claude Code after adding new commands.
 | **Prompt Refine** | `/prompt-refine` | formatting-core.md | Reviews and improves existing prompts |
 | **Proposal Revision** | `/proposal-revise` | None | Applies reviewer/collaborator feedback to proposal drafts |
 | **Proposal Writing** | `/proposal-write` | None | Drafts funding proposals from structured inputs and project context |
+| **Meeting Follow-Up** | `/post-meeting` | Gmail MCP, Granola MCP (optional) | Extracts decisions and action items from meeting transcripts, drafts follow-up email |
 | **Plan Review** | `/review-plan` | None (web search optional) | Structured expert critique of plans |
 | **Schedule Query** | `/schedule-query` | Calendar MCP | Checks calendar availability and drafts scheduling replies |
 | **Project Setup** | `/setup-project-management` | None | Initializes project management system for research projects |

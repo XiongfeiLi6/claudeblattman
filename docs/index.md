@@ -21,9 +21,12 @@ By [Chris Blattman](https://chrisblattman.com), political economist at UChicago 
 This site covers AI tools for knowledge work — from [chatbot prompting](essentials/index.md) to advanced automation with [Claude Code](https://code.claude.com/docs/en/overview), a terminal-based AI tool that can read your files, search your email, manage your calendar, and run custom workflows. The site documents how I built a working system and shares everything so you can do the same. Here's [how I got here](about.md#how-i-got-here).
 
 !!! tip "Already a power user? Skip the tour."
-    [Skill Library](setup/skill-reference.md) — 19 skills, one-command install · [Config Templates](downloads/index.md#templates) — starter files for CLAUDE.md, email policy, voice · [GitHub Repo](https://github.com/chrisblattman/claudeblattman) — browse the source
+    [Skill Library](setup/skill-reference.md) — 20 skills, one-command install · [Config Templates](downloads/index.md#templates) — starter files for CLAUDE.md, email policy, voice · [GitHub Repo](https://github.com/chrisblattman/claudeblattman) — browse the source
 
 ## Where to Start
+
+!!! example "Never used AI tools? Start here — no installation required."
+    Three pages that work in any browser: [Chatbots Done Right](essentials/chatbots.md) · [Prompt Engineering](essentials/prompting.md) · [AI Project Folders](essentials/project-folders.md). Total time: 30 minutes. You'll leave with better prompts and a reusable system for any recurring task.
 
 <div class="grid cards" markdown>
 
@@ -47,7 +50,7 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
 
     ---
 
-    Browse 19 downloadable skills with one-command install. Starter config templates for CLAUDE.md, email policy, voice files, and more. Already have Claude Code? Start here.
+    Browse 20 downloadable skills with one-command install. Starter config templates for CLAUDE.md, email policy, voice files, and more. Already have Claude Code? Start here.
 
     [:octicons-arrow-right-24: Skill Library](setup/skill-reference.md) · [:octicons-arrow-right-24: Templates](downloads/index.md#templates)
 
@@ -71,7 +74,7 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
 
     ---
 
-    Email triage, morning briefings, calendar queries, and communication drafting. A set of skills that handle the daily overhead of managing a busy schedule and high-volume inbox.
+    Email triage, morning briefings, meeting prep, post-meeting follow-up, and communication drafting. Skills that handle the daily overhead of managing a busy schedule and high-volume inbox.
 
     [:octicons-arrow-right-24: Executive Assistant Workflow](toolkit/executive-assistant.md)
 
@@ -99,19 +102,24 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
 
     [:octicons-arrow-right-24: Tax Workflow](tax-workflow/index.md)
 
--   **:material-chart-box-outline: Data Analysis Co-Pilot** <span class="badge-preview">Coming soon</span>
+-   **:material-chart-box-outline: Data Analysis Co-Pilot** <span class="badge-preview">Planned</span>
 
     ---
 
     Using AI to write, debug, and audit statistical code in Stata, R, and Python. Replication verification, robustness checks, and the "Referee 2" pattern. In the meantime, see [AI for Economists resources](resources.md#ai-for-economists-and-researchers).
 
--   **:material-file-document-edit-outline: Research Writing** <span class="badge-preview">Coming soon</span>
+-   **:material-file-document-edit-outline: Research Writing** <span class="badge-preview">Planned</span>
 
     ---
 
     LaTeX and Overleaf workflows: drafting sections, responding to referee reports, maintaining voice consistency across co-authored papers, and version control with Claude Code.
 
 </div>
+
+## What's New
+
+- **March 2026:** Meeting prep and follow-up skills. Updated [Executive Assistant](toolkit/executive-assistant.md) workflow with daily ritual stack.
+- **February 2026:** [Tax Season](tax-workflow/index.md) case study. Nav restructure. 13 new downloadable skills in the [Skill Library](setup/skill-reference.md).
 
 !!! tip "Stay in the loop"
     I add new tools and guides regularly. [Get email updates](https://buttondown.email/claudeblattman) — a few times a year, no spam. Or [star it on GitHub](https://github.com/chrisblattman/claudeblattman) so others can find it. Something broken or unclear? [Send a quick note](mailto:claudeblattman+feedback@gmail.com?subject=Feedback).
