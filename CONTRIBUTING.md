@@ -94,13 +94,19 @@ Append to `docs/resources.md` following the existing format:
 Search for and remove any personal names, phone numbers, email addresses, or institutional details that shouldn't be public.
 
 ```bash
-grep -riE "specific_names|phone_numbers|personal_emails" docs/ skills/ agents/ templates/
+# Family / RA / collaborator names live in .sanitize-names.local (gitignored — never
+# published; a literal name list embedded HERE would itself leak in this public repo):
+grep -rniE -f .sanitize-names.local docs/ skills/ agents/ templates/ 2>/dev/null || echo "(create .sanitize-names.local locally — one name/pattern per line)"
+# Personal emails + phone numbers (generic patterns, safe to publish):
+grep -rniE '[a-z0-9._%+-]+@(gmail\.com|uchicago\.edu)|\(?[0-9]{3}\)?[-. ][0-9]{3}[-. ][0-9]{4}' docs/ skills/ agents/ templates/
 ```
+
+("claudeblattman" the site name is fine; `blattman@`/personal `@gmail.com`/`@uchicago.edu` addresses are not. The name list is kept out of this file deliberately — see `.sanitize-names.local`.)
 
 ### Pass 2 — Hardcoded Paths
 
 ```bash
-grep -riE "~/Dropbox|/Users/|specific_project_paths" docs/ skills/ agents/ templates/
+grep -rniE '~/Dropbox|/Users/[a-z]|Dropbox/(Claude|Codex|AI_Projects|Research)' docs/ skills/ agents/ templates/
 ```
 
 Replace with generic paths like `~/Documents/` or `~/.claude/`.
@@ -108,7 +114,7 @@ Replace with generic paths like `~/Documents/` or `~/.claude/`.
 ### Pass 3 — Project-Specific References
 
 ```bash
-grep -riE "specific_project_names|grant_names|study_locations" docs/ skills/ agents/ templates/
+grep -rniE 'gang entry|gangrule|medellin|webcamming|bogota|cdmx|mental health|civilian alternatives|ppv evaluation|uchicago-bfi-blattman' docs/ skills/ agents/ templates/
 ```
 
 Replace with generic examples.
@@ -122,10 +128,16 @@ Read every file in `skills/` and `agents/` end-to-end. Automated grep catches pa
 A single grep that catches the most common sanitization slips:
 
 ```bash
-grep -rnE "proposal-resources|/Users/chrisblattman|Dropbox/Claude/(Settings|Projects|Guidelines|voice)|HPP-Blattman|/Settings/(scripts|rules|logs|state)/|blattman@gmail|blattman\\+todo|jeannie\\.annan|claudeblattman@gmail" skills/ agents/ templates/
+grep -rnE 'proposal-resources|/Users/chrisblattman|Dropbox/(Claude|Codex|AI_Projects)|HPP-Blattman|/Settings/(scripts|rules|logs|state)/|blattman@gmail|blattman\+todo|claudeblattman@gmail|Label_[0-9]+|[a-z0-9]{6,}@(g\.us|lid)|[a-z0-9]{16,}@group\.calendar\.google\.com|uchicago-bfi-blattman|PVT[A-Za-z]*_[A-Za-z0-9]+|\$[0-9]{2,3},[0-9]{3}|\.granola-api-key' skills/ agents/ templates/
+# Names handled separately (gitignored list — see Pass 1):
+grep -rniE -f .sanitize-names.local skills/ agents/ templates/ 2>/dev/null
 ```
 
-Empty output = clean. Any output is a leak that needs sanitization before push.
+Empty output = clean. The format canary covers Gmail label IDs, WhatsApp JIDs, real (long-hash) Google Calendar IDs, the GitHub org + `PVT*` project/field IDs, salary-shaped figures, paths, and the Granola key path. Names are swept via the gitignored `.sanitize-names.local` so no real name is ever written into this published file.
+
+**Review each hit; not every hit is a leak.** Teaching files that explain ID *formats* are expected and safe — e.g. `skills/todo-queue.md` and `templates/triage-config-template.md` mention `Label_1`/`Label_123` as format examples, and `templates/calendar-policy-template.md` uses bracketed placeholders. A real leak is a *concrete* value (a specific `Label_5527`, a 64-char calendar hash, an actual name/figure), not a "looks like `Label_N`" explanation. The calendar/JID patterns are length-gated to skip bracketed placeholders; `Label_[0-9]+` is deliberately broad — eyeball its hits.
+
+**Validate the canary itself periodically:** plant a known bad string (e.g. `Label_99` or a name from `.sanitize-names.local`) in a scratch file under `skills/`, run the canary, confirm it FIRES, then delete the scratch file. A canary that never catches anything may be silently broken.
 
 `~/.claude/plans/` references are FINE — that's the standard Claude Code plan-mode directory. The leak risk is specific named plan files (like `~/.claude/plans/enchanted-candle.md`); check for those manually:
 

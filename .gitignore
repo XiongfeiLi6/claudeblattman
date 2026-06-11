@@ -9,3 +9,5 @@ credentials/
 *.json.bak
 .claude/
 HANDOFF.md
+.sanitize-names.local
+.cache/
