@@ -46,9 +46,9 @@
       "sha256": "37578de36014e9163a2c104017589d93891aebd9d4064652094c7db8c89f69a4"
     },
     {
-      "bytes": 30894,
+      "bytes": 31239,
       "path": "codex-starter/skills/ask-agents/scripts/run-external-agent.mjs",
-      "sha256": "88f33603e9f2d073ac7286c142280fbcac7a0d672c956e053851d30e246214c9"
+      "sha256": "a58f89cc212be17d4a288397786e2f46530e02938760aff43fb14a419b3577a7"
     },
     {
       "bytes": 911,
@@ -81,9 +81,9 @@
       "sha256": "5e9f864cad9c6a6baa6a7f151d99ba9ab1a9eb6a107d5cb164ae5d4b747c3295"
     },
     {
-      "bytes": 10346,
+      "bytes": 10937,
       "path": "docs/starter-kit/index.md",
-      "sha256": "67e27eab9865193507b7b69ff495ba0080a74a73f209936201b0f704b247883c"
+      "sha256": "6e88e7f0f7afbddcba8674e0d02dd1dfb5dcc2d2f2dfab3b8ffb55dba2b6466f"
     },
     {
       "bytes": 15432,
