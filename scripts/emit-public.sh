@@ -66,7 +66,7 @@ for line in file_list.read_text(encoding="utf-8").splitlines():
 
 manifest = {
     "schema_version": 1,
-    "release": "starter-kit-v0.1.0",
+    "release": "starter-kit-v0.1.1",
     "mode": "public-repo-authored",
     "note": "v0.1 records the exact public starter-kit release surface. Broader private-to-public skill emission is deferred.",
     "files": files,
@@ -89,5 +89,5 @@ if [ "$mode" = "--check" ]; then
 fi
 
 mv "$manifest_tmp" public-manifest.json
-printf 'Wrote public-manifest.json for starter-kit-v0.1.0.\n'
+printf 'Wrote public-manifest.json for starter-kit-v0.1.1.\n'
 scripts/check-public-release.sh

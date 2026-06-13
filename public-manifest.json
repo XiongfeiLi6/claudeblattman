@@ -3,7 +3,7 @@
     {
       "bytes": 1001,
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "e354777a03cdaabe56868e5eada8401bf890723e5a664c71a8140049f3bcdbf9"
+      "sha256": "c9459c1f0dd7b935df1ffa58faf04a38937dc99b15dc20c2204c11b9ab53e7e6"
     },
     {
       "bytes": 565,
@@ -81,9 +81,9 @@
       "sha256": "5e9f864cad9c6a6baa6a7f151d99ba9ab1a9eb6a107d5cb164ae5d4b747c3295"
     },
     {
-      "bytes": 10857,
+      "bytes": 10322,
       "path": "docs/starter-kit/index.md",
-      "sha256": "96da99db9ea5586942df72dc048db6cf1fa3ca683e6decbc7be4479da0696576"
+      "sha256": "6add5372b2aedbea8d097a5c2a4ca11b1fb9d17864e0fff56ee0645ab188a548"
     },
     {
       "bytes": 15432,
@@ -98,7 +98,7 @@
     {
       "bytes": 426,
       "path": "plugins/starter-kit/.claude-plugin/plugin.json",
-      "sha256": "f5377d70534a7cad1556ba5546a4ab37c19a70114ba110ad53db52e12c1ba27c"
+      "sha256": "a4099f43c7733d9545c162cda6201508a2650fe892619c71e5a821ea9d6f850d"
     },
     {
       "bytes": 2668,
@@ -166,14 +166,14 @@
       "sha256": "71bd7e8d77168a208adf1da477b9bcc3452e6dd01e6d23d9c219b28209e1c5d3"
     },
     {
-      "bytes": 4238,
+      "bytes": 4280,
       "path": "plugins/starter-kit/scripts/codex-run.sh",
-      "sha256": "29f068fba07ad3d54636f2862592d879044c8500d71c66d3e4d8c4581573c186"
+      "sha256": "6662574fd600092239b755e6460752fc9fc40db106c13e2658f2ed0c523691dd"
     },
     {
-      "bytes": 3873,
+      "bytes": 3833,
       "path": "plugins/starter-kit/scripts/gemini-run.sh",
-      "sha256": "68404169b5be5d9d2007053d6adfc39ed2e599a4b7c5c55bd620f209aae4c706"
+      "sha256": "4383b695f77e090b755176b19c5d74be357c132c85b2a8d13b971845a1637f0b"
     },
     {
       "bytes": 8488,
@@ -188,7 +188,7 @@
     {
       "bytes": 666,
       "path": "plugins/starter-kit/skills/kit-hello/SKILL.md",
-      "sha256": "6387c2dfda68f66b1db46360744dad5ce9445fde4f0bd84d9a5a41b0958cc276"
+      "sha256": "2de3d1b88d6ebe9db7f3ce6750cdcd7eff1da0182721f65e7af95c5154b9a83d"
     },
     {
       "bytes": 4988,
@@ -216,14 +216,14 @@
       "sha256": "24f9d28d3210b836a336986b7f9036b98819c1af56cb4827f4a59e3248438849"
     },
     {
-      "bytes": 3123,
+      "bytes": 3339,
       "path": "scripts/check-public-release.sh",
-      "sha256": "1ef579be5390a6c6d4814915a0dcb994fd57d5d96f1d3a40dc089051d8d51c61"
+      "sha256": "fd60ad3b50773fbfe1f07d3edbdb9ce18cec4063a4379fd3573cc4e5c8539041"
     },
     {
       "bytes": 2503,
       "path": "scripts/emit-public.sh",
-      "sha256": "f57d31edfd1e4f4a5ff5ac1fa799f8e4804ba64f7ad4c331922979e39bebcd65"
+      "sha256": "377cb6aa867faab411dfce6e7ba07478ca9b4147e8e72f6729827bb7ec236453"
     },
     {
       "bytes": 6777,
@@ -233,6 +233,6 @@
   ],
   "mode": "public-repo-authored",
   "note": "v0.1 records the exact public starter-kit release surface. Broader private-to-public skill emission is deferred.",
-  "release": "starter-kit-v0.1.0",
+  "release": "starter-kit-v0.1.1",
   "schema_version": 1
 }

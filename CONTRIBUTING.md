@@ -135,6 +135,10 @@ grep -rniE -f .sanitize-names.local skills/ agents/ templates/ 2>/dev/null
 
 Empty output = clean. The format canary covers Gmail label IDs, WhatsApp JIDs, real (long-hash) Google Calendar IDs, the GitHub org + `PVT*` project/field IDs, salary-shaped figures, paths, and the Granola key path. Names are swept via the gitignored `.sanitize-names.local` so no real name is ever written into this published file.
 
+CI runs the tracked structured-pattern scanner. Your local pre-push run is the
+fuller gate when `.sanitize-names.local` or `.sanitize-private-blocklist.local`
+exists, because those private denylist files are intentionally not committed.
+
 **Review each hit; not every hit is a leak.** Teaching files that explain ID *formats* are expected and safe — e.g. `skills/todo-queue.md` and `templates/triage-config-template.md` mention `Label_1`/`Label_123` as format examples, and `templates/calendar-policy-template.md` uses bracketed placeholders. A real leak is a *concrete* value (a specific `Label_5527`, a 64-char calendar hash, an actual name/figure), not a "looks like `Label_N`" explanation. The calendar/JID patterns are length-gated to skip bracketed placeholders; `Label_[0-9]+` is deliberately broad — eyeball its hits.
 
 **Validate the canary itself periodically:** plant a known bad string (e.g. `Label_99` or a name from `.sanitize-names.local`) in a scratch file under `skills/`, run the canary, confirm it FIRES, then delete the scratch file. A canary that never catches anything may be silently broken.

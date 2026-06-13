@@ -63,6 +63,9 @@ else
     fail=1
   fi
 
+  # These .local files are intentionally gitignored because they may contain real
+  # private names or phrases. CI usually skips them; run this gate locally before
+  # public pushes for the fuller name/phrase sweep.
   for list in ".sanitize-names.local" ".sanitize-private-blocklist.local"; do
     if [ -s "$list" ]; then
       hits=$(xargs grep -IInE -f "$list" < "$public_file_list" 2>/dev/null | grep -v '^CONTRIBUTING.md:' || true)
@@ -74,12 +77,12 @@ else
   done
 fi
 
-if ! grep -q '"version": "0.1.0"' .claude-plugin/marketplace.json 2>/dev/null; then
-  say_fail ".claude-plugin/marketplace.json is missing starter version 0.1.0"
+if ! grep -q '"version": "0.1.1"' .claude-plugin/marketplace.json 2>/dev/null; then
+  say_fail ".claude-plugin/marketplace.json is missing starter version 0.1.1"
 fi
 
-if ! grep -q '"version": "0.1.0"' plugins/starter-kit/.claude-plugin/plugin.json 2>/dev/null; then
-  say_fail "plugins/starter-kit/.claude-plugin/plugin.json is missing version 0.1.0"
+if ! grep -q '"version": "0.1.1"' plugins/starter-kit/.claude-plugin/plugin.json 2>/dev/null; then
+  say_fail "plugins/starter-kit/.claude-plugin/plugin.json is missing version 0.1.1"
 fi
 
 if [ ! -f public-manifest.json ]; then

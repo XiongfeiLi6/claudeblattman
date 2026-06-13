@@ -1,12 +1,12 @@
 ---
-description: First-run guide for the Claude Blattman desktop agent starter kit. Assumes Claude Code and Codex desktop apps are installed and signed in.
+description: First-run guide for the Claude Blattman desktop agent starter kit. Starts with Claude Code; Codex is optional after the first handoff.
 ---
 
 # Start Here: Desktop Agent Starter Kit
 
-This page is for your first hour with the desktop agent apps. It assumes you
-already downloaded **Claude Code** and **Codex**, have active subscriptions, and
-are opening the apps for the first time.
+This page is for your first hour with Claude Code. If you also downloaded
+**Codex**, leave it closed for now. Codex is useful later, but the first session
+works best when you learn one loop in one app.
 
 The goal is not to learn every feature. The goal is to make one folder usable:
 open it, ask clearly, review the plan before anything changes, do one small
@@ -34,10 +34,8 @@ Start with **Claude Code**. Use **Codex** after you understand the basic loop, o
 when you want a second app to inspect the same folder.
 
 In this guide, **Claude Code** means the installed app that can open a local
-folder, not Claude in a browser tab. **Codex** is optional: use it later as a
-second workbench on the same folder.
-
-<div class="starter-grid" markdown>
+folder, not Claude in a browser tab. **Codex** is optional; it is not part of
+the first 30 minutes.
 
 <div class="starter-card" markdown>
 ### Claude Code: main workbench
@@ -52,25 +50,14 @@ slash commands:
 
 </div>
 
-<div class="starter-card" markdown>
-### Codex: second workbench
-
-Use Codex for the same folder when you want a second agent or a coding-heavy
-check. The matching starter commands use dollar names:
-
-- `$prompt`
-- `$review-plan`
-- `$done`
-- `$ask-agents`
-
-</div>
-
-</div>
-
 ## The First Folder
 
 Create a folder whose contents are safe for practice. Put one harmless file in
 it: a meeting agenda, a draft memo, a reading list, or a small todo list.
+
+**Do not open your whole Documents folder, Dropbox folder, desktop, home folder,
+or research project folder for the first run. Create a brand new empty practice
+folder. If making a `.md` file is annoying, a plain text file is fine.**
 
 Good first folder:
 
@@ -119,24 +106,11 @@ Then run:
 You can stop here for the first session. Codex setup is optional after the first
 handoff.
 
-??? note "Optional after your first handoff: install the Codex starter pack"
-
-    In Terminal:
-
-    ```bash
-    git clone https://github.com/chrisblattman/claudeblattman.git
-    cd claudeblattman/codex-starter
-    python3 install-codex-starter.py install
-    ```
-
-    Restart Codex after that install.
-
 ## Starter Commands
 
-The starter kit adds short commands to each app. If you are in the pilot, use
+The starter kit adds short commands to Claude Code. If you are in the pilot, use
 the install instructions Chris sent before the session. In the public release,
-install the `starter-kit` plugin for Claude Code first. Install the Codex starter
-pack later if you want the same shortcuts in Codex.
+install the `starter-kit` plugin first.
 
 If a command is missing, do not stop. Type the plain-English fallback shown
 below. The workflow matters more than the shortcut.
@@ -146,16 +120,13 @@ below. The workflow matters more than the shortcut.
 | Claude Code | `/prompt` | "Turn this rough request into a clear task, then make a short plan before editing." |
 | Claude Code | `/review-plan` | "Review this plan before we act. Find risks, missing steps, and a safer sequence." |
 | Claude Code | `/done` | "Write or update HANDOFF.md with status, next steps, key files, and decisions." |
-| Codex | `$prompt` | "Read the folder and turn this rough request into a clear task. Do not edit yet." |
-| Codex | `$review-plan` | "Review this plan before we act. Find risks, missing steps, and a safer sequence." |
-| Codex | `$done` | "Write or update HANDOFF.md so the next session can resume." |
-| Codex | `$ask-agents` | "Ask Claude or Gemini for a second opinion, but only on non-sensitive material." |
 
 ## First Run In Claude Code
 
 Follow these steps in order. If the app asks whether to trust or allow access to
 the folder, approve only the practice folder. If the app asks for access,
-approve only `Documents/AI Practice/`.
+approve only `Documents/AI Practice/`. Do not approve your whole Documents
+folder.
 
 <div class="starter-steps" markdown>
 
@@ -198,41 +169,6 @@ When one small step is complete, run:
 
 Open `HANDOFF.md`. That file is the point of the exercise: it proves the next
 session can pick up where this one stopped.
-
-## Optional After Your First Handoff: Codex
-
-After the Claude loop works, open the same practice folder in Codex.
-
-Use this first:
-
-```text
-$prompt Read the files in this folder and tell me what changed since the
-handoff. Do not edit anything yet. Suggest one small next step.
-```
-
-If `$prompt` is not available yet, the Codex starter pack is not installed or
-Codex has not restarted since installation. Use plain English for now:
-
-```text
-Read this folder and the HANDOFF.md file. Tell me the current state and the
-first safe next step. Do not edit anything yet.
-```
-
-## Optional: Second Opinions
-
-Second opinions are useful, but they are not part of the first 30 minutes.
-
-Only use them after the basic loop works:
-
-- In Claude Code, `/kit-setup` checks whether optional Codex or Gemini command-line
-  tools are installed and usable.
-- In Claude Code, `/codex` and `/gemini` ask one outside model a question.
-- In Codex, `$ask-agents` can ask Claude or Gemini.
-
-Do not send confidential, personal, research-participant, or unpublished
-sensitive material to outside models. If a task is sensitive, keep it inside the
-main app and use generic descriptions. Even on non-sensitive material, the
-starter kit asks you to confirm before sending the prompt to another AI service.
 
 ## If Something Looks Scary
 
@@ -282,9 +218,53 @@ loop feels natural.
 
 ## Not Today
 
-Do not start with Gmail, Google Drive, calendars, MCP setup, a broad skill
-library, deep research, recall, or multi-agent councils. Those are useful later,
-but they are not the first move.
+Do not start with Codex setup, Gmail, Google Drive, calendars, MCP setup, a broad
+skill library, deep research, recall, or multi-agent councils. Those are useful
+later, but they are not the first move.
+
+## Later: Codex And Second Opinions
+
+Use this section after the Claude Code handoff loop feels natural.
+
+??? note "Optional after your first handoff: install the Codex starter pack"
+
+    In Terminal:
+
+    ```bash
+    git clone https://github.com/chrisblattman/claudeblattman.git
+    cd claudeblattman/codex-starter
+    python3 install-codex-starter.py install
+    ```
+
+    Restart Codex after that install. Then open the same practice folder in
+    Codex and ask:
+
+    ```text
+    $prompt Read the files in this folder and tell me what changed since the
+    handoff. Do not edit anything yet. Suggest one small next step.
+    ```
+
+    If `$prompt` is not available yet, use plain English:
+
+    ```text
+    Read this folder and the HANDOFF.md file. Tell me the current state and the
+    first safe next step. Do not edit anything yet.
+    ```
+
+??? note "Optional after the basic loop: second opinions"
+
+    Second opinions are useful, but they are not part of the first 30 minutes.
+
+    - In Claude Code, `/kit-setup` checks whether optional Codex or Gemini command-line
+      tools are installed and usable.
+    - In Claude Code, `/codex` and `/gemini` ask one outside model a question.
+    - In Codex, `$ask-agents` can ask Claude or Gemini.
+
+    Do not send confidential, personal, research-participant, or unpublished
+    sensitive material to outside models. If a task is sensitive, keep it inside
+    the main app and use generic descriptions. Even on non-sensitive material,
+    the starter kit asks you to confirm before sending the prompt to another AI
+    service.
 
 <script>
 (function () {

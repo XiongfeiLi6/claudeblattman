@@ -33,6 +33,7 @@ fi
 # Read the prompt once; reuse it across model retries.
 PROMPT_TMP="$(mktemp)"
 cat > "$PROMPT_TMP"
+PROMPT_TEXT="$(cat "$PROMPT_TMP")"
 TIMEOUT_FLAG="$(mktemp)"
 trap 'rm -f "$PROMPT_TMP" "$TIMEOUT_FLAG"' EXIT
 
@@ -60,7 +61,7 @@ run_with_timeout() {
 FIRST=1
 LAST_ERR=""
 for MODEL in gemini-2.5-pro gemini-2.0-flash gemini-1.5-pro; do
-  run_with_timeout "$GEMINI_BIN" -m "$MODEL" --approval-mode plan -p "Answer the prompt provided on stdin. Return a concise plain-text reply." < "$PROMPT_TMP" > "$OUT" 2> "$OUT.stderr"
+  run_with_timeout "$GEMINI_BIN" -m "$MODEL" --approval-mode plan -p "$PROMPT_TEXT" > "$OUT" 2> "$OUT.stderr"
   RC=$?
 
   if [ "$RC" -eq 0 ] && [ -s "$OUT" ]; then

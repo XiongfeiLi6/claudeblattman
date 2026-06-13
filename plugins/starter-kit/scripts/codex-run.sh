@@ -48,8 +48,10 @@ fi
 export CODEX_HOME="$CLEAN_HOME"
 
 run_with_timeout() {
+  stdin_file="$1"
+  shift
   rm -f "$TIMEOUT_FLAG"
-  "$@" &
+  "$@" < "$stdin_file" &
   child_pid=$!
   (
     sleep "$RUN_TIMEOUT_SECONDS"
@@ -73,13 +75,13 @@ LAST_ERR=""
 for MODEL in "${CANDIDATES[@]}"; do
   MODEL_LABEL="${MODEL:-account default}"
   if [ -n "$MODEL" ]; then
-    run_with_timeout "$CODEX_BIN" exec --model "$MODEL" --sandbox read-only \
+    run_with_timeout "$PROMPT_TMP" "$CODEX_BIN" exec --model "$MODEL" --sandbox read-only \
       -c approval_policy=never --skip-git-repo-check \
-      -o "$OUT" < "$PROMPT_TMP" > "$OUT.stdout" 2> "$OUT.stderr"
+      -o "$OUT" - > "$OUT.stdout" 2> "$OUT.stderr"
   else
-    run_with_timeout "$CODEX_BIN" exec --sandbox read-only \
+    run_with_timeout "$PROMPT_TMP" "$CODEX_BIN" exec --sandbox read-only \
       -c approval_policy=never --skip-git-repo-check \
-      -o "$OUT" < "$PROMPT_TMP" > "$OUT.stdout" 2> "$OUT.stderr"
+      -o "$OUT" - > "$OUT.stdout" 2> "$OUT.stderr"
   fi
   RC=$?
 
