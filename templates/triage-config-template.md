@@ -23,7 +23,8 @@ This returns all labels with their IDs.
 3. Copy the label IDs from the response
 
 **Method 3: Manual lookup**
-Gmail label IDs for user-created labels look like `Label_1`, `Label_2`, etc. System labels use names like `INBOX`, `UNREAD`, `SPAM`.
+Gmail label IDs for user-created labels are opaque strings from the Gmail API.
+System labels use names like `INBOX`, `UNREAD`, `SPAM`.
 
 ---
 

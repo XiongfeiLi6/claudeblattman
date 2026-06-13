@@ -49,6 +49,7 @@ theme:
 
 nav:
   - Home: index.md
+  - Start Here: starter-kit/index.md
   - "What's New": changelog.md
   - Essentials:
     - essentials/index.md

@@ -1,0 +1,16 @@
+name: Public Release Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  public-release-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/emit-public.sh --check
+      - run: bash scripts/check-public-release.sh

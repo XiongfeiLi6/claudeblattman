@@ -2,6 +2,8 @@
 
 Downloadable skills (slash commands) and agents for Claude Code.
 
+> **First-time desktop users:** start with the [Desktop Agent Starter Kit](../docs/starter-kit/index.md). The files below are an advanced/reference library from a broader setup. Some skills assume Gmail, Calendar, Granola, project configs, or account-specific templates and are not part of the v0.1 starter kit.
+
 ## Quick Install
 
 Skills go in `~/.claude/commands/`. Agents go in `~/.claude/agents/`.

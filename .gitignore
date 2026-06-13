@@ -9,5 +9,10 @@ credentials/
 *.json.bak
 .claude/
 HANDOFF.md
+!plugins/starter-kit/references/project-folder-template/HANDOFF.md
+SESSION_LOG.md
+PUBLIC_VOCAB.md
+godaddy-setup.md
 .sanitize-names.local
+.sanitize-private-blocklist.local
 .cache/

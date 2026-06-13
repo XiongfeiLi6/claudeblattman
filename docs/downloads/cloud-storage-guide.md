@@ -26,7 +26,8 @@ Before touching cloud services, figure out where space is going on your actual h
 
 ### The Approach
 
-Create a working directory for the project. We used `~/Documents/cloud-storage-audit/` so results sync across machines, but any folder works.
+Create a working directory for the project. For example,
+`~/Documents/cloud-storage-audit/` works well and keeps results easy to find.
 
 Ask Claude Code to scan major directories outside your main cloud sync folder:
 

@@ -25,10 +25,21 @@ This site covers AI tools for knowledge work — from [chatbot prompting](essent
 
 ## Where to Start
 
+!!! example "Downloaded Claude and Codex already? Start here."
+    Use the [Desktop Agent Starter Kit](starter-kit/index.md) first. It assumes the apps are installed and walks through exactly what to open, what folder to use, and the first `/prompt` -> `/review-plan` -> `/done` loop.
+
 !!! example "Never used AI tools? Start here — no installation required."
     Three pages that work in any browser: [Chatbots Done Right](essentials/chatbots.md) · [Prompt Engineering](essentials/prompting.md) · [AI Project Folders](essentials/project-folders.md). Total time: 30 minutes. You'll leave with better prompts and a reusable system for any recurring task.
 
 <div class="grid cards" markdown>
+
+-   **:material-rocket-launch-outline: Desktop Agent Starter Kit** <span class="badge-teal">Start here</span>
+
+    ---
+
+    Already installed Claude and Codex? Open the apps for the first time, choose a safe practice folder, run one useful task, review the plan, and write a handoff.
+
+    [:octicons-arrow-right-24: Start the first session](starter-kit/index.md)
 
 -   **:material-lightbulb-outline: New to AI Tools?** <span class="badge-teal">No Claude Code required</span>
 

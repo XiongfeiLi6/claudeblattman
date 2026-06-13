@@ -4,6 +4,9 @@ Skills (also called slash commands) are reusable prompts that run inside Claude 
 
 A skill is just a markdown file saved in `~/.claude/commands/`. It contains instructions, optional arguments, and optional references to other files. When you type `/skillname`, Claude reads the file and follows the instructions. **No code, no compilation, no special syntax — just saved prompts with a shortcut.**
 
+!!! important "First-time desktop users"
+    Start with the [Desktop Agent Starter Kit](../starter-kit/index.md) before installing skills from this library. If you installed the starter-kit plugin, do not install anything from this page during your first session. The catalog below is advanced/reference material from a broader setup. Some commands assume Gmail, Calendar, Granola, project configs, or account-specific templates and are not part of the v0.1 starter kit.
+
 ---
 
 ## Install & Use

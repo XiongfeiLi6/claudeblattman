@@ -4,7 +4,13 @@
 <span class="badge badge-time">< 1 hour to set up</span>
 <span class="badge badge-needs">Needs: Gmail MCP</span>
 
-Each of my kids' schools sends 2–4 long emails a day. Between both schools, that's 30–50 emails per digest period — every few days. The same problem hits with employer announcements, nonprofit updates, or professional associations, just on a longer cycle (weekly or monthly digests instead).
+This page uses a synthetic family/school example to show the workflow pattern.
+The same problem hits with employer announcements, nonprofit updates, or
+professional associations, just on a longer cycle (weekly or monthly digests
+instead).
+
+Each source sends 2–4 long emails a day. Across two sources, that's 30–50 emails
+per digest period — every few days.
 
 We were missing deadlines. A course selection form due Monday that neither parent saw until Sunday night. A permission slip buried in paragraph four of a weekly newsletter. Not because we weren't checking email — because the volume made it impossible to catch everything.
 
@@ -20,7 +26,7 @@ I pulled 20 recent emails and rated each: action required, calendar event, FYI, 
 
 **Schools treat everything as equally important. You don't.** A fundraiser gala and a permission form get the same formatting, the same "IMPORTANT" in the subject line. The only way to build rules that match *your* priorities is to calibrate against *your* reactions to real emails.
 
-I pulled 30 more and repeated. By email 50 the rules had stabilized. Permission forms: always high. Teacher emails from personal addresses (not noreply@): always high. Fundraiser appeals: always skip. Newsletters: extract dates only, skip the feature stories. Daily bulletins: scan for schedule changes and items mentioning my kids by name, skip everything else.
+I pulled 30 more and repeated. By email 50 the rules had stabilized. Permission forms: always high. Direct staff emails from personal addresses (not noreply@): always high. Fundraiser appeals: always skip. Newsletters: extract dates only, skip the feature stories. Daily bulletins: scan for schedule changes and items mentioning the relevant people by name, skip everything else.
 
 The resulting rules file was about 120 lines. I could not have written it before seeing those 50 emails.
 

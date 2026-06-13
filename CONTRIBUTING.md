@@ -128,7 +128,7 @@ Read every file in `skills/` and `agents/` end-to-end. Automated grep catches pa
 A single grep that catches the most common sanitization slips:
 
 ```bash
-grep -rnE 'proposal-resources|/Users/chrisblattman|Dropbox/(Claude|Codex|AI_Projects)|HPP-Blattman|/Settings/(scripts|rules|logs|state)/|blattman@gmail|blattman\+todo|claudeblattman@gmail|Label_[0-9]+|[a-z0-9]{6,}@(g\.us|lid)|[a-z0-9]{16,}@group\.calendar\.google\.com|uchicago-bfi-blattman|PVT[A-Za-z]*_[A-Za-z0-9]+|\$[0-9]{2,3},[0-9]{3}|\.granola-api-key' skills/ agents/ templates/
+grep -rnE 'Proposal_Resources|/Users/chrisblattman|Dropbox/(Claude|Codex|AI_Projects)|HPP-Blattman|/Settings/(scripts|rules|logs|state)/|blattman@gmail|blattman\+todo|claudeblattman@gmail|Label_[0-9]+|[a-z0-9]{6,}@(g\.us|lid)|[a-z0-9]{16,}@group\.calendar\.google\.com|uchicago-bfi-blattman|PVT[A-Za-z]*_[A-Za-z0-9]+|\$[0-9]{2,3},[0-9]{3}|\.granola-api-key' skills/ agents/ templates/
 # Names handled separately (gitignored list — see Pass 1):
 grep -rniE -f .sanitize-names.local skills/ agents/ templates/ 2>/dev/null
 ```

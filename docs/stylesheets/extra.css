@@ -453,6 +453,108 @@ h1, h2 {
 }
 
 /* ============================
+   Starter kit guide
+   ============================ */
+.starter-path,
+.starter-steps {
+  display: grid;
+  gap: 0.45rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0 1.4rem;
+  background: color-mix(in srgb, var(--md-accent-fg-color) 4%, var(--md-default-bg-color));
+}
+
+.starter-path label,
+.starter-steps label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.starter-path input,
+.starter-steps input {
+  margin-top: 0.2rem;
+  accent-color: var(--md-accent-fg-color);
+}
+
+.starter-progress {
+  border: 1px solid color-mix(in srgb, var(--md-accent-fg-color) 35%, transparent);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  margin: 0.8rem 0 1.6rem;
+}
+
+.starter-progress__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.starter-progress__bar {
+  height: 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--md-default-fg-color) 10%, transparent);
+  overflow: hidden;
+}
+
+.starter-progress__bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--md-accent-fg-color);
+  transition: width 0.2s ease;
+}
+
+.starter-progress__reset {
+  margin-top: 0.65rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.starter-progress__reset:hover {
+  border-color: var(--md-accent-fg-color);
+}
+
+.starter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.starter-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--md-accent-fg-color) 3%, var(--md-default-bg-color));
+}
+
+.md-typeset .starter-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.md-typeset .starter-card ul {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .starter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================
    Email signup slide-in banner
    ============================ */
 .email-banner {

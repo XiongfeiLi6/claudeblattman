@@ -77,7 +77,8 @@ Apply rules from config using this priority order:
 
 ### Step 4.5: Write Classified Artifact
 
-Write full classified data to `/tmp/digest-classified.json`. This serves as:
+Create a private temp directory with `mktemp -d` and write full classified data
+to `digest-classified.json` inside that directory. This serves as:
 - A **compaction safeguard** — if context is lost, re-compose from this file
 - A **debug artifact** — review classification accuracy after the fact
 
@@ -128,7 +129,8 @@ Compressed ~[W] words across [N] emails ([M] threads) into this digest.
    - Set `last_digest_date` to today
    - Increment `digest_count`
 
-2. **Send the digest** via your preferred method.
+2. **Draft the digest** via your preferred method. Ask for explicit approval
+   before sending. The public template must not auto-send.
 
 3. **Do NOT mark source emails as read.** The digest is additive — it doesn't replace checking the source.
 

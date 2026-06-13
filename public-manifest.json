@@ -1,0 +1,238 @@
+{
+  "files": [
+    {
+      "bytes": 1001,
+      "path": ".claude-plugin/marketplace.json",
+      "sha256": "e354777a03cdaabe56868e5eada8401bf890723e5a664c71a8140049f3bcdbf9"
+    },
+    {
+      "bytes": 565,
+      "path": ".github/workflows/deploy.yml",
+      "sha256": "9eca5360bb22542ad7baa51f5bb9c0c82941502eb3bcd4ec11be366e0274f6f0"
+    },
+    {
+      "bytes": 306,
+      "path": ".github/workflows/public-release-check.yml",
+      "sha256": "9bead76ba194bd545c25df2984df314cfe7b2d1e89eb7fe621c2f6e054a42780"
+    },
+    {
+      "bytes": 280,
+      "path": ".gitignore",
+      "sha256": "738280fa32c3d9aa55aadd5c9c1c651c7badd7c7fab1cd9dae2bc0c23920c7e1"
+    },
+    {
+      "bytes": 2839,
+      "path": "README.md",
+      "sha256": "c7b024f8f72f7965bad4267520b95bcd29514d4704cbf9905a83c0e67898b058"
+    },
+    {
+      "bytes": 2087,
+      "path": "codex-starter/README.md",
+      "sha256": "1dc391a708840bb065482e41bbfd4b4da6fba4b43dee8a007818574859f6f6f1"
+    },
+    {
+      "bytes": 900,
+      "path": "codex-starter/global/AGENTS.md",
+      "sha256": "862e1027afa5ea2720d04a76c63dcfb37c78da09e8d82014cb3f9165d347ec8a"
+    },
+    {
+      "bytes": 9356,
+      "path": "codex-starter/install-codex-starter.py",
+      "sha256": "14663524a4b854aa64f587a603959cd21c7365e532ec165e88cef290f27b2e6b"
+    },
+    {
+      "bytes": 4413,
+      "path": "codex-starter/skills/ask-agents/SKILL.md",
+      "sha256": "37578de36014e9163a2c104017589d93891aebd9d4064652094c7db8c89f69a4"
+    },
+    {
+      "bytes": 30894,
+      "path": "codex-starter/skills/ask-agents/scripts/run-external-agent.mjs",
+      "sha256": "88f33603e9f2d073ac7286c142280fbcac7a0d672c956e053851d30e246214c9"
+    },
+    {
+      "bytes": 911,
+      "path": "codex-starter/skills/done/SKILL.md",
+      "sha256": "49af93c7f67d8ba95187d4cea43138274054059052bd1a1a96f66c3fe48d6aa3"
+    },
+    {
+      "bytes": 963,
+      "path": "codex-starter/skills/prompt/SKILL.md",
+      "sha256": "32a63f8e306605ffb9f1b0c6dc064a653ef53aa40b3e51493a6f02c4a746639c"
+    },
+    {
+      "bytes": 996,
+      "path": "codex-starter/skills/review-plan/SKILL.md",
+      "sha256": "80b699951fcd79c42acb91048ac89d0e6f04cd7916e41fa5b63fdeb1d32e8af5"
+    },
+    {
+      "bytes": 8148,
+      "path": "docs/index.md",
+      "sha256": "aaa5628cb975b8578f5a93ae1e602bcc8669cbd03d8bae4f17a1c22ae9db2e7a"
+    },
+    {
+      "bytes": 35649,
+      "path": "docs/setup/skill-reference.md",
+      "sha256": "8aefa90a74c86ea71b6c7204c669657e704de2e7c90061e6b82eaa84d72f67af"
+    },
+    {
+      "bytes": 553,
+      "path": "docs/skills/school-digest-raw-materials.md",
+      "sha256": "5e9f864cad9c6a6baa6a7f151d99ba9ab1a9eb6a107d5cb164ae5d4b747c3295"
+    },
+    {
+      "bytes": 10857,
+      "path": "docs/starter-kit/index.md",
+      "sha256": "96da99db9ea5586942df72dc048db6cf1fa3ca683e6decbc7be4479da0696576"
+    },
+    {
+      "bytes": 15432,
+      "path": "docs/stylesheets/extra.css",
+      "sha256": "8289a0e7375fb5c56320bd3cc4f18efa7542393879da2effb3070bf50384297e"
+    },
+    {
+      "bytes": 5791,
+      "path": "mkdocs.yml",
+      "sha256": "7feb844471a6f5fc8e825ce15addedba9e322b50df4bfe812a8a92a7e97712cb"
+    },
+    {
+      "bytes": 426,
+      "path": "plugins/starter-kit/.claude-plugin/plugin.json",
+      "sha256": "f5377d70534a7cad1556ba5546a4ab37c19a70114ba110ad53db52e12c1ba27c"
+    },
+    {
+      "bytes": 2668,
+      "path": "plugins/starter-kit/agents/chief-of-staff.md",
+      "sha256": "96b01d508630269bcf909184349fcbd01d0b484c3bcaeb172a76bbeca1532e52"
+    },
+    {
+      "bytes": 1973,
+      "path": "plugins/starter-kit/agents/completeness-checker.md",
+      "sha256": "3d09fdb8be64ed56b0ce92f67b7fe772c59e7ed1b5052fca199d587e1380e606"
+    },
+    {
+      "bytes": 1937,
+      "path": "plugins/starter-kit/agents/pre-mortem.md",
+      "sha256": "d3b77c20cf7110f03502f7b4ea295dae9fbd7b7866e67a605303b62127974a83"
+    },
+    {
+      "bytes": 1783,
+      "path": "plugins/starter-kit/agents/skeptic.md",
+      "sha256": "bdcff798f07ff1ad2abdfd7619e78079cd58f1cc15d4225f34ff5113dffad02b"
+    },
+    {
+      "bytes": 2811,
+      "path": "plugins/starter-kit/commands/codex.md",
+      "sha256": "b5ba74ea8c0a6676bc73a946fdfd698662b6143bec20608826d7fe9e4fe78ecf"
+    },
+    {
+      "bytes": 2783,
+      "path": "plugins/starter-kit/commands/gemini.md",
+      "sha256": "1e2a2083a822ca1eeec17ac4e46466a448699a2cb495149da8a47f7d59599438"
+    },
+    {
+      "bytes": 5734,
+      "path": "plugins/starter-kit/references/council-synthesis.md",
+      "sha256": "9173c3d970314b82602a15e73078916c3fae68a12c84d56ca84c45de388e35b9"
+    },
+    {
+      "bytes": 2914,
+      "path": "plugins/starter-kit/references/engines-contract.md",
+      "sha256": "16780af9be947f843f786792302b448c5452e61e22f025fcc5e31a95e9509919"
+    },
+    {
+      "bytes": 465,
+      "path": "plugins/starter-kit/references/project-folder-template/AGENTS.md",
+      "sha256": "1267e409ce060f691c0bfd7e15de39979dd69877dea121ec2f46ddef5a766d60"
+    },
+    {
+      "bytes": 441,
+      "path": "plugins/starter-kit/references/project-folder-template/CLAUDE.md",
+      "sha256": "aacf7dd0fdcd462a863588e53c37e1122e3f5bd42bbae5ad89fb880966d15990"
+    },
+    {
+      "bytes": 271,
+      "path": "plugins/starter-kit/references/project-folder-template/HANDOFF.md",
+      "sha256": "99108fdb6eeeecb6570bf2fe0b8827770ca1f1325216a3bf39ce45768bcf4ffb"
+    },
+    {
+      "bytes": 2602,
+      "path": "plugins/starter-kit/references/prompt-preferences-TEMPLATE.md",
+      "sha256": "c86a94434ac63c8606bdec8036506110dcc578ed6479496bc6aa9dcd1567f293"
+    },
+    {
+      "bytes": 6646,
+      "path": "plugins/starter-kit/references/prompting-guide.md",
+      "sha256": "71bd7e8d77168a208adf1da477b9bcc3452e6dd01e6d23d9c219b28209e1c5d3"
+    },
+    {
+      "bytes": 4238,
+      "path": "plugins/starter-kit/scripts/codex-run.sh",
+      "sha256": "29f068fba07ad3d54636f2862592d879044c8500d71c66d3e4d8c4581573c186"
+    },
+    {
+      "bytes": 3873,
+      "path": "plugins/starter-kit/scripts/gemini-run.sh",
+      "sha256": "68404169b5be5d9d2007053d6adfc39ed2e599a4b7c5c55bd620f209aae4c706"
+    },
+    {
+      "bytes": 8488,
+      "path": "plugins/starter-kit/skills/council/SKILL.md",
+      "sha256": "818ec58f8e9cbfa94644016929b25ec2a07b6526c44446f78a5c04078d29304b"
+    },
+    {
+      "bytes": 1343,
+      "path": "plugins/starter-kit/skills/done/SKILL.md",
+      "sha256": "2befa892483976bc2fdd7e247e37ec81d97bda652c270008881c728cfbc432bf"
+    },
+    {
+      "bytes": 666,
+      "path": "plugins/starter-kit/skills/kit-hello/SKILL.md",
+      "sha256": "6387c2dfda68f66b1db46360744dad5ce9445fde4f0bd84d9a5a41b0958cc276"
+    },
+    {
+      "bytes": 4988,
+      "path": "plugins/starter-kit/skills/kit-setup/SKILL.md",
+      "sha256": "a97f4b2bd77ef8f0138d89261884efe07410acca442f532e25a70e4f549b996e"
+    },
+    {
+      "bytes": 4719,
+      "path": "plugins/starter-kit/skills/prompt/SKILL.md",
+      "sha256": "2704f5c9eae69f3d01f6e75a55fe9fc21c93846e5d0c8a3aa8e9da5f6da0cc05"
+    },
+    {
+      "bytes": 5625,
+      "path": "plugins/starter-kit/skills/prompt/references/formatting-core.md",
+      "sha256": "bbe99877f218d798c47bd3f32e1b54c80ca25deec18a1a4bb09b5ad2f22485ff"
+    },
+    {
+      "bytes": 3961,
+      "path": "plugins/starter-kit/skills/prompt/references/refine-mode.md",
+      "sha256": "f0fd64a499b02bbd4306d77051be629cfc3e3f70c307ce3516264ba1e501bd19"
+    },
+    {
+      "bytes": 7056,
+      "path": "plugins/starter-kit/skills/review-plan/SKILL.md",
+      "sha256": "24f9d28d3210b836a336986b7f9036b98819c1af56cb4827f4a59e3248438849"
+    },
+    {
+      "bytes": 3123,
+      "path": "scripts/check-public-release.sh",
+      "sha256": "1ef579be5390a6c6d4814915a0dcb994fd57d5d96f1d3a40dc089051d8d51c61"
+    },
+    {
+      "bytes": 2503,
+      "path": "scripts/emit-public.sh",
+      "sha256": "f57d31edfd1e4f4a5ff5ac1fa799f8e4804ba64f7ad4c331922979e39bebcd65"
+    },
+    {
+      "bytes": 6777,
+      "path": "skills/README.md",
+      "sha256": "36e8e1215d8f45d891bd233df02e61872d1dae5cb9e7cdae98786017e783f5cb"
+    }
+  ],
+  "mode": "public-repo-authored",
+  "note": "v0.1 records the exact public starter-kit release surface. Broader private-to-public skill emission is deferred.",
+  "release": "starter-kit-v0.1.0",
+  "schema_version": 1
+}

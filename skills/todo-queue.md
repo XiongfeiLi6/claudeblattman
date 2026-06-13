@@ -211,7 +211,7 @@ Gmail supports "plus addressing" out of the box. If your email is `you@gmail.com
 4. Optionally check: **Skip the Inbox** (if you only want to process via this skill)
 
 ### 3. Find your label ID
-The Gmail API uses internal label IDs (like `Label_123`), not display names. To find yours:
+The Gmail API uses internal label IDs, not display names. To find yours:
 - Use the Gmail MCP to search for a labeled message, or
 - Use the Gmail API's `labels.list` endpoint
 - Replace `YOUR_LABEL_ID` in the Technical Notes section with your actual ID

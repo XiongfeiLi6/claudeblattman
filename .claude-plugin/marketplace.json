@@ -1,0 +1,26 @@
+{
+  "name": "claudeblattman",
+  "owner": {
+    "name": "Chris Blattman",
+    "url": "https://claudeblattman.com"
+  },
+  "metadata": {
+    "description": "Starter kit and skills from claudeblattman.com — desktop agent workflows for researchers and professionals",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "starter-kit",
+      "source": "./plugins/starter-kit",
+      "description": "Do real work with Claude on your own files: turn rough requests into clear instructions, get plans checked before you act, and leave session notes so you can pick up where you left off. Optional second opinions from other AI tools you already have. Works out of the box with just Claude.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Chris Blattman",
+        "url": "https://claudeblattman.com"
+      },
+      "homepage": "https://claudeblattman.com/starter-kit/",
+      "license": "MIT",
+      "keywords": ["workflow", "research", "prompting", "review", "handoff"]
+    }
+  ]
+}

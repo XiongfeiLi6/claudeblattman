@@ -24,25 +24,36 @@ No coding background required. Everything is built with markdown and AI tools.
 
 ## Quick Start
 
-Visit [claudeblattman.com/essentials](https://claudeblattman.com/essentials/) for tools and foundations to get started.
+New to the desktop agent apps? Start with the **Desktop Agent Starter Kit**:
 
-## Install Skills
+1. Install Claude Code, then sign in.
+2. In Claude Code, add and install the starter plugin:
 
-Skills are markdown files that add slash commands to Claude Code. Install them with:
+   ```text
+   /plugin marketplace add chrisblattman/claudeblattman
+   /plugin install starter-kit@claudeblattman
+   ```
+
+3. After your first Claude Code handoff, optionally install the Codex starter pack:
 
 ```bash
-mkdir -p ~/.claude/commands
-curl -o ~/.claude/commands/done.md \
-  https://raw.githubusercontent.com/chrisblattman/claudeblattman/main/skills/done.md
+git clone https://github.com/chrisblattman/claudeblattman.git
+cd claudeblattman/codex-starter
+python3 install-codex-starter.py install
 ```
 
-See `skills/README.md` for the full list and bundle install instructions.
+Then follow [Start Here: Desktop Agent Starter Kit](https://claudeblattman.com/starter-kit/).
+
+The older `skills/` library remains available as advanced/reference material,
+but it is not the recommended first-run path.
 
 ## Repo Structure
 
 ```
 claudeblattman/
 ├── docs/               # Website source (MkDocs Material)
+├── plugins/starter-kit/ # Claude plugin for the desktop-agent starter kit
+├── codex-starter/      # Codex starter pack installer + skills
 ├── skills/             # Downloadable skill files
 ├── agents/             # Downloadable agent files
 ├── templates/          # Starter templates (CLAUDE.md, goals.yaml)
@@ -54,6 +65,13 @@ claudeblattman/
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to edit content, add skills, and maintain the site.
+
+## Release Notes
+
+The starter kit is versioned separately from the broader docs. Each public
+starter-kit release should have a matching tag such as `starter-kit-v0.1.0` and
+a current `public-manifest.json`. If a plugin release needs rollback, install
+from the last known-good tag and avoid changing the marketplace/plugin names.
 
 ## License
 

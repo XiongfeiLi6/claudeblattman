@@ -420,7 +420,10 @@ To preview without applying, run: /triage-inbox noapply
 
 ### Phase 12: Apply Labels
 
-Labels are applied by default after showing the report. Skip this phase only if `noapply` argument was provided.
+Preview mode is the public default. Show the report first and ask for explicit
+approval before applying labels, archiving messages, marking messages read, or
+creating filters. Skip this phase unless the user explicitly approves applying
+the proposed changes in this run.
 
 **Label IDs:** Use the Label IDs table from `triage-config.md`.
 
@@ -458,7 +461,7 @@ mcp__google_workspace__create_gmail_filter
 
 **12b. Auto-create filters for high-confidence classifications:**
 
-After applying labels, check if any classified sender meets ALL of these criteria:
+After labels are approved and applied, check if any classified sender meets ALL of these criteria:
 - Exact sender match to a Classification Override entry, OR from a Newsletter Platform Domain, OR from a School Domain
 - The override/domain entry has been in config for >7 days (not a brand-new addition)
 - No existing Gmail filter already handles this sender (check `email-policy.md` Auto-Archive Filters)
