@@ -1,4 +1,4 @@
-<!-- deep-research v3 | sanitized from private skill -->
+<!-- deep-research v4 | sanitized from private skill | synced 2026-06-13 -->
 # /deep-research
 
 *Federated deep-research workflow. Reports live in their project folder; a thin pointer INDEX in a central archive directory enables cross-project discovery.*
@@ -118,6 +118,21 @@ else
 fi
 
 PROJECT_DIR="${PROJECT_DIR/#\~/$HOME}"
+
+# Surface-and-ask: do NOT silently mkdir a ghost folder for a stale route, but do
+# NOT hard-abort a legitimate brand-new project either. If the PARENT project dir
+# is missing, flag it and ask before creating — a missing parent usually means the
+# folder was moved/renamed (a stale route to fix in the routing config), not a new project.
+PARENT_DIR=$(dirname "${PROJECT_DIR%/}")
+if [ ! -d "$PARENT_DIR" ]; then
+  echo "CONFIDENCE FLAG: route '${PROJECT_KEY:-$PROJECT_FLAG}' -> missing project dir: $PARENT_DIR"
+  echo "   Either the folder was moved/renamed (stale route — fix it in the routing config) OR this is a brand-new project."
+  read -p "   Create '$PARENT_DIR' and proceed? [y/N]: " _mkans
+  case "$_mkans" in
+    [yY]*) ;;  # legitimate new project — proceed to mkdir below
+    *) echo "Aborted. Pick an existing project, or fix the stale route, then re-run."; exit 1 ;;
+  esac
+fi
 mkdir -p "$PROJECT_DIR"
 ```
 
@@ -154,7 +169,14 @@ Behavior: if `ccusage` + `jq` are available AND the reported quota is ≥ `THRES
 source ~/.claude-assistant/config/codex-thresholds.sh 2>/dev/null || {
   PRO_5H_TOKEN_BUDGET=400000
   THRESHOLD_RED=0.85
+  PROMO_EXPIRY="2099-01-01"
 }
+
+# Promo-expiry tripwire (fires as stderr, non-blocking). If your plan tier has a
+# promotional token budget that ends on a known date, set PROMO_EXPIRY in your
+# codex-thresholds.sh so this warns you to recalibrate PRO_5H_TOKEN_BUDGET afterward.
+[[ -n "${PROMO_EXPIRY:-}" && "$(date +%Y-%m-%d)" > "$PROMO_EXPIRY" ]] && \
+  echo "# WARNING: token-budget promo expired $PROMO_EXPIRY. Recalibrate PRO_5H_TOKEN_BUDGET." >&2
 
 USAGE_RAW=$(ccusage codex window 5h --json 2>/dev/null | jq -r '.percent // .tokens // .tokens_used // empty' 2>/dev/null)
 if [ -n "$USAGE_RAW" ] && [ "$USAGE_RAW" != "null" ]; then
@@ -229,6 +251,28 @@ fi
 ```
 
 Same pattern for the Claude subagent (output file must exist + be non-empty). Synthesis includes only `*_OK=1` arms.
+
+**Gemini hollow-arm gate.** Exit 0 + non-empty is INSUFFICIENT for Gemini: it *can* return fluent, zero-citation prose (pure training-data synthesis) that passes a naive exit-code check. **Use the web-search call COUNT as the browse signal, NOT `tokens.tool`** — `tokens.tool` reads 0 even on fully-browsed runs in gemini-cli v0.38.x (grounding is a server-side call not attributed to that counter; a verified run showed `google_web_search.count=5` and 4 URLs, yet `tokens.tool=0`). Headless web search does work under OAuth on v0.38.2; the failure mode is intermittent, not constant.
+
+```bash
+# LOAD-BEARING — do not remove. Gemini CAN browse, but hollow (zero-citation) runs are
+# real and INTERMITTENT (~1/3 observed on a confirmed-capable install). "Search works" is
+# NOT a reason to delete this gate. URL count is the schema-independent primary signal;
+# search-count is secondary (the byName path may differ across gemini-cli versions).
+GEMINI_SEARCHES=$(jq -r '(.stats.tools.byName.google_web_search.count // .stats.tools.totalCalls // 0)' /tmp/dr-gemini-$RUN_ID.json 2>/dev/null || echo 0)
+GEMINI_URLS=$(grep -c 'http' /tmp/dr-gemini-$RUN_ID.md 2>/dev/null || echo 0)
+if [ "$GEMINI_EXIT" -ne 0 ] || [ ! -s /tmp/dr-gemini-$RUN_ID.md ]; then
+  echo "Gemini dispatch failed (exit=$GEMINI_EXIT)."; GEMINI_OK=0
+elif [ "${GEMINI_SEARCHES:-0}" -lt 1 ] && [ "${GEMINI_URLS:-0}" -lt 1 ]; then
+  echo "Gemini arm HOLLOW (web_searches=$GEMINI_SEARCHES, urls=$GEMINI_URLS): no browsing detected."
+  echo "   Tag the archived file with 'quality_note: synthesis-only' in frontmatter; do NOT treat as sourced research."
+  GEMINI_OK=1   # keep, but labeled — synthesis-only, not sourced
+else
+  GEMINI_OK=1
+fi
+```
+
+(Flag hollow only when BOTH the search count AND the URL count are zero — this minimizes false positives. This in-skill gate is what makes the `quality_note` label reach the archived frontmatter.)
 
 ### Phase 4 — Federated archive (write to project folder)
 

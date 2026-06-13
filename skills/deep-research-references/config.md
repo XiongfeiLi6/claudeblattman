@@ -53,11 +53,14 @@ Explicit binary-path rules signal user-authorization and bypass the heuristic.
 Verified against Codex CLI v0.122.0-alpha.1 (bundled with the Codex desktop app at `/Applications/Codex.app/Contents/Resources/codex`).
 
 ```bash
-CODEX_BIN="/Applications/Codex.app/Contents/Resources/codex"  # not on PATH by default
-CODEX_MODEL="gpt-5.4"                                          # latest frontier; also: gpt-5.4-mini, gpt-5.3-codex, gpt-5.2
+CODEX_BIN="$(command -v codex)"                               # prefer the PATH binary; fall back to
+                                                              # /Applications/Codex.app/Contents/Resources/codex only if PATH misses
+CODEX_MODEL="<latest frontier gpt-5.x>"                       # pick highest-capability first, fall back downward on failure
 CODEX_UNATTENDED_FLAG="-c approval_policy=never --skip-git-repo-check"
 CODEX_SANDBOX="--sandbox read-only"                            # web search + read-only FS
 ```
+
+**Don't hardcode one model or the `.app` binary path** — both drift and break over time. Resolve the binary via `command -v codex`, and try the newest model first with a downward fallback on failure (under ChatGPT-account auth, some model IDs are rejected with HTTP 400, so a single hardcoded model will eventually stop working). A small wrapper script that owns binary resolution + model fallback is the durable pattern; the starter kit ships one as `codex-run.sh`.
 
 Auth: log in via your ChatGPT account (writes `~/.codex/auth.json`). No API key needed.
 
@@ -168,6 +171,8 @@ GEMINI_OUTPUT_FORMAT=json                       # produces {"response": "..."} s
 # Auth quota: free OAuth tier = 60 RPM / 1,000 RPD.
 # NOTE: Consumer Gemini Advanced subscriptions do NOT raise CLI quota.
 ```
+
+**Hollow-arm detection (pairs with SKILL.md Phase 3.5).** Gemini can return fluent, zero-citation prose that passes a naive exit-code check. Detect real browsing via the web-search call **count**, not token counters: `jq '.stats.tools.byName.google_web_search.count' "$OUT"` (vestigial `tokens.tool` reads 0 even when search ran). Treat an arm with zero searches AND zero URLs as `quality_note: synthesis-only`, not sourced research.
 
 ## Grok CLI (optional, paste-loop alternative)
 
