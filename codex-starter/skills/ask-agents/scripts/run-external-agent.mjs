@@ -267,8 +267,12 @@ async function buildCommand(agent, parsed) {
     "text",
     "--output-format",
     "stream-json",
+    // No --include-partial-messages: this is a capture wrapper that only reads
+    // the final result. Partial-message envelopes (stream_event /
+    // content_block_delta) are not recognized by parseAgentOutput and bloat
+    // stdout, which can truncate the tail where the final result event lives —
+    // surfacing as a parse failure even though the report was produced.
     "--verbose",
-    "--include-partial-messages",
     "--permission-mode",
     "plan",
     "--no-session-persistence",
