@@ -5,16 +5,16 @@ description: First-run guide for the Claude Blattman desktop agent starter kit. 
 # Start Here: Desktop Agent Starter Kit
 
 This page is for your first hour with Claude Code. If you also downloaded
-**Codex**, leave it closed for now. Codex is useful later, but the first session
-works best when you learn one loop in one app.
+**Codex**, keep it for the second check. Codex is useful soon, but the first
+session works best when you learn one loop in one app.
 
 The goal is not to learn every feature. The goal is to make one folder usable:
 open it, ask clearly, review the plan before anything changes, do one small
 piece of work, and leave a handoff note so the next session can resume.
 
 Minimum path for day one: Claude Code, one safe practice folder, and one
-handoff. Codex is useful later, but you can skip it until the Claude Code loop
-works.
+handoff. After that, choose one real project and one artifact you actually want
+to keep.
 
 <div class="starter-path" markdown>
 <label><input type="checkbox"> I have Claude Code installed and signed in.</label>
@@ -56,6 +56,16 @@ slash commands:
 
 Create a folder whose contents are safe for practice. Put one harmless file in
 it: a meeting agenda, a draft memo, a reading list, or a small todo list.
+
+This practice folder is rehearsal. Your durable workspace can come next:
+
+```text
+Mac: Documents/AI_Projects/ or a cloud-synced AI_Projects folder
+PC: Documents\AI_Projects\ or a cloud-synced AI_Projects folder
+```
+
+Use a synced folder only if you want the same projects available on more than
+one machine. Do not open the whole synced root; open the one project folder.
 
 **Do not open your whole Documents folder, Dropbox folder, desktop, home folder,
 or research project folder for the first run. Create a brand new empty practice
@@ -180,6 +190,38 @@ session can pick up where this one stopped.
 first. That's how every future session starts — it's the whole reason you wrote
 the file.
 
+## Choose A Real Project
+
+After the practice handoff works, pick one real project and one artifact. The
+practice folder was the rehearsal; the real project is the destination.
+
+Good starter projects have four traits:
+
+- one folder, app, or account family in scope
+- one useful artifact at the end
+- no external sends, deletes, shares, or calendar changes without approval
+- real enough that you would keep the result
+
+Examples:
+
+| Area | Good first project | Useful artifact |
+|---|---|---|
+| Personal | Update a personal website, bio, resume, or profile | `PROFILE_DRAFT.md` or a revised page |
+| Personal | Plan a trip, event, move, or household project | checklist, options table, itinerary |
+| Professional | Prepare for one meeting using Calendar, Gmail, and Drive | `MEETING_PREP.md` |
+| Professional | Turn messy notes into a memo or action plan | `DECISION_MEMO.md` or `NEXT_ACTIONS.md` |
+| Research | Index a project folder, repo, or safe literature folder | `PROJECT_INDEX.md` |
+| Research | Review a draft, protocol, codebook, or technical plan | `REVIEW_MEMO.md` |
+
+For research teams, keep human-subjects, beneficiary, private contact, and
+sensitive organizational data out until the storage and approval rules are
+clear. Use safe notes, public papers, dummy data, or a bounded project folder
+first.
+
+Once you authorize a folder or connector, you do not need to hunt for every
+file manually. Ask Claude or Codex to find the relevant files, emails, calendar
+events, or Drive docs, then show you the paths or links before it acts.
+
 ## If Something Looks Scary
 
 <details>
@@ -226,11 +268,16 @@ Use this agenda if someone is sitting with you.
 That is enough for day one. The advanced material can wait until the handoff
 loop feels natural.
 
-## Not Today
+## Not Before The First Handoff
 
-Do not start with Codex setup, Gmail, Google Drive, calendars, MCP setup, a broad
-skill library, deep research, recall, or multi-agent councils. Those are useful
-later, but they are not the first move.
+Do not start with MCP setup, a broad skill library, deep research, recall, or
+multi-agent councils. Those are useful later, but they are not the first move.
+
+Gmail, Calendar, Drive, GitHub, Granola, or similar connectors can be useful
+early if you have a real task and you understand the scope. Start with one
+connector family, ask for read-only discovery first, and require approval before
+the app sends, shares, deletes, edits someone else's document, or changes a
+calendar event.
 
 ## Later: Codex And Second Opinions
 
@@ -275,6 +322,24 @@ Use this section after the Claude Code handoff loop feels natural.
     the main app and use generic descriptions. Even on non-sensitive material,
     the starter kit asks you to confirm before sending the prompt to another AI
     service.
+
+??? note "Optional after connectors are working: context recovery"
+
+    Once a folder or connector is authorized, you can ask the app to find the
+    materials instead of searching manually:
+
+    ```text
+    Find the most relevant files, emails, calendar events, and Drive docs for
+    this project. Show me the paths or links first. Do not edit, send, share,
+    delete, or change calendar events.
+    ```
+
+    Then ask for a plan:
+
+    ```text
+    Based on those sources, propose one useful artifact we can finish today.
+    Make a short plan and ask before editing anything.
+    ```
 
 <script>
 (function () {
