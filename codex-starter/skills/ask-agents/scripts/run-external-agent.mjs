@@ -662,6 +662,10 @@ function sanitizedEnv(agent) {
     if (keepExact.has(key) || key.startsWith("LC_")) env[key] = value;
   }
   env.EXTERNAL_AGENTS_READ_ONLY = "1";
+  // Gemini 0.46+ folder-trust gate downgrades --approval-mode in untrusted dirs,
+  // breaking these headless review calls; opt into trust for the run. (Documented
+  // env var; ignored by Gemini versions that predate the gate, so never errors.)
+  if (agent === "gemini") env.GEMINI_CLI_TRUST_WORKSPACE = "true";
   return env;
 }
 

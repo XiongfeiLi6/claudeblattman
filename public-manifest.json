@@ -46,9 +46,9 @@
       "sha256": "37578de36014e9163a2c104017589d93891aebd9d4064652094c7db8c89f69a4"
     },
     {
-      "bytes": 31239,
+      "bytes": 31553,
       "path": "codex-starter/skills/ask-agents/scripts/run-external-agent.mjs",
-      "sha256": "a58f89cc212be17d4a288397786e2f46530e02938760aff43fb14a419b3577a7"
+      "sha256": "c107cdfc1c665ebfd1b166c7a576f508d47abf60f59f47655b6e70b1f4ef947b"
     },
     {
       "bytes": 911,
@@ -171,9 +171,9 @@
       "sha256": "6662574fd600092239b755e6460752fc9fc40db106c13e2658f2ed0c523691dd"
     },
     {
-      "bytes": 3833,
+      "bytes": 4328,
       "path": "plugins/starter-kit/scripts/gemini-run.sh",
-      "sha256": "4383b695f77e090b755176b19c5d74be357c132c85b2a8d13b971845a1637f0b"
+      "sha256": "d99bb48fcf70ce8bde4d8d17b10d7eef509e2e2b8d444724e4e9143d48962824"
     },
     {
       "bytes": 8488,

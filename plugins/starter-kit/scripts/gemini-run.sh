@@ -30,6 +30,14 @@ if [ -z "$GEMINI_BIN" ]; then
   exit 127
 fi
 
+# Gemini 0.46 added a workspace folder-trust gate. In a directory the user has
+# not explicitly trusted it silently downgrades --approval-mode to "default",
+# which then blocks these non-interactive calls — they fail *after* a valid
+# login with a "current folder is not trusted" notice. Opt this session into
+# trust via the documented env var (honored on current Gemini, harmlessly
+# ignored by versions that predate the gate, so it can never error).
+export GEMINI_CLI_TRUST_WORKSPACE=true
+
 # Read the prompt once; reuse it across model retries.
 PROMPT_TMP="$(mktemp)"
 cat > "$PROMPT_TMP"
