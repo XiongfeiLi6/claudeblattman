@@ -44,7 +44,7 @@ Use Claude Code for the first session. It is where the starter kit gives you
 slash commands:
 
 - `/prompt` turns a rough request into a clear task.
-- `/review-plan` checks the plan before action.
+- `/review-plan quick` checks the plan before action.
 - `/done` writes `HANDOFF.md` so you can continue later.
 - `/kit-setup` checks optional Codex/Gemini second opinions.
 
