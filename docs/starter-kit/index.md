@@ -118,7 +118,7 @@ below. The workflow matters more than the shortcut.
 | App | Starter shortcut | Plain-English fallback |
 |---|---|---|
 | Claude Code | `/prompt` | "Turn this rough request into a clear task, then make a short plan before editing." |
-| Claude Code | `/review-plan` | "Review this plan before we act. Find risks, missing steps, and a safer sequence." |
+| Claude Code | `/review-plan quick` | "Review this plan before we act. Find risks, missing steps, and a safer sequence." |
 | Claude Code | `/done` | "Write or update HANDOFF.md with status, next steps, key files, and decisions." |
 
 ## First Run In Claude Code
@@ -158,7 +158,7 @@ editing anything, make a short plan and ask me to approve it.
 After Claude Code gives a plan, run:
 
 ```text
-/review-plan
+/review-plan quick
 ```
 
 When one small step is complete, run:
@@ -209,7 +209,7 @@ Use this agenda if someone is sitting with you.
 |---:|---|
 | 0-5 | Open the practice folder in Claude Code and confirm the app can see files |
 | 5-10 | Run `/prompt` on one real but safe task |
-| 10-15 | Run `/review-plan` and choose one small action |
+| 10-15 | Run `/review-plan quick` and choose one small action |
 | 15-25 | Let Claude complete only that small action |
 | 25-30 | Run `/done`, open `HANDOFF.md`, and stop |
 
