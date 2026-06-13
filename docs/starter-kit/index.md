@@ -33,9 +33,11 @@ works.
 Start with **Claude Code**. Use **Codex** after you understand the basic loop, or
 when you want a second app to inspect the same folder.
 
-In this guide, **Claude Code** means the installed app that can open a local
-folder, not Claude in a browser tab. **Codex** is optional; it is not part of
-the first 30 minutes.
+In this guide, **Claude Code** means the agent inside the Claude desktop app that
+can open a folder on your computer and act on its files — not a plain chat window.
+If your Claude window can't open or attach a local folder, you're in a plain chat,
+not Claude Code; switch to Claude Code before continuing. **Codex** is optional; it
+is not part of the first 30 minutes.
 
 <div class="starter-card" markdown>
 ### Claude Code: main workbench
@@ -103,6 +105,10 @@ Then run:
 /kit-hello
 ```
 
+You should see a short confirmation that the starter kit is installed and the
+commands are available. If instead you get "unknown command," the plugin didn't
+install — re-run the two `/plugin` lines above, then try again.
+
 You can stop here for the first session. Codex setup is optional after the first
 handoff.
 
@@ -169,6 +175,10 @@ When one small step is complete, run:
 
 Open `HANDOFF.md`. That file is the point of the exercise: it proves the next
 session can pick up where this one stopped.
+
+**Next time:** reopen the same folder and ask Claude Code to read `HANDOFF.md`
+first. That's how every future session starts — it's the whole reason you wrote
+the file.
 
 ## If Something Looks Scary
 
