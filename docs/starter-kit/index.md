@@ -4,7 +4,11 @@ description: First-run guide for the Claude Blattman starter kit. Pick one agent
 
 # Start Here: Desktop Agent Starter Kit
 
-The whole kit is one habit. Point an AI agent at a real folder, make it show you its plan before it changes anything, approve one small piece of work, and leave a note so the next session resumes where you stopped. Learn that and you have the kit — the connectors, the second opinions, the slash-command shortcuts are accelerants you add later.
+This is a starter kit for doing real work with the **desktop AI apps** — Claude and Codex. Right now they are the most capable way to use AI: instead of copying and pasting into a chat window, the app works directly with the files on your computer — reading them, drafting, editing — while you approve every change.
+
+Thanks to [Aniket Panjwani](https://aieconomist.io/learn) for pointing me in this direction. He's an economist who makes videos and guides on agentic coding for researchers — if you want another take on all of this, his site is worth your time.
+
+The kit itself is one simple habit. Point the app at a real folder, make it show you its plan before it changes anything, approve one small piece of work, and leave a note so the next session picks up where you stopped. Learn that and you have the kit — connectors, second opinions, and the slash-command shortcuts are accelerants you add later.
 
 The first session has one job, and it is not a tour of features. It is one real, useful thing finished — a brief, a memo, a cleaned-up draft, something you would actually keep — done in a way you can repeat tomorrow without anyone sitting next to you.
 
@@ -53,6 +57,8 @@ The habit is the same whichever agent you chose:
 Plain English carries all of this. The kit's slash commands are shortcuts for these steps, not magic; if one isn't there yet, type the instruction yourself and the loop still works.
 
 ## Set up the agent you picked
+
+**Click the box for the agent you picked** to open its setup steps — the exact steps differ by app and by Mac vs. Windows, so follow the one that matches you.
 
 ??? note "Codex (easiest): download, sign in, open a folder"
 
