@@ -64,13 +64,20 @@ Plain English carries all of this. The kit's slash commands are shortcuts for th
 
     One honest tradeoff, from setting both up for real: Codex is the smoother start, but its kit extras are lighter than the Claude side — `$prompt` is a simpler cousin of Claude's `/prompt`, and the Codex pack takes its own small install. Codex gets you moving fastest; Claude Code gives you the richer shortcuts. That gap is the real reason you end up wanting both.
 
-??? note "Claude Code (most shortcuts): get the app, then one terminal step"
+??? note "Claude Code (most shortcuts): get the app, then add the kit"
 
     **First, the app.** Download and open the **Claude desktop app for macOS**, then sign in. First sign-in opens your browser, and macOS may ask to store your login in the Keychain — that's normal; approve it. Then look for the **Code** tab in the app.
 
-    **Don't see a Code tab?** It needs a paid Claude plan (Pro or higher) — the free plan doesn't show it. If you've signed in and there's no Code tab, that's an account/plan issue, not a mistake you made. Either upgrade, or use **Codex** above for day one (it runs on a standard ChatGPT account). The Code tab *is* Claude Code; once you see it, you can run the whole loop in plain English right now.
+    **Don't see a Code tab?** It needs a paid Claude plan (Pro or higher) — the free plan doesn't show it. If you've signed in and there's no Code tab, that's usually an account/plan issue, not a mistake you made. Either upgrade, or use **Codex** above for day one (it runs on a standard ChatGPT account). The Code tab *is* Claude Code; once you see it, you can run the whole loop in plain English right now.
 
-    **To get the kit's shortcuts, one terminal step.** `/plugin` does not work inside the desktop app, so this part happens in the Mac **Terminal** (⌘-Space, type "Terminal", press Enter). A black window opens — it's just a place to paste text, and pasting these exact lines cannot harm your Mac. Paste them **into Terminal, not into Claude**, one at a time:
+    **To get the kit's shortcuts, add the plugin.** On current app versions you can do this without the Terminal — try this first:
+
+    1. Open **Customize → Plugins**.
+    2. Under **Personal plugins**, click **"+" → Add marketplace → "Add from a repository"**, and enter `chrisblattman/claudeblattman`.
+    3. Click **Browse plugins**, find **starter-kit**, and **Install**.
+    4. In the Code tab, type `/kit-hello`. If it answers, you're done — you can stop here.
+
+    **Don't see those panels, or `/kit-hello` doesn't answer?** Some app versions don't have the in-app installer yet — that's fine, and not something you did wrong. Don't troubleshoot it; do it once in the Mac **Terminal** instead, where these four lines always work. Open Terminal (⌘-Space, type "Terminal", press Enter) — it's just a place to paste text, and these exact lines cannot harm your Mac. Paste them **into Terminal, not into Claude**, one at a time:
 
     ```bash
     curl -fsSL https://claude.ai/install.sh | bash
@@ -91,9 +98,9 @@ Plain English carries all of this. The kit's slash commands are shortcuts for th
     claude plugin install starter-kit@claudeblattman
     ```
 
-    Each line prints a short ✔ and may pause a few seconds — normal. Back in the Code tab, type `/kit-hello` to confirm; if it's missing, fully quit and reopen Claude, then try again. You won't need the Terminal after this. (Commands verified 2026-06-13 on a clean install, Claude Code v2.1.x.)
+    Each line prints a short ✔ and may pause a few seconds — normal. Back in the Code tab, type `/kit-hello` to confirm; if it's missing, fully quit and reopen Claude, then try again. You won't need the Terminal after this. (Terminal commands verified 2026-06-13 on a clean install, Claude Code v2.1.x; the in-app plugin steps follow Anthropic's current plugin docs.)
 
-    That one terminal step is the whole cost, and it buys the most. Once the plugin is in, the kit's commands are native to the Code tab — `/prompt` to sharpen a rough request, `/review-plan` to pressure-test the plan, `/done` to write the handoff, `/council` for a panel of critics. They work cleanly because Claude Code is built to carry them.
+    Either way it's a one-time setup. Once the plugin is in, the kit's commands are native to the Code tab — `/prompt` to sharpen a rough request, `/review-plan` to pressure-test the plan, `/done` to write the handoff, `/council` for a panel of critics. They work cleanly because Claude Code is built to carry them.
 
 ## Your first folder
 
