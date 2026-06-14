@@ -1,25 +1,37 @@
 ---
-description: First-run guide for the Claude Blattman desktop agent starter kit. Starts with Claude Code; Codex is optional after the first handoff.
+description: First-run guide for the Claude Blattman starter kit. Pick one agent — Codex or Claude Code — learn one loop, add the second later.
 ---
 
 # Start Here: Desktop Agent Starter Kit
 
-This page is for your first hour with Claude Code. If you also downloaded
-**Codex**, keep it for the second check. Codex is useful soon, but the first
-session works best when you learn one loop in one app.
+The whole kit is one habit. Point an AI agent at a real folder, make it show you its plan before it changes anything, approve one small piece of work, and leave a note so the next session resumes where you stopped. Learn that and you have the kit — the connectors, the second opinions, the slash-command shortcuts are accelerants you add later.
 
-The goal is not to learn every feature. The goal is to make one folder usable:
-open it, ask clearly, review the plan before anything changes, do one small
-piece of work, and leave a handoff note so the next session can resume.
+The first session has one job, and it is not a tour of features. It is one real, useful thing finished — a brief, a memo, a cleaned-up draft, something you would actually keep — done in a way you can repeat tomorrow without anyone sitting next to you.
 
-Minimum path for day one: Claude Code, one safe practice folder, and one
-handoff. After that, choose one real project and one artifact you actually want
-to keep.
+This page assumes you are doing it alone, on a Mac, and have never opened a terminal. Every step that usually trips people up has its own "if this happens" note. The work stays inside one folder you choose, and the agent shows you each change before it makes it — so the worst case is a messy file in your practice folder, not damage to your Mac.
+
+## Pick one agent to start
+
+Two agents do this well. Start with one: learn the loop in a single app before you add the second.
+
+<div class="starter-card" markdown>
+### Codex — the easiest start
+
+Download the Codex app, sign in with your ChatGPT account, open a folder. No terminal, nothing else to install. Start here if you want the smoothest on-ramp, or if you don't have a paid Claude plan.
+</div>
+
+<div class="starter-card" markdown>
+### Claude Code — the most built-in shortcuts
+
+The Claude desktop app's **Code** tab gives you the kit's commands once you do a one-time setup. It needs a paid Claude plan (Pro or higher). Start here if you want the curated workflows and don't mind four pasted lines.
+</div>
+
+The loop below is identical in both. Pick the one that fits, get it working, then add the other — they are better as a pair: one does the work and writes the handoff, the other opens the same folder and checks it.
 
 <div class="starter-path" markdown>
-<label><input type="checkbox"> I have Claude Code installed and signed in.</label>
-<label><input type="checkbox"> I have one safe practice folder ready.</label>
-<label><input type="checkbox"> I will not use private research, participant, medical, legal, school, or financial records in the first practice run.</label>
+<label><input type="checkbox"> I picked one agent (Codex or Claude Code) and signed in.</label>
+<label><input type="checkbox"> I made one safe, local practice folder — something real but low-stakes.</label>
+<label><input type="checkbox"> I will keep private research, participant, medical, legal, school, and financial records out of this first run.</label>
 </div>
 
 <div class="starter-progress" markdown>
@@ -28,318 +40,169 @@ to keep.
 <button type="button" class="starter-progress__reset" data-starter-reset>Reset checklist</button>
 </div>
 
-## What To Open First
+## The loop, in plain English
 
-Start with **Claude Code**. Use **Codex** after you understand the basic loop, or
-when you want a second app to inspect the same folder.
+The habit is the same whichever agent you chose:
 
-In this guide, **Claude Code** means the agent inside the Claude desktop app that
-can open a folder on your computer and act on its files — not a plain chat window.
-If your Claude window can't open or attach a local folder, you're in a plain chat,
-not Claude Code; switch to Claude Code before continuing. **Codex** is optional; it
-is not part of the first 30 minutes.
+1. Open the one folder you want to work in — not your whole computer.
+2. Ask the agent to read what's there before it proposes anything.
+3. Ask for a short plan, and read it before you approve.
+4. Let it do one small piece of work.
+5. Have it leave a `HANDOFF.md` — a note to yourself so the next session continues.
 
-<div class="starter-card" markdown>
-### Claude Code: main workbench
+Plain English carries all of this. The kit's slash commands are shortcuts for these steps, not magic; if one isn't there yet, type the instruction yourself and the loop still works.
 
-Use Claude Code for the first session. It is where the starter kit gives you
-slash commands:
+## Set up the agent you picked
 
-- `/prompt` turns a rough request into a clear task.
-- `/review-plan quick` checks the plan before action.
-- `/done` writes `HANDOFF.md` so you can continue later.
-- `/kit-setup` checks optional Codex/Gemini second opinions.
+??? note "Codex (easiest): download, sign in, open a folder"
 
-</div>
+    1. Download the **Codex desktop app for macOS** from [OpenAI's official Codex app page](https://developers.openai.com/codex/app) and open it. Pick **Apple Silicon** unless your Mac is from before 2020 (if unsure, Apple menu → About This Mac tells you which). You want the desktop **app** — a normal Mac application you double-click — **not** the "Codex CLI." If you come across command-line install instructions for Codex, ignore them for day one.
+    2. Sign in with your ChatGPT account — no API key, no terminal. Your browser may open and macOS may ask you to confirm or to store a login in your Keychain; that's normal, approve it.
+    3. Open or attach your project folder — **File → Open**, or drag the folder onto the app window. You are ready for the loop above.
 
-## The First Folder
+    The kit's Codex extras (`$prompt`, `$ask-agents`) are optional and come later. Plain English is enough for the first session.
 
-Create a folder whose contents are safe for practice. Put one harmless file in
-it: a meeting agenda, a draft memo, a reading list, or a small todo list.
+    One honest tradeoff, from setting both up for real: Codex is the smoother start, but its kit extras are lighter than the Claude side — `$prompt` is a simpler cousin of Claude's `/prompt`, and the Codex pack takes its own small install. Codex gets you moving fastest; Claude Code gives you the richer shortcuts. That gap is the real reason you end up wanting both.
 
-This practice folder is rehearsal. Your durable workspace can come next:
+??? note "Claude Code (most shortcuts): get the app, then one terminal step"
 
-```text
-Mac: Documents/AI_Projects/ or a cloud-synced AI_Projects folder
-PC: Documents\AI_Projects\ or a cloud-synced AI_Projects folder
-```
+    **First, the app.** Download and open the **Claude desktop app for macOS**, then sign in. First sign-in opens your browser, and macOS may ask to store your login in the Keychain — that's normal; approve it. Then look for the **Code** tab in the app.
 
-Use a synced folder only if you want the same projects available on more than
-one machine. Do not open the whole synced root; open the one project folder.
+    **Don't see a Code tab?** It needs a paid Claude plan (Pro or higher) — the free plan doesn't show it. If you've signed in and there's no Code tab, that's an account/plan issue, not a mistake you made. Either upgrade, or use **Codex** above for day one (it runs on a standard ChatGPT account). The Code tab *is* Claude Code; once you see it, you can run the whole loop in plain English right now.
 
-**Do not open your whole Documents folder, Dropbox folder, desktop, home folder,
-or research project folder for the first run. Create a brand new empty practice
-folder. If making a `.md` file is annoying, a plain text file is fine.**
+    **To get the kit's shortcuts, one terminal step.** `/plugin` does not work inside the desktop app, so this part happens in the Mac **Terminal** (⌘-Space, type "Terminal", press Enter). A black window opens — it's just a place to paste text, and pasting these exact lines cannot harm your Mac. Paste them **into Terminal, not into Claude**, one at a time:
 
-Good first folder:
+    ```bash
+    curl -fsSL https://claude.ai/install.sh | bash
+    ```
 
-```text
-Documents/AI Practice/
-  first-task.md
-```
+    That is Anthropic's official installer (note the `claude.ai` address). It installs Claude's command-line helper into your account only — no admin password, nothing system-wide. Want to see what it does first? Open <https://claude.ai/install.sh> in a browser and read it. And if `curl … | bash` makes you uneasy, skip Claude Code for day one and use the Codex path — nothing else here depends on it. The install can sit for up to a minute with little output; that's normal — wait for the prompt to come back before the next line.
 
-Put this in `first-task.md`:
+    Close Terminal, open a new window, and check it:
 
-```markdown
-# First task
+    ```bash
+    claude --version
+    ```
 
-- Safe thing I want help with:
-- File Claude Code may edit:
-- Files/folders Claude Code must not touch:
-```
+    "command not found" here is common and does **not** mean you broke anything — your PATH just needs one line. Run `echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc` (on an older Mac that uses bash, use `~/.bash_profile` instead), reopen Terminal, and run `claude --version` again. Once it prints a version, add the kit:
 
-Do not use this first folder for:
+    ```bash
+    claude plugin marketplace add chrisblattman/claudeblattman
+    claude plugin install starter-kit@claudeblattman
+    ```
 
-- research-participant or human-subjects data
-- confidential transcripts
-- private contact rosters
-- inbox exports
-- school, medical, legal, or financial records
-- anything you would not paste into another AI service
+    Each line prints a short ✔ and may pause a few seconds — normal. Back in the Code tab, type `/kit-hello` to confirm; if it's missing, fully quit and reopen Claude, then try again. You won't need the Terminal after this. (Commands verified 2026-06-13 on a clean install, Claude Code v2.1.x.)
 
-## Install The Claude Starter Kit
+    That one terminal step is the whole cost, and it buys the most. Once the plugin is in, the kit's commands are native to the Code tab — `/prompt` to sharpen a rough request, `/review-plan` to pressure-test the plan, `/done` to write the handoff, `/council` for a panel of critics. They work cleanly because Claude Code is built to carry them.
 
-If Chris sent you pilot instructions, use those. For the public version, install
-the Claude Code plugin first.
+## Your first folder
 
-In Claude Code, paste these two lines into the app:
+Make the folder in Finder: open Finder, go to your **home folder**, and choose **File → New Folder** — name it `AI Practice`. Use a **local** folder, not one inside Dropbox, iCloud Drive, or a synced Desktop/Documents — sync can fight the agent mid-edit and muddies the "approve only this folder" step. If you're unsure whether a folder syncs, the home folder is the safe bet.
 
-```text
-/plugin marketplace add chrisblattman/claudeblattman
-/plugin install starter-kit@claudeblattman
-```
+You don't have to create files by hand. Drop in a couple of rough notes if you have them, or just point the agent at the empty folder and say *"create a file called `notes.md` with a few rough notes about X,"* and let the loop start there. (Making a plain `.md` file by hand is fiddly on a Mac — TextEdit and Word save the wrong format — so let the agent do it.)
 
-Then run:
+The safest first task makes something *new* — turn a few rough notes into a one-page summary, a messy draft into a clean memo, or an empty folder into a project outline — so nothing you already have can be touched. Keep out of this first run: research-participant or human-subjects data, confidential transcripts, private contact lists, inbox exports, and school, medical, legal, or financial records. If a task is sensitive, it is not a first-session task.
 
-```text
-/kit-hello
-```
+## Run the loop
 
-You should see a short confirmation that the starter kit is installed and the
-commands are available. If instead you get "unknown command," the plugin didn't
-install — re-run the two `/plugin` lines above, then try again.
-
-You can stop here for the first session. Codex setup is optional after the first
-handoff.
-
-## Starter Commands
-
-The starter kit adds short commands to Claude Code. If you are in the pilot, use
-the install instructions Chris sent before the session. In the public release,
-install the `starter-kit` plugin first.
-
-If a command is missing, do not stop. Type the plain-English fallback shown
-below. The workflow matters more than the shortcut.
-
-| App | Starter shortcut | Plain-English fallback |
-|---|---|---|
-| Claude Code | `/prompt` | "Turn this rough request into a clear task, then make a short plan before editing." |
-| Claude Code | `/review-plan quick` | "Review this plan before we act. Find risks, missing steps, and a safer sequence." |
-| Claude Code | `/done` | "Write or update HANDOFF.md with status, next steps, key files, and decisions." |
-
-## First Run In Claude Code
-
-Follow these steps in order. If the app asks whether to trust or allow access to
-the folder, approve only the practice folder. If the app asks for access,
-approve only `Documents/AI Practice/`. Do not approve your whole Documents
-folder.
+**Opening the folder.** In Codex, use **File → Open** or drag the folder onto the window. In Claude Code's Code tab, use its **Open folder** control or drag the folder in. When the app asks permission, **approve only the `AI Practice` folder** — if it asks for anything wider (all of Documents, your home folder, Dropbox), decline and point it at the one folder.
 
 <div class="starter-steps" markdown>
 
-<label><input type="checkbox"> Open Claude Code.</label>
-<label><input type="checkbox"> Open or attach your practice folder.</label>
-<label><input type="checkbox"> Confirm Claude can see the file list.</label>
-<label><input type="checkbox"> Paste the first prompt below.</label>
-<label><input type="checkbox"> Read the plan before approving changes.</label>
-<label><input type="checkbox"> Let it do one small step.</label>
-<label><input type="checkbox"> Run `/done` and inspect `HANDOFF.md`.</label>
+<label><input type="checkbox"> Open your agent and attach the practice folder.</label>
+<label><input type="checkbox"> Confirm it can see the file list, nothing more.</label>
+<label><input type="checkbox"> Ask it to read the files and propose one small task.</label>
+<label><input type="checkbox"> Read the plan before you approve anything.</label>
+<label><input type="checkbox"> Let it finish one small piece of work.</label>
+<label><input type="checkbox"> Have it write `HANDOFF.md`, then open the file.</label>
+<label><input type="checkbox"> Stop. That is a complete first session.</label>
 
 </div>
 
-To confirm folder access, paste:
+Paste this to start — in Claude Code, `/prompt` does the same thing:
 
 ```text
-Can you see this folder? List only the filenames you can read. Do not open file
-contents yet.
+Read the files in this folder first. Help me pick one small, useful thing we can
+finish in fifteen minutes. Before you change anything, show me a short plan and
+wait for my okay.
 ```
 
-Paste this:
+When it proposes a plan, push back before you approve:
 
 ```text
-/prompt I am learning to use Claude on this folder. Read the files first.
-Help me choose one small useful task we can finish in 15 minutes. Before
-editing anything, make a short plan and ask me to approve it.
+What are the top risks in this plan, and what is the safest first step? Don't edit yet.
 ```
 
-After Claude Code gives a plan, run:
+When one small step is done, have it write the handoff. In Claude Code, `/done`:
 
 ```text
-/review-plan quick
+Write HANDOFF.md in this folder: current status, what you changed, decisions, and
+the next step for a future session.
 ```
 
-When one small step is complete, run:
+You'll know it worked when a new file — `HANDOFF.md` — appears in your `AI Practice` folder. Open it: that file is the point of the exercise — it proves the next session can pick up where this one stopped. Next time, start by asking the agent to read it first.
 
-```text
-/done
-```
+## You are the stop button
 
-Open `HANDOFF.md`. That file is the point of the exercise: it proves the next
-session can pick up where this one stopped.
+The agent pauses before it edits a file, runs a command, or sends anything outside your computer. That pause is the safety model, and it only works if you read it. The rule that matters most: nothing leaves your machine — no email, no message, no share — without your explicit yes. If the agent offers to send something, ask for the draft first.
 
-**Next time:** reopen the same folder and ask Claude Code to read `HANDOFF.md`
-first. That's how every future session starts — it's the whole reason you wrote
-the file.
+The rest is scope. Approve access to the one project folder, never your whole home folder, Dropbox, or email. Reading and drafting are safe; editing or deleting an existing file should stop for your okay — and if something precious might change, have the agent work on a copy.
 
-## Choose A Real Project
+Here is what the agent actually puts in front of you. Reading files is free and silent — it never interrupts to read. Editing a file, running a command in the Terminal, or reaching outside the folder stops and shows you the change first. Approve the ones you understand; deny, or ask for a plan, when you don't.
 
-After the practice handoff works, pick one real project and one artifact. The
-practice folder was the rehearsal; the real project is the destination.
+Two settings are worth knowing by name. **Default mode** asks before every change — leave it there. It is the safety, not a nuisance. There are faster modes that auto-approve edits, but they also auto-approve deletes and moves, so keep them off until the loop is second nature. And the first time you point the agent at a folder, it asks permission for *that folder* — grant the one project folder and nothing wider.
 
-Good starter projects have four traits:
+And if something does go wrong: tell the agent plainly, *"undo your last change and show me what you restored."* Because you are working on new files in one folder, nothing important is at risk — but the undo is there, and it is exactly why the first task makes something new instead of editing what you already have.
 
-- one folder, app, or account family in scope
-- one useful artifact at the end
-- no external sends, deletes, shares, or calendar changes without approval
-- real enough that you would keep the result
+## What comes after the first session
 
-Examples:
+You learned the loop in one app. From here you add capability one piece at a time — never all at once, and each only when a real task needs it.
 
-| Area | Good first project | Useful artifact |
-|---|---|---|
-| Personal | Update a personal website, bio, resume, or profile | `PROFILE_DRAFT.md` or a revised page |
-| Personal | Plan a trip, event, move, or household project | checklist, options table, itinerary |
-| Professional | Prepare for one meeting using Calendar, Gmail, and Drive | `MEETING_PREP.md` |
-| Professional | Turn messy notes into a memo or action plan | `DECISION_MEMO.md` or `NEXT_ACTIONS.md` |
-| Research | Index a project folder, repo, or safe literature folder | `PROJECT_INDEX.md` |
-| Research | Review a draft, protocol, codebook, or technical plan | `REVIEW_MEMO.md` |
+**Add a connector.** Point the agent at the accounts you already work in. Gmail and Calendar connect instantly. Drive, Docs, and Sheets need a short one-time setup, which a helper can do with you. Start read-only — "find this and show me," not "send" — and keep the rule: nothing goes out without your yes.
 
-For research teams, keep human-subjects, beneficiary, private contact, and
-sensitive organizational data out until the storage and approval rules are
-clear. Use safe notes, public papers, dummy data, or a bounded project folder
-first.
+**Add the second agent.** This is the biggest step, and the reason the kit is built around two. Open the *same folder* in the other app and let it review the work — Claude Code writes the `HANDOFF.md`, Codex checks it, or the reverse. Two agents reading the same folder catch what one misses; that cross-check is the real payoff of running both. (Until you set up the second agent, the kit's review commands still help, but they are one model's opinion, not yet a true second-agent check.)
 
-Once you authorize a folder or connector, you do not need to hunt for every
-file manually. Ask Claude or Codex to find the relevant files, emails, calendar
-events, or Drive docs, then show you the paths or links before it acts.
+**Then go deeper, as the work demands.** A routine you run every week. A multi-agent council for a decision that's worth a second and third opinion. Research across many sources at once. Add each when a real task calls for it, and write the new boundary into your `HANDOFF.md` as you go, so the next session knows what you've wired up.
 
-## If Something Looks Scary
+What not to rush: connectors, councils, and deep research are powerful, and none of them is day one. One tool, one loop, one real result first — then build out from there.
+
+## If something looks scary
 
 <details>
-<summary>Claude Code or Codex asks for folder access</summary>
+<summary>macOS pops up a permission warning, or says it "can't verify the developer"</summary>
 
-Approve access only to the practice folder. Do not approve your whole home
-folder, Dropbox root, email exports, or research-data folders during the first
-session.
+During sign-in or install, macOS may ask to store a login in your Keychain, ask an app to access a folder, or warn that it "can't verify the developer." These are macOS dialogs, not a sign anything is wrong. Allow the login/Keychain prompt. For folder access, allow only your one practice folder. For a "can't verify" warning on the official apps, open **System Settings → Privacy & Security** and click **Open Anyway**.
 </details>
 
 <details>
-<summary>A command is missing</summary>
+<summary>Terminal looks frozen after I pasted a command</summary>
 
-Use plain English instead. The skill may not be installed yet, or the app may
-need a restart. The workflow still works if you type the instruction yourself.
+Installs can sit with little or no output for up to a minute. That is normal. Don't press anything or close the window — wait for the prompt (the `%` or `$`) to come back, then run the next line.
 </details>
 
 <details>
-<summary>Codex or Gemini is unavailable</summary>
+<summary>The agent asks for folder or account access</summary>
 
-That is normal. Claude Code-only and Codex-only workflows are complete. Optional
-second opinions can wait.
+Approve only the one practice folder. Don't approve your whole home folder, Dropbox root, email, or research-data folders in the first session. If the prompt asks for something wider than the one folder, decline and point it at that folder.
 </details>
 
 <details>
-<summary>The app wants to send an email, message, or external request</summary>
+<summary>A slash command isn't there</summary>
 
-Stop and ask for a draft first. Nothing should be sent outside your computer
-without your explicit approval.
+Type the instruction in plain English instead. The shortcut may not be installed yet, or the app may need a restart. The workflow matters more than the shortcut.
 </details>
 
-## The 30-Minute Session
+<details>
+<summary>The agent changed something I didn't want</summary>
 
-Use this agenda if someone is sitting with you.
+Tell it plainly: *"undo your last change and restore the previous version."* It can put the file back. Because the first task works on new or copied files in one folder, nothing important is at risk — this is what the approval pause and the copy-first habit are for.
+</details>
 
-| Minute | Action |
-|---:|---|
-| 0-5 | Open the practice folder in Claude Code and confirm the app can see files |
-| 5-10 | Run `/prompt` on one real but safe task |
-| 10-15 | Run `/review-plan quick` and choose one small action |
-| 15-25 | Let Claude complete only that small action |
-| 25-30 | Run `/done`, open `HANDOFF.md`, and stop |
+<details>
+<summary>The agent wants to send an email, message, or external request</summary>
 
-That is enough for day one. The advanced material can wait until the handoff
-loop feels natural.
-
-## Not Before The First Handoff
-
-Do not start with MCP setup, a broad skill library, deep research, recall, or
-multi-agent councils. Those are useful later, but they are not the first move.
-
-Gmail, Calendar, Drive, GitHub, Granola, or similar connectors can be useful
-early if you have a real task and you understand the scope. Start with one
-connector family, ask for read-only discovery first, and require approval before
-the app sends, shares, deletes, edits someone else's document, or changes a
-calendar event.
-
-## Later: Codex And Second Opinions
-
-Use this section after the Claude Code handoff loop feels natural.
-
-??? note "Optional after your first handoff: install the Codex starter pack"
-
-    In Terminal:
-
-    ```bash
-    git clone https://github.com/chrisblattman/claudeblattman.git
-    cd claudeblattman/codex-starter
-    python3 install-codex-starter.py install
-    ```
-
-    Restart Codex after that install. Then open the same practice folder in
-    Codex and ask:
-
-    ```text
-    $prompt Read the files in this folder and tell me what changed since the
-    handoff. Do not edit anything yet. Suggest one small next step.
-    ```
-
-    If `$prompt` is not available yet, use plain English:
-
-    ```text
-    Read this folder and the HANDOFF.md file. Tell me the current state and the
-    first safe next step. Do not edit anything yet.
-    ```
-
-??? note "Optional after the basic loop: second opinions"
-
-    Second opinions are useful, but they are not part of the first 30 minutes.
-
-    - In Claude Code, `/kit-setup` checks whether optional Codex or Gemini command-line
-      tools are installed and usable.
-    - In Claude Code, `/codex` and `/gemini` ask one outside model a question.
-    - In Codex, `$ask-agents` can ask Claude or Gemini.
-
-    Do not send confidential, personal, research-participant, or unpublished
-    sensitive material to outside models. If a task is sensitive, keep it inside
-    the main app and use generic descriptions. Even on non-sensitive material,
-    the starter kit asks you to confirm before sending the prompt to another AI
-    service.
-
-??? note "Optional after connectors are working: context recovery"
-
-    Once a folder or connector is authorized, you can ask the app to find the
-    materials instead of searching manually:
-
-    ```text
-    Find the most relevant files, emails, calendar events, and Drive docs for
-    this project. Show me the paths or links first. Do not edit, send, share,
-    delete, or change calendar events.
-    ```
-
-    Then ask for a plan:
-
-    ```text
-    Based on those sources, propose one useful artifact we can finish today.
-    Make a short plan and ask before editing anything.
-    ```
+Stop and ask for a draft first. Nothing should leave your computer without your explicit approval.
+</details>
 
 <script>
 (function () {
