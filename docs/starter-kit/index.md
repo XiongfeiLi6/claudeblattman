@@ -8,7 +8,7 @@ The whole kit is one habit. Point an AI agent at a real folder, make it show you
 
 The first session has one job, and it is not a tour of features. It is one real, useful thing finished — a brief, a memo, a cleaned-up draft, something you would actually keep — done in a way you can repeat tomorrow without anyone sitting next to you.
 
-This page assumes you are doing it alone, on a Mac, and have never opened a terminal. Every step that usually trips people up has its own "if this happens" note. The work stays inside one folder you choose, and the agent shows you each change before it makes it — so the worst case is a messy file in your practice folder, not damage to your Mac.
+This page assumes you are doing it alone, on a Mac or a Windows PC, and have never opened a terminal. Where a step differs by computer, you'll see **macOS** and **Windows** spelled out side by side — follow your own. Every step that usually trips people up has its own "if this happens" note. The work stays inside one folder you choose, and the agent shows you each change before it makes it — so the worst case is a messy file in your practice folder, not damage to your computer.
 
 ## Pick one agent to start
 
@@ -56,8 +56,8 @@ Plain English carries all of this. The kit's slash commands are shortcuts for th
 
 ??? note "Codex (easiest): download, sign in, open a folder"
 
-    1. Download the **Codex desktop app for macOS** from [OpenAI's official Codex app page](https://developers.openai.com/codex/app) and open it. Pick **Apple Silicon** unless your Mac is from before 2020 (if unsure, Apple menu → About This Mac tells you which). You want the desktop **app** — a normal Mac application you double-click — **not** the "Codex CLI." If you come across command-line install instructions for Codex, ignore them for day one.
-    2. Sign in with your ChatGPT account — no API key, no terminal. Your browser may open and macOS may ask you to confirm or to store a login in your Keychain; that's normal, approve it.
+    1. Download the **Codex desktop app** from [OpenAI's official Codex app page](https://developers.openai.com/codex/app) and open it. **On a Mac:** pick **Apple Silicon** unless your Mac is from before 2020 (if unsure, Apple menu → About This Mac tells you which). **On Windows:** use the Microsoft Store link on that page. Either way you want the desktop **app** — a normal application you double-click — **not** the "Codex CLI"; if you come across command-line install instructions for Codex, ignore them for day one.
+    2. Sign in with your ChatGPT account — no API key, no terminal. Your browser may open and your computer may ask you to confirm or to store the login (macOS Keychain / Windows Credential Manager); that's normal, approve it.
     3. Open or attach your project folder — **File → Open**, or drag the folder onto the app window. You are ready for the loop above.
 
     The kit's Codex extras (`$prompt`, `$ask-agents`) are optional and come later. Plain English is enough for the first session.
@@ -66,7 +66,7 @@ Plain English carries all of this. The kit's slash commands are shortcuts for th
 
 ??? note "Claude Code (most shortcuts): get the app, then add the kit"
 
-    **First, the app.** Download and open the **Claude desktop app for macOS**, then sign in. First sign-in opens your browser, and macOS may ask to store your login in the Keychain — that's normal; approve it. Then look for the **Code** tab in the app.
+    **First, the app.** Download and open the **Claude desktop app** (Mac or Windows), then sign in. First sign-in opens your browser, and your computer may ask to store the login (macOS Keychain / Windows Credential Manager) — that's normal; approve it. Then look for the **Code** tab in the app. **On Windows:** the Code tab's local sessions need **Git** installed first — get it from [git-scm.com](https://git-scm.com/downloads/win) and run the installer with its defaults (most Macs already have Git).
 
     **Don't see a Code tab?** It needs a paid Claude plan (Pro or higher) — the free plan doesn't show it. If you've signed in and there's no Code tab, that's usually an account/plan issue, not a mistake you made. Either upgrade, or use **Codex** above for day one (it runs on a standard ChatGPT account). The Code tab *is* Claude Code; once you see it, you can run the whole loop in plain English right now.
 
@@ -77,13 +77,21 @@ Plain English carries all of this. The kit's slash commands are shortcuts for th
     3. Click **Browse plugins**, find **starter-kit**, and **Install**.
     4. In the Code tab, type `/kit-hello`. If it answers, you're done — you can stop here.
 
-    **Don't see those panels, or `/kit-hello` doesn't answer?** Some app versions don't have the in-app installer yet — that's fine, and not something you did wrong. Don't troubleshoot it; do it once in the Mac **Terminal** instead, where these four lines always work. Open Terminal (⌘-Space, type "Terminal", press Enter) — it's just a place to paste text, and these exact lines cannot harm your Mac. Paste them **into Terminal, not into Claude**, one at a time:
+    **Don't see those panels, or `/kit-hello` doesn't answer?** Some app versions don't have the in-app installer yet — that's fine, and not something you did wrong. Don't troubleshoot it; do it once in your computer's command line instead, where these commands always work. **On a Mac:** open **Terminal** (⌘-Space, type "Terminal", press Enter). **On Windows:** open **PowerShell** (press the Windows key, type "PowerShell", press Enter). A plain window opens — it's just a place to paste text, and these commands cannot harm your computer. Paste them **into that window, not into Claude**, one at a time:
+
+    **On a Mac**, paste:
 
     ```bash
     curl -fsSL https://claude.ai/install.sh | bash
     ```
 
-    That is Anthropic's official installer (note the `claude.ai` address). It installs Claude's command-line helper into your account only — no admin password, nothing system-wide. Want to see what it does first? Open <https://claude.ai/install.sh> in a browser and read it. And if `curl … | bash` makes you uneasy, skip Claude Code for day one and use the Codex path — nothing else here depends on it. The install can sit for up to a minute with little output; that's normal — wait for the prompt to come back before the next line.
+    **On Windows** (into PowerShell), paste:
+
+    ```powershell
+    irm https://claude.ai/install.ps1 | iex
+    ```
+
+    Both are Anthropic's official installer — they install Claude's command-line helper into your account only, no admin password, nothing system-wide. (Want to see what the Mac one does first? Open <https://claude.ai/install.sh> in a browser and read it.) If that line makes you uneasy, skip Claude Code for day one and use the Codex path — nothing else here depends on it. The install can sit for up to a minute with little output; that's normal — wait for the prompt to come back before the next line.
 
     Close Terminal, open a new window, and check it:
 
@@ -91,22 +99,22 @@ Plain English carries all of this. The kit's slash commands are shortcuts for th
     claude --version
     ```
 
-    "command not found" here is common and does **not** mean you broke anything — your PATH just needs one line. Run `echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc` (on an older Mac that uses bash, use `~/.bash_profile` instead), reopen Terminal, and run `claude --version` again. Once it prints a version, add the kit:
+    "command not found" (Mac) or "not recognized" (Windows) is common and does **not** mean you broke anything. **On a Mac**, your PATH needs one line: run `echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc` (older Macs on bash: `~/.bash_profile`), then reopen Terminal. **On Windows**, the installer sets the PATH for you — just fully close PowerShell and reopen it (or restart the PC). Run `claude --version` again; once it prints a version, add the kit — the same two commands on both:
 
     ```bash
     claude plugin marketplace add chrisblattman/claudeblattman
     claude plugin install starter-kit@claudeblattman
     ```
 
-    Each line prints a short ✔ and may pause a few seconds — normal. Back in the Code tab, type `/kit-hello` to confirm; if it's missing, fully quit and reopen Claude, then try again. You won't need the Terminal after this. (Terminal commands verified 2026-06-13 on a clean install, Claude Code v2.1.x; the in-app plugin steps follow Anthropic's current plugin docs.)
+    Each line prints a short ✔ and may pause a few seconds — normal. Back in the Code tab, type `/kit-hello` to confirm; if it's missing, fully quit and reopen Claude, then try again. You won't need the command line after this. (macOS commands verified 2026-06-13 on a clean install, Claude Code v2.1.x; the Windows PowerShell installer and the in-app plugin steps follow Anthropic's current docs.)
 
     Either way it's a one-time setup. Once the plugin is in, the kit's commands are native to the Code tab — `/prompt` to sharpen a rough request, `/review-plan` to pressure-test the plan, `/done` to write the handoff, `/council` for a panel of critics. They work cleanly because Claude Code is built to carry them.
 
 ## Your first folder
 
-Make the folder in Finder: open Finder, go to your **home folder**, and choose **File → New Folder** — name it `AI Practice`. Use a **local** folder, not one inside Dropbox, iCloud Drive, or a synced Desktop/Documents — sync can fight the agent mid-edit and muddies the "approve only this folder" step. If you're unsure whether a folder syncs, the home folder is the safe bet.
+Make the folder in your file manager. **On a Mac:** open Finder, go to your **home folder**, and choose **File → New Folder**. **On Windows:** open File Explorer (Windows key + E), go to **This PC → Local Disk (C:) → Users → your name**, and click **New → Folder**. Name it `AI Practice` either way. Use a **local** folder — not one inside Dropbox, iCloud Drive, Google Drive, or (on Windows especially) **OneDrive**. Windows often syncs your Desktop and Documents into OneDrive by default, and that sync can corrupt files while the agent edits them. A synced folder shows a little cloud icon; a local one doesn't. If you're unsure, make the folder straight in your home/user folder — that's the safe bet.
 
-You don't have to create files by hand. Drop in a couple of rough notes if you have them, or just point the agent at the empty folder and say *"create a file called `notes.md` with a few rough notes about X,"* and let the loop start there. (Making a plain `.md` file by hand is fiddly on a Mac — TextEdit and Word save the wrong format — so let the agent do it.)
+You don't have to create files by hand. Drop in a couple of rough notes if you have them, or just point the agent at the empty folder and say *"create a file called `notes.md` with a few rough notes about X,"* and let the loop start there. (Making a plain `.md` file by hand is fiddly — on a Mac, TextEdit and Word save the wrong format; on Windows, Notepad sneaks in a hidden `.txt` unless you set "Save as type: All Files" — so just let the agent create it.)
 
 The safest first task makes something *new* — turn a few rough notes into a one-page summary, a messy draft into a clean memo, or an empty folder into a project outline — so nothing you already have can be touched. Keep out of this first run: research-participant or human-subjects data, confidential transcripts, private contact lists, inbox exports, and school, medical, legal, or financial records. If a task is sensitive, it is not a first-session task.
 
@@ -155,7 +163,7 @@ The agent pauses before it edits a file, runs a command, or sends anything outsi
 
 The rest is scope. Approve access to the one project folder, never your whole home folder, Dropbox, or email. Reading and drafting are safe; editing or deleting an existing file should stop for your okay — and if something precious might change, have the agent work on a copy.
 
-Here is what the agent actually puts in front of you. Reading files is free and silent — it never interrupts to read. Editing a file, running a command in the Terminal, or reaching outside the folder stops and shows you the change first. Approve the ones you understand; deny, or ask for a plan, when you don't.
+Here is what the agent actually puts in front of you. Reading files is free and silent — it never interrupts to read. Editing a file, running a command, or reaching outside the folder stops and shows you the change first. Approve the ones you understand; deny, or ask for a plan, when you don't.
 
 Two settings are worth knowing by name. **Default mode** asks before every change — leave it there. It is the safety, not a nuisance. There are faster modes that auto-approve edits, but they also auto-approve deletes and moves, so keep them off until the loop is second nature. And the first time you point the agent at a folder, it asks permission for *that folder* — grant the one project folder and nothing wider.
 
@@ -176,15 +184,15 @@ What not to rush: connectors, councils, and deep research are powerful, and none
 ## If something looks scary
 
 <details>
-<summary>macOS pops up a permission warning, or says it "can't verify the developer"</summary>
+<summary>Your computer pops up a security warning during install or sign-in</summary>
 
-During sign-in or install, macOS may ask to store a login in your Keychain, ask an app to access a folder, or warn that it "can't verify the developer." These are macOS dialogs, not a sign anything is wrong. Allow the login/Keychain prompt. For folder access, allow only your one practice folder. For a "can't verify" warning on the official apps, open **System Settings → Privacy & Security** and click **Open Anyway**.
+During sign-in or install, your computer may ask to store a login (macOS Keychain / Windows Credential Manager), ask an app to access a folder, or warn about an unrecognized app. These are normal OS dialogs, not a sign anything is wrong. Allow the login prompt; for folder access, allow only your one practice folder. **On a Mac**, a "can't verify the developer" warning clears via **System Settings → Privacy & Security → Open Anyway**. **On Windows**, a blue "Windows protected your PC" (SmartScreen) box clears via **More info → Run anyway**. (Apps from the Microsoft Store usually skip this.)
 </details>
 
 <details>
-<summary>Terminal looks frozen after I pasted a command</summary>
+<summary>The Terminal or PowerShell window looks frozen after I pasted a command</summary>
 
-Installs can sit with little or no output for up to a minute. That is normal. Don't press anything or close the window — wait for the prompt (the `%` or `$`) to come back, then run the next line.
+Installs can sit with little or no output for up to a minute. That is normal. Don't press anything or close the window — wait for the prompt to come back (it looks like `%` or `$` on a Mac, or `PS C:\Users\you>` on Windows), then run the next line.
 </details>
 
 <details>
